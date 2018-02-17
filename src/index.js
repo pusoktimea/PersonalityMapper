@@ -15,18 +15,15 @@ import SingleTable from './pages/SingleTable';
 import Search from './pages/Search';
 import Reports from './pages/Reports';
 import SingleReport from './pages/SingleReport';
-import VendorReport from './pages/SingleReport/VendorReport';
 import Users from './pages/Users';
 import Roles from './pages/Roles';
 import Profile from './pages/Profile';
 import Upload from './pages/Upload';
 import Login from './pages/Login';
 
-import reducer from './reducers';
-
 import 'styles/style.scss';
 
-const store = configureStore({}, reducer);
+const store = configureStore({}, () => {});
 
 const NoMatch = () => (
   <div>
@@ -47,7 +44,6 @@ class ActivateAdmin extends Component {
             <Layout path="/search" component={Search} />
             <Layout path="/reports" exact component={Reports} />
             <Layout path="/reports/:report_name" component={SingleReport} />
-            <Layout path="/vendor_report" component={VendorReport} />
             <Layout path="/users" component={Users} />
             <Layout path="/roles" component={Roles} />
             <Layout path="/profile" component={Profile} />

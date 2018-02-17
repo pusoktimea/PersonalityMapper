@@ -62,7 +62,10 @@ class Dropdown extends Component {
 
 Dropdown.propTypes = {
   items: PropTypes.array.isRequired,
-  value: PropTypes.any,
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ]),
   onChange: PropTypes.func,
   name: PropTypes.string,
   disabled: PropTypes.bool,

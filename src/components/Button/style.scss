@@ -4,8 +4,8 @@
 $themes: (
   (
     'name': 'default',
-    'color': $emperor,
-    'borderColor': $alto,
+    'color': $white,
+    'borderColor': $white,
     'backgroundColor': transparent
   ),
   (
@@ -76,11 +76,9 @@ $baseClass: '.activate-button';
   cursor: pointer;
   user-select: none;
   border: 1px solid transparent;
-  text-decoration: none;
-  outline: none;
 
   &:not(#{$baseClass}--disabled):hover {
-    @include transform(scale(1.05));
+    @include transform(scale(1.2));
   }
 
   &--disabled {
@@ -93,16 +91,6 @@ $baseClass: '.activate-button';
       height: 20px;
       line-height: 100%;
       vertical-align: middle;
-    }
-  }
-
-  &--size-small {
-    padding: 1px 5px;
-    font-size: 12px;
-    line-height: 1.5;
-
-    #{$baseClass}_loading-icon {
-      height: 13px;
     }
   }
 

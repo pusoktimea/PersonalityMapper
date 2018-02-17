@@ -12,6 +12,7 @@ $baseClass: '.activate-top-navigation';
   width: 100%;
   min-width: 320px;
   &_logo {
+    padding: 10px;
     color: $white;
     font-size: 24px;
     line-height: 60px;
@@ -26,15 +27,6 @@ $baseClass: '.activate-top-navigation';
     }
     span {
       color: $jungleGreen;
-    }
-  }
-  &_burger {
-    color: $white;
-    font-size: 30px;
-    margin: 15px;
-    &:hover {
-      color: $jungleGreen;
-      cursor: pointer;
     }
   }
   &_profile {
@@ -84,8 +76,6 @@ $baseClass: '.activate-top-navigation';
     font-weight: 400;
     line-height: 1.42857143;
     white-space: nowrap;
-    cursor: pointer;
-
     .activate-icon {
       margin-right: 10px;
     }

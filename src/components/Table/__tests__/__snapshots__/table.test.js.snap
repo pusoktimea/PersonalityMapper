@@ -2,12 +2,20 @@
 
 exports[`Table component test Snapshot tests for each modifier renders table only with bordered turned on and matches snapshot 1`] = `
 <table
-  className="activate-table activate-table--bordered activate-table--selectable"
+  className="activate-table activate-table--bordered"
 >
   <thead
     className="activate-table_header"
   >
-    <tr>
+    <tr
+      className="activate-table_row"
+      onClick={[Function]}
+    >
+      <th
+        className="activate-table_header_item"
+      >
+        
+      </th>
       <th
         className="activate-table_header_item"
       >
@@ -40,6 +48,15 @@ exports[`Table component test Snapshot tests for each modifier renders table onl
       <td
         className="activate-table_row_column"
       >
+        <span
+          className="activate-icon fa fa-plus-circle"
+          id={undefined}
+          onClick={undefined}
+        />
+      </td>
+      <td
+        className="activate-table_row_column"
+      >
         1
       </td>
       <td
@@ -65,6 +82,15 @@ exports[`Table component test Snapshot tests for each modifier renders table onl
       <td
         className="activate-table_row_column"
       >
+        <span
+          className="activate-icon fa fa-chevron-down activate-table_row--control"
+          id={undefined}
+          onClick={[Function]}
+        />
+      </td>
+      <td
+        className="activate-table_row_column"
+      >
         2
       </td>
       <td
@@ -87,6 +113,15 @@ exports[`Table component test Snapshot tests for each modifier renders table onl
       className="activate-table_row activate-table_row--odd"
       onClick={[Function]}
     >
+      <td
+        className="activate-table_row_column"
+      >
+        <span
+          className="activate-icon fa fa-plus-circle"
+          id={undefined}
+          onClick={undefined}
+        />
+      </td>
       <td
         className="activate-table_row_column"
       >
@@ -114,12 +149,20 @@ exports[`Table component test Snapshot tests for each modifier renders table onl
 
 exports[`Table component test Snapshot tests for each modifier renders table only with condensed turned on and matches snapshot 1`] = `
 <table
-  className="activate-table activate-table--condensed activate-table--selectable"
+  className="activate-table activate-table--condensed"
 >
   <thead
     className="activate-table_header"
   >
-    <tr>
+    <tr
+      className="activate-table_row"
+      onClick={[Function]}
+    >
+      <th
+        className="activate-table_header_item"
+      >
+        
+      </th>
       <th
         className="activate-table_header_item"
       >
@@ -152,6 +195,15 @@ exports[`Table component test Snapshot tests for each modifier renders table onl
       <td
         className="activate-table_row_column"
       >
+        <span
+          className="activate-icon fa fa-plus-circle"
+          id={undefined}
+          onClick={undefined}
+        />
+      </td>
+      <td
+        className="activate-table_row_column"
+      >
         1
       </td>
       <td
@@ -177,6 +229,15 @@ exports[`Table component test Snapshot tests for each modifier renders table onl
       <td
         className="activate-table_row_column"
       >
+        <span
+          className="activate-icon fa fa-chevron-down activate-table_row--control"
+          id={undefined}
+          onClick={[Function]}
+        />
+      </td>
+      <td
+        className="activate-table_row_column"
+      >
         2
       </td>
       <td
@@ -199,6 +260,15 @@ exports[`Table component test Snapshot tests for each modifier renders table onl
       className="activate-table_row activate-table_row--odd"
       onClick={[Function]}
     >
+      <td
+        className="activate-table_row_column"
+      >
+        <span
+          className="activate-icon fa fa-plus-circle"
+          id={undefined}
+          onClick={undefined}
+        />
+      </td>
       <td
         className="activate-table_row_column"
       >
@@ -226,12 +296,20 @@ exports[`Table component test Snapshot tests for each modifier renders table onl
 
 exports[`Table component test Snapshot tests for each modifier renders table only with hovered turned on and matches snapshot 1`] = `
 <table
-  className="activate-table activate-table--hovered activate-table--selectable"
+  className="activate-table activate-table--hovered"
 >
   <thead
     className="activate-table_header"
   >
-    <tr>
+    <tr
+      className="activate-table_row"
+      onClick={[Function]}
+    >
+      <th
+        className="activate-table_header_item"
+      >
+        
+      </th>
       <th
         className="activate-table_header_item"
       >
@@ -264,6 +342,15 @@ exports[`Table component test Snapshot tests for each modifier renders table onl
       <td
         className="activate-table_row_column"
       >
+        <span
+          className="activate-icon fa fa-plus-circle"
+          id={undefined}
+          onClick={undefined}
+        />
+      </td>
+      <td
+        className="activate-table_row_column"
+      >
         1
       </td>
       <td
@@ -289,6 +376,15 @@ exports[`Table component test Snapshot tests for each modifier renders table onl
       <td
         className="activate-table_row_column"
       >
+        <span
+          className="activate-icon fa fa-chevron-down activate-table_row--control"
+          id={undefined}
+          onClick={[Function]}
+        />
+      </td>
+      <td
+        className="activate-table_row_column"
+      >
         2
       </td>
       <td
@@ -311,6 +407,15 @@ exports[`Table component test Snapshot tests for each modifier renders table onl
       className="activate-table_row activate-table_row--odd"
       onClick={[Function]}
     >
+      <td
+        className="activate-table_row_column"
+      >
+        <span
+          className="activate-icon fa fa-plus-circle"
+          id={undefined}
+          onClick={undefined}
+        />
+      </td>
       <td
         className="activate-table_row_column"
       >
@@ -338,12 +443,20 @@ exports[`Table component test Snapshot tests for each modifier renders table onl
 
 exports[`Table component test Snapshot tests for each modifier renders table only with striped turned on and matches snapshot 1`] = `
 <table
-  className="activate-table activate-table--striped activate-table--selectable"
+  className="activate-table activate-table--striped"
 >
   <thead
     className="activate-table_header"
   >
-    <tr>
+    <tr
+      className="activate-table_row"
+      onClick={[Function]}
+    >
+      <th
+        className="activate-table_header_item"
+      >
+        
+      </th>
       <th
         className="activate-table_header_item"
       >
@@ -376,6 +489,15 @@ exports[`Table component test Snapshot tests for each modifier renders table onl
       <td
         className="activate-table_row_column"
       >
+        <span
+          className="activate-icon fa fa-plus-circle"
+          id={undefined}
+          onClick={undefined}
+        />
+      </td>
+      <td
+        className="activate-table_row_column"
+      >
         1
       </td>
       <td
@@ -401,6 +523,15 @@ exports[`Table component test Snapshot tests for each modifier renders table onl
       <td
         className="activate-table_row_column"
       >
+        <span
+          className="activate-icon fa fa-chevron-down activate-table_row--control"
+          id={undefined}
+          onClick={[Function]}
+        />
+      </td>
+      <td
+        className="activate-table_row_column"
+      >
         2
       </td>
       <td
@@ -423,6 +554,15 @@ exports[`Table component test Snapshot tests for each modifier renders table onl
       className="activate-table_row activate-table_row--odd"
       onClick={[Function]}
     >
+      <td
+        className="activate-table_row_column"
+      >
+        <span
+          className="activate-icon fa fa-plus-circle"
+          id={undefined}
+          onClick={undefined}
+        />
+      </td>
       <td
         className="activate-table_row_column"
       >
@@ -450,12 +590,20 @@ exports[`Table component test Snapshot tests for each modifier renders table onl
 
 exports[`Table component test Snapshot tests for each modifier renders table with all modifiers turned off and matches snapshot 1`] = `
 <table
-  className="activate-table activate-table--selectable"
+  className="activate-table"
 >
   <thead
     className="activate-table_header"
   >
-    <tr>
+    <tr
+      className="activate-table_row"
+      onClick={[Function]}
+    >
+      <th
+        className="activate-table_header_item"
+      >
+        
+      </th>
       <th
         className="activate-table_header_item"
       >
@@ -488,6 +636,15 @@ exports[`Table component test Snapshot tests for each modifier renders table wit
       <td
         className="activate-table_row_column"
       >
+        <span
+          className="activate-icon fa fa-plus-circle"
+          id={undefined}
+          onClick={undefined}
+        />
+      </td>
+      <td
+        className="activate-table_row_column"
+      >
         1
       </td>
       <td
@@ -513,6 +670,15 @@ exports[`Table component test Snapshot tests for each modifier renders table wit
       <td
         className="activate-table_row_column"
       >
+        <span
+          className="activate-icon fa fa-chevron-down activate-table_row--control"
+          id={undefined}
+          onClick={[Function]}
+        />
+      </td>
+      <td
+        className="activate-table_row_column"
+      >
         2
       </td>
       <td
@@ -535,6 +701,15 @@ exports[`Table component test Snapshot tests for each modifier renders table wit
       className="activate-table_row activate-table_row--odd"
       onClick={[Function]}
     >
+      <td
+        className="activate-table_row_column"
+      >
+        <span
+          className="activate-icon fa fa-plus-circle"
+          id={undefined}
+          onClick={undefined}
+        />
+      </td>
       <td
         className="activate-table_row_column"
       >
@@ -562,12 +737,20 @@ exports[`Table component test Snapshot tests for each modifier renders table wit
 
 exports[`Table component test Snapshot tests for each modifier renders table with all modifiers turned on and matches snapshot 1`] = `
 <table
-  className="activate-table activate-table--condensed activate-table--bordered activate-table--striped activate-table--hovered activate-table--selectable"
+  className="activate-table activate-table--condensed activate-table--bordered activate-table--striped activate-table--hovered"
 >
   <thead
     className="activate-table_header"
   >
-    <tr>
+    <tr
+      className="activate-table_row"
+      onClick={[Function]}
+    >
+      <th
+        className="activate-table_header_item"
+      >
+        
+      </th>
       <th
         className="activate-table_header_item"
       >
@@ -600,6 +783,15 @@ exports[`Table component test Snapshot tests for each modifier renders table wit
       <td
         className="activate-table_row_column"
       >
+        <span
+          className="activate-icon fa fa-plus-circle"
+          id={undefined}
+          onClick={undefined}
+        />
+      </td>
+      <td
+        className="activate-table_row_column"
+      >
         1
       </td>
       <td
@@ -625,6 +817,15 @@ exports[`Table component test Snapshot tests for each modifier renders table wit
       <td
         className="activate-table_row_column"
       >
+        <span
+          className="activate-icon fa fa-chevron-down activate-table_row--control"
+          id={undefined}
+          onClick={[Function]}
+        />
+      </td>
+      <td
+        className="activate-table_row_column"
+      >
         2
       </td>
       <td
@@ -647,6 +848,15 @@ exports[`Table component test Snapshot tests for each modifier renders table wit
       className="activate-table_row activate-table_row--odd"
       onClick={[Function]}
     >
+      <td
+        className="activate-table_row_column"
+      >
+        <span
+          className="activate-icon fa fa-plus-circle"
+          id={undefined}
+          onClick={undefined}
+        />
+      </td>
       <td
         className="activate-table_row_column"
       >

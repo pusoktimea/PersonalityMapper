@@ -18,49 +18,30 @@ $baseClass: '.activate-login';
     left: 0;
     right: 0;
     position: absolute;
-    top: 25%;
+    top: 15%;
+    &_logo {
+      display: block;
+      margin: auto;
+      padding-bottom: 20px;
+    }
     &_title {
       font-weight: 300;
       margin-bottom: 28px;
       text-align: center;
       font-size: 32px;
       margin-top: 0;
-      &_logo {
-        color: $jungleGreen;
-        &_bold {
-          color: $jungleGreen;
-          font-weight: 400;
-        }
-      }
     }
     &_input {
       text-align: center;
       margin-bottom: 20px;
-      position: relative;
-
-      input {
-        width: 350px;
-      }
     }
-    &_error-message {
-      color: $red;
-      font-size: 16px;
-      line-height: 18px;
-      margin: 5px 0 0;
-      position: absolute;
-      width: 100%;
-    }
-
-    .activate-button {
-      padding: 10px;
-      font-size: 18px;
-      width: 245px;
-      margin-top: 10px;
-  
-      .activate-icon {
-        margin-right: 10px;
-      }
-    }
-
   }
+}
+.activate-input_input {
+  width: 350px;
+}
+.activate-button {
+  padding: 10px;
+  font-size: 18px;
+  width: 245px;
 }

@@ -1,7 +1,9 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 
+import Icon from '../Icon';
+import TableColumn from './TableColumn';
 
 class TableRow extends Component {
   constructor(props) {
@@ -23,81 +25,80 @@ class TableRow extends Component {
   }
 
   render() {
-    const {item, rowClassName, selected, onSelect, onMultiSelect, index, currentPage, itemsPerPage} = this.props;
+    const {row, rowClassName, isHeaderRow, selected, onSelect, onMultiSelect} = this.props;
+    const {isSubDataVisible} = this.state;
 
     const baseClass = 'activate-table_row';
+    const renderableColumns = Object.entries(row).filter(([key, _]) => (
+      !['hasSubData'].includes(key)
+    )).map(([_, value]) => value);
 
     return (
-      <tr
-        className={cx(
-          baseClass,
-          selected && `${baseClass}--selected`,
-          rowClassName
-        )}
-        onClick={(event) => {
-          if (event.metaKey) {
-            typeof onMultiSelect === 'function' && onMultiSelect(item);
-          } else {
-            typeof onSelect === 'function' && onSelect(item);
-          }
-        }}
-      >
-        {React.Children.map(this.props.children, (child) => (
-          React.cloneElement(child, {
-            item: item,
-            index: index,
-            currentPage: currentPage,
-            itemsPerPage: itemsPerPage
-          })))}
-        {/* <TableColumn
-          isHeader={isHeaderRow}
+      <Fragment>
+        <tr
+          className={cx(
+            baseClass,
+            selected && `${baseClass}--selected`,
+            rowClassName
+          )}
+          onClick={(event) => {
+            if (event.metaKey) {
+              typeof onMultiSelect === 'function' && onMultiSelect(row);
+            } else {
+              typeof onSelect === 'function' && onSelect(row);
+            }
+          }}
         >
-          {
-            isHeaderRow ?
-              '' :
-              row.hasSubData ?
-                <Icon
-                  icon={isSubDataVisible ? 'chevron-up' : 'chevron-down'}
-                  onClick={this.toggleSubData}
-                  className={`${baseClass}--control`}
-                /> :
-                <Icon icon="plus-circle" />
-          }
-        </TableColumn>
-        {renderableColumns.map((content, index) => (
           <TableColumn
-            key={`activate-table-cell-${index}`}
             isHeader={isHeaderRow}
           >
-            {content}
+            {
+              isHeaderRow ?
+                '' :
+                row.hasSubData ?
+                  <Icon
+                    icon={isSubDataVisible ? 'chevron-up' : 'chevron-down'}
+                    onClick={this.toggleSubData}
+                    className={`${baseClass}--control`}
+                  /> :
+                  <Icon icon="plus-circle" />
+            }
           </TableColumn>
-        ))}
-      </tr>
-      {
-        row.hasSubData && isSubDataVisible &&
-        <tr>
-          <td colSpan={renderableColumns.length + 1}>subdata content</td>
+          {renderableColumns.map((content, index) => (
+            <TableColumn
+              key={`activate-table-cell-${index}`}
+              isHeader={isHeaderRow}
+            >
+              {content}
+            </TableColumn>
+          ))}
         </tr>
-      } */}
-      </tr>
+        {
+          row.hasSubData && isSubDataVisible &&
+          <tr>
+            <td colSpan={renderableColumns.length + 1}>subdata content</td>
+          </tr>
+        }
+      </Fragment>
     );
   }
 }
 
 TableRow.propTypes = {
-  item: PropTypes.object.isRequired,
+  row: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.array
+  ]).isRequired,
   rowClassName: PropTypes.string,
+  isHeaderRow: PropTypes.bool,
   selected: PropTypes.bool,
   onSelect: PropTypes.func,
   onMultiSelect: PropTypes.func,
-  onToggleSubData: PropTypes.func,
-  children: PropTypes.node.isRequired,
-  index: PropTypes.number.isRequired,
-  currentPage: PropTypes.number,
-  itemsPerPage: PropTypes.number
+  onToggleSubData: PropTypes.func
 };
 
 TableRow.defaultProps = {
+  isHeaderRow: false,
   selected: false
 };
 

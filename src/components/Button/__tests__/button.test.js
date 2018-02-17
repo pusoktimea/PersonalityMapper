@@ -115,24 +115,4 @@ describe('Button component test', () => {
       expect(loader).toBeTruthy();
     });
   });
-
-  describe('Small button', () => {
-    it('renders into DOM', () => {
-      buttonElement = findDOMNode(renderIntoDocument(
-        Button({
-          onClick: clickHandler,
-          children: 'test button',
-          size: 'small'
-        })
-      ));
-
-      expect(buttonElement).toBeTruthy();
-    });
-
-    it('renders a small button', () => {
-      const classes = buttonElement.classList;
-
-      expect(classes).toContain('activate-button--size-small');
-    });
-  });
 });

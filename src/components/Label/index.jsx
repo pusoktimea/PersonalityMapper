@@ -1,12 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import cx from 'classnames';
 
 import './style.scss';
 
-const Label = ({children, className}) => {
+const Label = ({children}) => {
   return (
-    <label className={cx('activate-label', className)}>
+    <label className="activate-label">
       {
         React.Children.map(children, (child) => (
           typeof child.type !== 'undefined' ?
@@ -19,8 +18,7 @@ const Label = ({children, className}) => {
 };
 
 Label.propTypes = {
-  children: PropTypes.node.isRequired,
-  className: PropTypes.string
+  children: PropTypes.node.isRequired
 };
 
 export default Label;

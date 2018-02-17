@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import omit from 'lodash.omit';
 
 import './row.scss';
 
@@ -13,9 +12,6 @@ class Row extends Component {
   };
 
   render() {
-    const rowProps = omit(this.props, [
-      'columnCount'
-    ]);
     const {columnCount, children, className} = this.props;
     const baseClass = 'activate-row';
     return (
@@ -25,7 +21,7 @@ class Row extends Component {
           `${baseClass}--${columnCount}`,
           className
         )}
-        {...rowProps}
+        {...this.props}
       >
         {children}
       </div>

@@ -4,9 +4,9 @@ $baseClass: '.activate-table';
 
 #{$baseClass} {
   border-collapse: collapse;
-  width: 100%;
   &_body {
     #{$baseClass}_row {
+      cursor: pointer;
       border-top: 1px solid $alto;
       border-bottom: 1px solid $alto;
 
@@ -71,12 +71,6 @@ $baseClass: '.activate-table';
       #{$baseClass}_row_column {
         padding: 5px;
       }
-    }
-  }
-
-  &--selectable {
-    #{$baseClass}_row {
-      cursor: pointer;
     }
   }
 }

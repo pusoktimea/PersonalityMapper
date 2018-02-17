@@ -4,7 +4,6 @@ import {withKnobs, boolean} from '@storybook/addon-knobs';
 import JSXAddon from 'storybook-addon-jsx';
 
 import Table from './index';
-import TableColumn from './TableColumn';
 
 const items = [
   {
@@ -25,6 +24,7 @@ const items = [
     col3: '33'
   }
 ];
+const headers = ['id', 'col1', 'col2', 'col3'];
 
 setAddon(JSXAddon);
 const stories = storiesOf('Components', module);
@@ -37,14 +37,6 @@ stories.addWithJSX('Table', () => (
     hovered={boolean('Hovered', true)}
     bordered={boolean('Bordered', true)}
     items={items}
-  >
-    <TableColumn
-      header="test"
-      contentGetter="col1"
-    />
-    <TableColumn
-      header="another header"
-      contentGetter={(item) => item.col2}
-    />
-  </Table>
+    headers={headers}
+  />
 ));

@@ -3,6 +3,7 @@
 exports[`Grid test renders and matches snapshot 1`] = `
 <div
   className="activate-row activate-row--2"
+  columnCount={2}
 >
   <div
     className="activate-column activate-column--6"

@@ -6,7 +6,6 @@ import {renderIntoDocument, Simulate} from 'react-dom/test-utils';
 import renderer from 'react-test-renderer';
 
 import Table from '../index';
-import TableColumn from '../TableColumn';
 
 const testTableRows = [
   {
@@ -41,19 +40,12 @@ describe('Table component test', () => {
         renderer.create(
           <Table
             items={testTableRows}
+            headers={testTableHeaders}
             condensed={false}
             bordered={false}
             hovered={false}
             striped={false}
-          >
-            {Object.keys(testTableRows[0]).map((col, idx) => (
-              <TableColumn
-                header={col}
-                contentGetter={col}
-                key={`col-${idx}`}
-              />
-            ))}
-          </Table>
+          />
         ).toJSON()
       ).toMatchSnapshot();
     });
@@ -63,18 +55,11 @@ describe('Table component test', () => {
         renderer.create(
           <Table
             items={testTableRows}
+            headers={testTableHeaders}
             bordered={false}
             hovered={false}
             striped={false}
-          >
-            {Object.keys(testTableRows[0]).map((col, idx) => (
-              <TableColumn
-                header={col}
-                contentGetter={col}
-                key={`col-${idx}`}
-              />
-            ))}
-          </Table>
+          />
         ).toJSON()
       ).toMatchSnapshot();
     });
@@ -84,18 +69,11 @@ describe('Table component test', () => {
         renderer.create(
           <Table
             items={testTableRows}
+            headers={testTableHeaders}
             condensed={false}
             hovered={false}
             striped={false}
-          >
-            {Object.keys(testTableRows[0]).map((col, idx) => (
-              <TableColumn
-                header={col}
-                contentGetter={col}
-                key={`col-${idx}`}
-              />
-            ))}
-          </Table>
+          />
         ).toJSON()
       ).toMatchSnapshot();
     });
@@ -105,18 +83,11 @@ describe('Table component test', () => {
         renderer.create(
           <Table
             items={testTableRows}
+            headers={testTableHeaders}
             bordered={false}
             condensed={false}
             striped={false}
-          >
-            {Object.keys(testTableRows[0]).map((col, idx) => (
-              <TableColumn
-                header={col}
-                contentGetter={col}
-                key={`col-${idx}`}
-              />
-            ))}
-          </Table>
+          />
         ).toJSON()
       ).toMatchSnapshot();
     });
@@ -126,18 +97,11 @@ describe('Table component test', () => {
         renderer.create(
           <Table
             items={testTableRows}
+            headers={testTableHeaders}
             bordered={false}
             hovered={false}
             condensed={false}
-          >
-            {Object.keys(testTableRows[0]).map((col, idx) => (
-              <TableColumn
-                header={col}
-                contentGetter={col}
-                key={`col-${idx}`}
-              />
-            ))}
-          </Table>
+          />
         ).toJSON()
       ).toMatchSnapshot();
     });
@@ -145,15 +109,10 @@ describe('Table component test', () => {
     it('renders table with all modifiers turned on and matches snapshot', () => {
       expect(
         renderer.create(
-          <Table items={testTableRows}>
-            {Object.keys(testTableRows[0]).map((col, idx) => (
-              <TableColumn
-                header={col}
-                contentGetter={col}
-                key={`col-${idx}`}
-              />
-            ))}
-          </Table>
+          <Table
+            items={testTableRows}
+            headers={testTableHeaders}
+          />
         ).toJSON()
       ).toMatchSnapshot();
     });
@@ -164,24 +123,17 @@ describe('Table component test', () => {
       tableElement = findDOMNode(renderIntoDocument(
         <Table
           items={testTableRows}
+          headers={testTableHeaders}
           onRowSelect={onRowSelect}
           onMultiRowSelect={onMultiRowSelect}
           onToggleSubData={onToggleSubData}
-        >
-          {Object.keys(testTableRows[0]).map((col, idx) => (
-            <TableColumn
-              header={col}
-              contentGetter={col}
-              key={`col-${idx}`}
-            />
-          ))}
-        </Table>
+        />
       ));
 
       expect(tableElement).toBeTruthy();
     });
 
-    it(`renders table header with ${testTableHeaders.length} cells`, () => {
+    it(`renders table header with ${testTableHeaders.length + 1} cells`, () => {
       const tableHeader = tableElement.querySelector('.activate-table_header');
 
       expect(tableHeader).toBeTruthy();
@@ -189,10 +141,10 @@ describe('Table component test', () => {
       const headerCells = tableHeader.querySelectorAll('.activate-table_header_item');
 
       expect(headerCells).toBeTruthy();
-      expect(headerCells.length).toBe(testTableHeaders.length);
+      expect(headerCells.length).toBe(testTableHeaders.length + 1);
     });
 
-    it(`renders ${testTableRows.length} rows with ${testTableHeaders.length} cells`, () => {
+    it(`renders ${testTableRows.length} rows with ${testTableHeaders.length + 1} cells`, () => {
       const tableRows = tableElement.querySelectorAll('.activate-table_body .activate-table_row');
 
       expect(tableRows).toBeTruthy();
@@ -201,7 +153,7 @@ describe('Table component test', () => {
       const rowCells = tableRows[0].querySelectorAll('.activate-table_row_column');
 
       expect(rowCells).toBeTruthy();
-      expect(rowCells.length).toBe(testTableHeaders.length);
+      expect(rowCells.length).toBe(testTableHeaders.length + 1);
     });
 
     it('calls onRowSelect when clicking a row', () => {
@@ -213,7 +165,7 @@ describe('Table component test', () => {
       expect(onRowSelect).toBeCalled();
     });
 
-    xit('calls onToggleSubData when clicking subdata toggle', () => {
+    it('calls onToggleSubData when clicking subdata toggle', () => {
       const tableRows = tableElement.querySelectorAll('.activate-table_body .activate-table_row');
 
       expect(tableRows).toBeTruthy();

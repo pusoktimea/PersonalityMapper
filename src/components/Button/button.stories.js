@@ -17,18 +17,12 @@ const themeOptions = {
   danger: 'danger'
 };
 
-const sizeOptions = {
-  default: 'default',
-  small: 'small'
-};
-
 stories.addDecorator(withKnobs);
 stories.addWithJSX('Button', () => (
   <Button
     disabled={boolean('Disabled', false)}
     theme={select('Theme', themeOptions)}
     isLoading={boolean('Is Loading', false)}
-    size={select('Size', sizeOptions)}
   >
     {text('Label', 'Hello Button My Old Friend')}
   </Button>

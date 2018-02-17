@@ -1,0 +1,41 @@
+{
+  "parser": "babel-eslint",
+  "extends": [
+    "standard",
+    "standard-jsx",
+    "eslint:recommended"
+  ],
+  "env": {
+    "browser": true,
+    "jest": true
+  },
+  "settings": {
+    "import/resolver": {
+      "webpack": {
+        "config": "webpack.dev.js"
+      }
+    }
+  },
+  "rules": {
+    "semi": ["error", "always"],
+    "strict": ["error", "global"],
+    "max-len": ["error", {"code": 120, "tabWidth": 2, "ignoreStrings": true}],
+    "key-spacing": ["error", {"beforeColon": false, "afterColon": true}],
+    "max-depth": ["error", 4],
+    "max-nested-callbacks": ["error", 4],
+    "max-params": ["error", 4],
+    "complexity": ["warn", {"max": 12}],
+    "jsx-quotes": ["error", "prefer-double"],
+    "indent": ["error", 2, {"SwitchCase": 1}],
+    "eol-last": ["warn", "always"],
+    "comma-dangle": ["warn", "never"],
+    "quotes": ["warn", "single"],
+    "object-curly-spacing": ["warn", "never"],
+    "no-trailing-spaces": ["error"],
+    "space-infix-ops": ["warn"],
+    "space-before-function-paren": ["error", "never"],
+    "operator-linebreak": ["error", "after"],
+    "react/prop-types": ["error", "always"],
+    "no-console": "error"
+  }
+}

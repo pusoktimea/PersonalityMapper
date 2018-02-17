@@ -16,8 +16,7 @@ class Input extends Component {
   }
 
   onChange = (event) => {
-    const {target} = event;
-    const {value} = target;
+    const {value} = event.target;
     let sanitizedValue = value;
     if (typeof this.props.sanitizeFn === 'function') {
       sanitizedValue = this.props.sanitizeFn(sanitizedValue);
@@ -26,7 +25,7 @@ class Input extends Component {
       value: sanitizedValue
     }, () => {
       if (typeof this.props.onChange === 'function') {
-        this.props.onChange(sanitizedValue, target);
+        this.props.onChange(sanitizedValue);
       }
     });
   }

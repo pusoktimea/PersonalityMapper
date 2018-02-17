@@ -1,22 +1,31 @@
-import {connect} from 'react-redux';
+import React, {Component, Fragment} from 'react';
+import PropTypes from 'prop-types';
+import {Route} from 'react-router-dom';
 
-import {hideAlertModal} from 'actions/page';
+import TopNavigation from 'components/TopNavigation';
+import SideNavigation from 'components/SideNavigation';
 
-import Layout from './Layout';
+class Page extends Component {
+  render() {
+    const {
+      component: Component,
+      ...rest
+    } = this.props;
 
-const mapStateToProps = (state) => {
-  return {
-    isAlertModalVisible: state.page.isAlertModalVisible,
-    alertModalType: state.page.alertModalType,
-    alertModalMessage: state.page.alertModalMessage,
-    isSideBarMinimised: state.page.isSideBarMinimised
-  };
+    return (
+      <Route {...rest} render={matchProps => (
+        <Fragment>
+          <TopNavigation />
+          <SideNavigation />
+          <Component {...matchProps} />
+        </Fragment>
+      )} />
+    );
+  }
+}
+
+Page.propTypes = {
+  component: PropTypes.func.isRequired
 };
 
-const mapDispatchToProps = (dispatch, {history}) => ({
-  onHideAlert: () => {
-    dispatch(hideAlertModal());
-  }
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Layout);
+export default Page;

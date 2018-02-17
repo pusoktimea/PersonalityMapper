@@ -1,4 +1,4 @@
-# reactivate
+# Soft Psychology Consulting
 
 ## Website
 ### Setup
@@ -31,12 +31,3 @@ Run `npm run build` in the project root. Deploy the content of the `dist` direct
 
 1. Run `npm run storybook` and go to http://localhost:9001/.
 2. Stories should be put in each components directory in files following the `<some_name>.stories.js` naming convention.
-
-### Build for demo site
-
-Demo site is accessible at: https://cleversoftwaresolutions.github.io/reactivate/
-
-1. Switch to branch `gh-pages`.
-2. Pull `master` in order for the branch to be up-to-date.
-3. Run `npm run build:storybook`.
-4. Commit all changes and push to `gh-pages`.

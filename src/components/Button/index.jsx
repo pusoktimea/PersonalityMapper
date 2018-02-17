@@ -1,28 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import {Link} from 'react-router-dom';
 
 import loadingIcon from './loading-indicator.svg';
 
 import './style.scss';
 
-const Button = ({children, theme, disabled, isLoading, onClick, className, href, size}) => {
+const Button = ({children, theme, disabled, isLoading, onClick, className}) => {
   const baseClass = 'activate-button';
-  let Element = 'button';
-  if (href) {
-    Element = Link;
-  }
 
   return (
-    <Element
-      to={href}
-      disabled={disabled || isLoading}
+    <button
+      disabled={disabled}
       className={cx(
         baseClass,
         `${baseClass}--${theme}`,
-        `${baseClass}--size-${size}`,
-        (disabled || isLoading) && `${baseClass}--disabled`,
+        disabled && `${baseClass}--disabled`,
         isLoading && `${baseClass}--loading`,
         className
       )}
@@ -33,7 +26,7 @@ const Button = ({children, theme, disabled, isLoading, onClick, className, href,
           <img className={`${baseClass}_loading-icon`} src={loadingIcon} /> :
           children
       }
-    </Element>
+    </button>
   );
 };
 
@@ -43,16 +36,13 @@ Button.propTypes = {
   disabled: PropTypes.bool,
   isLoading: PropTypes.bool,
   onClick: PropTypes.func,
-  className: PropTypes.string,
-  href: PropTypes.string,
-  size: PropTypes.oneOf(['default', 'small'])
+  className: PropTypes.string
 };
 
 Button.defaultProps = {
   theme: 'default',
   disabled: false,
-  isLoading: false,
-  size: 'default'
+  isLoading: false
 };
 
 export default Button;

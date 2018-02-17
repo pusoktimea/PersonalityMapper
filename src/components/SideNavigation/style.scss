@@ -14,10 +14,6 @@ $baseClass: '.activate-side-navigation';
   height: 100%;
   position: fixed;
   color: $white;
-  @include transition(width 0.3s linear);
-  &--minimised {
-    width: 52px;
-  }
   &_items {
     padding: 18px 0 0;
     overflow: hidden;
