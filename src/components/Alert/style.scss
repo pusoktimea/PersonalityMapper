@@ -1,0 +1,35 @@
+@import '~compass-mixins/lib/compass';
+@import "../../styles/_colors.scss";
+
+.activate-alert {
+  color: $doveGray;
+  &_body {
+    text-align: center;
+  }
+  .modal-title {
+    font-size: 18px;
+  }
+  .modal-content {
+    @include border-radius(7px);
+  }
+  .modal-footer {
+    border-top: 0;
+  }
+  &--success {
+    .modal-header {
+      background-color: $pistachio;
+      color: $white;
+      @include border-top-left-radius(6px);
+      @include border-top-right-radius(6px);
+    }
+  }
+  
+  &--failure {
+    .modal-header {
+      background-color: $warningRed;
+      color: $white;
+      @include border-top-left-radius(6px);
+      @include border-top-right-radius(6px);
+    }
+  }
+}

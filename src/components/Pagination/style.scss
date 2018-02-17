@@ -1,0 +1,61 @@
+@import '~compass-mixins/lib/compass';
+@import "../../styles/_colors.scss";
+
+.activate-pagination {
+  text-align: center;
+  height: 22px;
+  position: relative;
+
+  &_control {
+    width: 70px;
+    padding: 1px 5px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-color: $alto;
+    color: $doveGray;
+    background-color: $white;
+
+    &--first {
+      margin-right: 10px;
+    }
+
+    &--last {
+      margin-left: 10px;
+    }
+  }
+
+  &_page-count {
+    color: $doveGray;
+    font-size: 14px;
+    margin: 0 10px;
+  }
+
+  &_right {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    right: 0;
+
+    &_go-to-page-label {
+      font-size: 14px;
+      color: $doveGray;
+    }
+
+    &_go-to-page-input {
+      width: 40px;
+      margin-right: 5px;
+      input {
+        @include border-radius(0);
+        height: 100%;
+        width: 100%;
+        padding: 1px;
+      }
+    }
+
+    &_go-to-page-button {
+      padding: 1px 5px;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+  }
+}

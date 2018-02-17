@@ -1,0 +1,66 @@
+@import '~compass-mixins/lib/compass';
+@import "../../styles/_colors.scss";
+
+$baseClass: '.activate-login';
+
+#{$baseClass} {
+  background: url(../../images/blur-bg.jpg) center center no-repeat;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  &_form {
+    @include border-radius(5px);
+    width: 476px;
+    margin: 0 auto;
+    background: rgba(0,0,0,.7);
+    color: $white;
+    padding: 32px;
+    left: 0;
+    right: 0;
+    position: absolute;
+    top: 25%;
+    &_title {
+      font-weight: 300;
+      margin-bottom: 28px;
+      text-align: center;
+      font-size: 32px;
+      margin-top: 0;
+      &_logo {
+        color: $jungleGreen;
+        &_bold {
+          color: $jungleGreen;
+          font-weight: 400;
+        }
+      }
+    }
+    &_input {
+      text-align: center;
+      margin-bottom: 20px;
+      position: relative;
+
+      input {
+        width: 350px;
+      }
+    }
+    &_error-message {
+      color: $red;
+      font-size: 16px;
+      line-height: 18px;
+      margin: 5px 0 0;
+      position: absolute;
+      width: 100%;
+    }
+
+    .activate-button {
+      padding: 10px;
+      font-size: 18px;
+      width: 245px;
+      margin-top: 10px;
+  
+      .activate-icon {
+        margin-right: 10px;
+      }
+    }
+
+  }
+}

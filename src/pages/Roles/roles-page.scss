@@ -1,0 +1,28 @@
+@import '~compass-mixins/lib/compass';
+@import "../../styles/_colors.scss";
+
+.roles-page {
+  &_width {
+    width: 70%;
+    margin: 0 auto;
+  }
+
+  &_form_button {
+    margin-bottom: 10px;
+
+    .activate-icon {
+      margin-right: 10px;
+    }
+  }
+
+  &_button {
+    padding: 1px 5px;
+    font-size: 12px;
+    line-height: 1.5;
+    width: 70px;
+  }
+
+  .activate-panel_body {
+    text-align: left;
+  }
+}

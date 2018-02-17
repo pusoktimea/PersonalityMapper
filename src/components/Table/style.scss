@@ -1,0 +1,82 @@
+@import "../../styles/_colors.scss";
+
+$baseClass: '.activate-table';
+
+#{$baseClass} {
+  border-collapse: collapse;
+  width: 100%;
+  &_body {
+    #{$baseClass}_row {
+      border-top: 1px solid $alto;
+      border-bottom: 1px solid $alto;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      &--selected {
+        background: $jungleGreen !important;
+        color: $white;
+
+        &:hover {
+          background: $jungleGreen !important;
+        }
+      }
+
+      &_column {
+        padding: 8px;
+        line-height: 1.42857143;
+      }
+    }
+  }
+
+  &_header_item{
+    padding: 8px;
+    line-height: 1.42857143;
+  }
+
+  &--bordered {
+    border: 1px solid $alto;
+    border-collapse: collapse;
+
+    #{$baseClass} {
+      &_header_item, &_row_column {
+        border: 1px solid $alto;
+      }
+    }
+  }
+
+  &--hovered {
+    #{$baseClass}_body {
+      #{$baseClass}_row:hover {
+        background: rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
+
+  &--striped {
+    #{$baseClass}_body {
+      #{$baseClass}_row--odd {
+        background: $gallery;
+
+        &:hover {
+          background: rgba(0, 0, 0, 0.1);
+        }
+      }
+    }
+  }
+
+  &--condensed {
+    #{$baseClass}_body {
+      #{$baseClass}_row_column {
+        padding: 5px;
+      }
+    }
+  }
+
+  &--selectable {
+    #{$baseClass}_row {
+      cursor: pointer;
+    }
+  }
+}

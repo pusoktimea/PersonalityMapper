@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Top Navigation test renders and matches snapshot 1`] = `
+<div
+  className="activate-top-navigation"
+>
+  <a
+    className="activate-top-navigation_logo"
+    href="/dashboard"
+    onClick={[Function]}
+  >
+    <span>
+      Activate
+    </span>
+    Admin
+  </a>
+  <span
+    className="activate-icon fa fa-bars activate-top-navigation_burger"
+    id={undefined}
+    onClick={undefined}
+  />
+  <div
+    className="activate-top-navigation_profile"
+  >
+    <a
+      className="activate-top-navigation_profile_name"
+      href="/profile"
+      onClick={[Function]}
+    >
+      <span>
+        Hi, 
+      </span>
+      foo bar
+    </a>
+    <img
+      className="activate-top-navigation_profile_image"
+      onBlur={undefined}
+      onClick={[Function]}
+      onContextMenu={undefined}
+      onFocus={undefined}
+      onMouseDown={[Function]}
+      onMouseEnter={undefined}
+      onMouseLeave={undefined}
+      onTouchStart={[Function]}
+      src={Object {}}
+    />
+  </div>
+</div>
+`;

@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Grid test renders and matches snapshot 1`] = `
+<div
+  className="activate-row activate-row--2"
+>
+  <div
+    className="activate-column activate-column--6"
+    width={6}
+  >
+    test column
+  </div>
+  <div
+    className="activate-column activate-column--6"
+    width={6}
+  >
+    test column
+  </div>
+</div>
+`;

@@ -1,0 +1,738 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dashboard Page test initial load - renders and matches snapshot 1`] = `
+<div
+  className="activate-dashboard main-content"
+>
+  <h2
+    className="title"
+  >
+    Dashboard
+  </h2>
+  <div>
+    <div
+      className="activate-panel search-page_form"
+    >
+      <div
+        className="activate-panel_body search-page_form"
+      >
+        <div
+          className="activate-input activate-input--light search-page_form_input"
+        >
+          <input
+            className="activate-input_input"
+            disabled={false}
+            onChange={[Function]}
+            placeholder="Search query"
+            type="text"
+            value=""
+          />
+        </div>
+        <button
+          className="activate-button activate-button--primary activate-button--size-default activate-button--disabled search-page_form_button"
+          disabled={true}
+          onClick={[Function]}
+          to={undefined}
+        >
+          <span
+            className="activate-icon fa fa-search"
+            id={undefined}
+            onClick={undefined}
+          />
+          Search
+        </button>
+      </div>
+    </div>
+    <div
+      className="activate-row activate-row--3"
+    >
+      <div
+        className="activate-column activate-column--4"
+        width={4}
+      >
+        <div
+          className="activate-panel"
+        >
+          <div
+            className="activate-panel_header"
+          >
+            My reports
+          </div>
+          <div
+            className="activate-panel_body"
+          >
+            <div
+              className="activate-dashboard_button"
+            >
+              <a
+                className="activate-button activate-button--default activate-button--size-default activate-dashboard_button_style"
+                disabled={false}
+                href="/reports/my_program"
+                onClick={[Function]}
+              >
+                My Programs
+              </a>
+            </div>
+            <div
+              className="activate-dashboard_button"
+            >
+              <a
+                className="activate-button activate-button--default activate-button--size-default activate-dashboard_button_style"
+                disabled={false}
+                href="/reports/my_goal"
+                onClick={[Function]}
+              >
+                My Goals
+              </a>
+            </div>
+            <div
+              className="activate-dashboard_button"
+            >
+              <a
+                className="activate-button activate-button--default activate-button--size-default activate-dashboard_button_style"
+                disabled={false}
+                href="/vendor_report"
+                onClick={[Function]}
+              >
+                Vendor Reports
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="activate-column activate-column--4"
+        width={4}
+      >
+        <div
+          className="activate-panel"
+        >
+          <div
+            className="activate-panel_header"
+          >
+            My shortcuts
+          </div>
+          <div
+            className="activate-panel_body"
+          >
+            <div
+              className="activate-dashboard_button"
+            >
+              <button
+                className="activate-button activate-button--primary activate-button--size-default activate-dashboard_button_style"
+                disabled={false}
+                onClick={undefined}
+                to={undefined}
+              >
+                <span
+                  className="activate-icon fa fa-plus"
+                  id={undefined}
+                  onClick={undefined}
+                />
+                Add Programs
+              </button>
+            </div>
+            <div
+              className="activate-dashboard_button"
+            >
+              <button
+                className="activate-button activate-button--primary activate-button--size-default activate-dashboard_button_style"
+                disabled={false}
+                onClick={undefined}
+                to={undefined}
+              >
+                <span
+                  className="activate-icon fa fa-plus"
+                  id={undefined}
+                  onClick={undefined}
+                />
+                Add Contract
+              </button>
+            </div>
+            <div
+              className="activate-dashboard_button"
+            >
+              <button
+                className="activate-button activate-button--primary activate-button--size-default activate-dashboard_button_style"
+                disabled={false}
+                onClick={undefined}
+                to={undefined}
+              >
+                <span
+                  className="activate-icon fa fa-plus"
+                  id={undefined}
+                  onClick={undefined}
+                />
+                Add Invoice
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="activate-column activate-column--4"
+        width={4}
+      >
+        <div
+          className="activate-panel"
+        >
+          <div
+            className="activate-panel_header"
+          >
+            My tables
+          </div>
+          <div
+            className="activate-panel_body"
+          >
+            <div
+              className="activate-dashboard_button"
+            >
+              <a
+                className="activate-button activate-button--primary activate-button--size-default activate-dashboard_button_style"
+                disabled={false}
+                href="/tables/lorem"
+                onClick={[Function]}
+              >
+                lorem
+              </a>
+            </div>
+            <div
+              className="activate-dashboard_button"
+            >
+              <a
+                className="activate-button activate-button--primary activate-button--size-default activate-dashboard_button_style"
+                disabled={false}
+                href="/tables/ipsum"
+                onClick={[Function]}
+              >
+                ipsum
+              </a>
+            </div>
+            <div
+              className="activate-dashboard_button"
+            >
+              <a
+                className="activate-button activate-button--primary activate-button--size-default activate-dashboard_button_style"
+                disabled={false}
+                href="/tables/dolor"
+                onClick={[Function]}
+              >
+                dolor
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Dashboard Page test search complete - renders and matches snapshot 1`] = `
+<div
+  className="activate-dashboard main-content"
+>
+  <h2
+    className="title"
+  >
+    Dashboard
+  </h2>
+  <div>
+    <div
+      className="activate-panel search-page_form"
+    >
+      <div
+        className="activate-panel_body search-page_form"
+      >
+        <div
+          className="activate-input activate-input--light search-page_form_input"
+        >
+          <input
+            className="activate-input_input"
+            disabled={false}
+            onChange={[Function]}
+            placeholder="Search query"
+            type="text"
+            value=""
+          />
+        </div>
+        <button
+          className="activate-button activate-button--primary activate-button--size-default activate-button--disabled search-page_form_button"
+          disabled={true}
+          onClick={[Function]}
+          to={undefined}
+        >
+          <span
+            className="activate-icon fa fa-search"
+            id={undefined}
+            onClick={undefined}
+          />
+          Search
+        </button>
+      </div>
+    </div>
+    <div
+      className="activate-panel search-page_results"
+    >
+      <div
+        className="activate-panel_header search-page_results"
+      >
+        Search Results
+      </div>
+      <div
+        className="activate-panel_body search-page_results"
+      >
+        <p>
+          <strong>
+            1
+          </strong>
+           
+          result was
+           found in the 
+          <strong>
+            lorem
+          </strong>
+           table while looking at the 
+          <strong>
+            foo
+          </strong>
+           field.
+        </p>
+        <p>
+          <strong>
+            20
+          </strong>
+           
+          results were
+           found in the 
+          <strong>
+            ipsum
+          </strong>
+           table while looking at the 
+          <strong>
+            bar
+          </strong>
+           field.
+        </p>
+      </div>
+    </div>
+    <div
+      className="activate-row activate-row--3"
+    >
+      <div
+        className="activate-column activate-column--4"
+        width={4}
+      >
+        <div
+          className="activate-panel"
+        >
+          <div
+            className="activate-panel_header"
+          >
+            My reports
+          </div>
+          <div
+            className="activate-panel_body"
+          >
+            <div
+              className="activate-dashboard_button"
+            >
+              <a
+                className="activate-button activate-button--default activate-button--size-default activate-dashboard_button_style"
+                disabled={false}
+                href="/reports/my_program"
+                onClick={[Function]}
+              >
+                My Programs
+              </a>
+            </div>
+            <div
+              className="activate-dashboard_button"
+            >
+              <a
+                className="activate-button activate-button--default activate-button--size-default activate-dashboard_button_style"
+                disabled={false}
+                href="/reports/my_goal"
+                onClick={[Function]}
+              >
+                My Goals
+              </a>
+            </div>
+            <div
+              className="activate-dashboard_button"
+            >
+              <a
+                className="activate-button activate-button--default activate-button--size-default activate-dashboard_button_style"
+                disabled={false}
+                href="/vendor_report"
+                onClick={[Function]}
+              >
+                Vendor Reports
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="activate-column activate-column--4"
+        width={4}
+      >
+        <div
+          className="activate-panel"
+        >
+          <div
+            className="activate-panel_header"
+          >
+            My shortcuts
+          </div>
+          <div
+            className="activate-panel_body"
+          >
+            <div
+              className="activate-dashboard_button"
+            >
+              <button
+                className="activate-button activate-button--primary activate-button--size-default activate-dashboard_button_style"
+                disabled={false}
+                onClick={undefined}
+                to={undefined}
+              >
+                <span
+                  className="activate-icon fa fa-plus"
+                  id={undefined}
+                  onClick={undefined}
+                />
+                Add Programs
+              </button>
+            </div>
+            <div
+              className="activate-dashboard_button"
+            >
+              <button
+                className="activate-button activate-button--primary activate-button--size-default activate-dashboard_button_style"
+                disabled={false}
+                onClick={undefined}
+                to={undefined}
+              >
+                <span
+                  className="activate-icon fa fa-plus"
+                  id={undefined}
+                  onClick={undefined}
+                />
+                Add Contract
+              </button>
+            </div>
+            <div
+              className="activate-dashboard_button"
+            >
+              <button
+                className="activate-button activate-button--primary activate-button--size-default activate-dashboard_button_style"
+                disabled={false}
+                onClick={undefined}
+                to={undefined}
+              >
+                <span
+                  className="activate-icon fa fa-plus"
+                  id={undefined}
+                  onClick={undefined}
+                />
+                Add Invoice
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="activate-column activate-column--4"
+        width={4}
+      >
+        <div
+          className="activate-panel"
+        >
+          <div
+            className="activate-panel_header"
+          >
+            My tables
+          </div>
+          <div
+            className="activate-panel_body"
+          >
+            <div
+              className="activate-dashboard_button"
+            >
+              <a
+                className="activate-button activate-button--primary activate-button--size-default activate-dashboard_button_style"
+                disabled={false}
+                href="/tables/lorem"
+                onClick={[Function]}
+              >
+                lorem
+              </a>
+            </div>
+            <div
+              className="activate-dashboard_button"
+            >
+              <a
+                className="activate-button activate-button--primary activate-button--size-default activate-dashboard_button_style"
+                disabled={false}
+                href="/tables/ipsum"
+                onClick={[Function]}
+              >
+                ipsum
+              </a>
+            </div>
+            <div
+              className="activate-dashboard_button"
+            >
+              <a
+                className="activate-button activate-button--primary activate-button--size-default activate-dashboard_button_style"
+                disabled={false}
+                href="/tables/dolor"
+                onClick={[Function]}
+              >
+                dolor
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Dashboard Page test search in progress - renders and matches snapshot 1`] = `
+<div
+  className="activate-dashboard main-content"
+>
+  <h2
+    className="title"
+  >
+    Dashboard
+  </h2>
+  <div>
+    <div
+      className="activate-loading"
+    >
+      <img
+        className="activate-loading_full-page-loading"
+        src={Object {}}
+      />
+    </div>
+    <div
+      className="activate-panel search-page_form"
+    >
+      <div
+        className="activate-panel_body search-page_form"
+      >
+        <div
+          className="activate-input activate-input--light search-page_form_input"
+        >
+          <input
+            className="activate-input_input"
+            disabled={false}
+            onChange={[Function]}
+            placeholder="Search query"
+            type="text"
+            value=""
+          />
+        </div>
+        <button
+          className="activate-button activate-button--primary activate-button--size-default activate-button--disabled search-page_form_button"
+          disabled={true}
+          onClick={[Function]}
+          to={undefined}
+        >
+          <span
+            className="activate-icon fa fa-search"
+            id={undefined}
+            onClick={undefined}
+          />
+          Search
+        </button>
+      </div>
+    </div>
+    <div
+      className="activate-row activate-row--3"
+    >
+      <div
+        className="activate-column activate-column--4"
+        width={4}
+      >
+        <div
+          className="activate-panel"
+        >
+          <div
+            className="activate-panel_header"
+          >
+            My reports
+          </div>
+          <div
+            className="activate-panel_body"
+          >
+            <div
+              className="activate-dashboard_button"
+            >
+              <a
+                className="activate-button activate-button--default activate-button--size-default activate-dashboard_button_style"
+                disabled={false}
+                href="/reports/my_program"
+                onClick={[Function]}
+              >
+                My Programs
+              </a>
+            </div>
+            <div
+              className="activate-dashboard_button"
+            >
+              <a
+                className="activate-button activate-button--default activate-button--size-default activate-dashboard_button_style"
+                disabled={false}
+                href="/reports/my_goal"
+                onClick={[Function]}
+              >
+                My Goals
+              </a>
+            </div>
+            <div
+              className="activate-dashboard_button"
+            >
+              <a
+                className="activate-button activate-button--default activate-button--size-default activate-dashboard_button_style"
+                disabled={false}
+                href="/vendor_report"
+                onClick={[Function]}
+              >
+                Vendor Reports
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="activate-column activate-column--4"
+        width={4}
+      >
+        <div
+          className="activate-panel"
+        >
+          <div
+            className="activate-panel_header"
+          >
+            My shortcuts
+          </div>
+          <div
+            className="activate-panel_body"
+          >
+            <div
+              className="activate-dashboard_button"
+            >
+              <button
+                className="activate-button activate-button--primary activate-button--size-default activate-dashboard_button_style"
+                disabled={false}
+                onClick={undefined}
+                to={undefined}
+              >
+                <span
+                  className="activate-icon fa fa-plus"
+                  id={undefined}
+                  onClick={undefined}
+                />
+                Add Programs
+              </button>
+            </div>
+            <div
+              className="activate-dashboard_button"
+            >
+              <button
+                className="activate-button activate-button--primary activate-button--size-default activate-dashboard_button_style"
+                disabled={false}
+                onClick={undefined}
+                to={undefined}
+              >
+                <span
+                  className="activate-icon fa fa-plus"
+                  id={undefined}
+                  onClick={undefined}
+                />
+                Add Contract
+              </button>
+            </div>
+            <div
+              className="activate-dashboard_button"
+            >
+              <button
+                className="activate-button activate-button--primary activate-button--size-default activate-dashboard_button_style"
+                disabled={false}
+                onClick={undefined}
+                to={undefined}
+              >
+                <span
+                  className="activate-icon fa fa-plus"
+                  id={undefined}
+                  onClick={undefined}
+                />
+                Add Invoice
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="activate-column activate-column--4"
+        width={4}
+      >
+        <div
+          className="activate-panel"
+        >
+          <div
+            className="activate-panel_header"
+          >
+            My tables
+          </div>
+          <div
+            className="activate-panel_body"
+          >
+            <div
+              className="activate-dashboard_button"
+            >
+              <a
+                className="activate-button activate-button--primary activate-button--size-default activate-dashboard_button_style"
+                disabled={false}
+                href="/tables/lorem"
+                onClick={[Function]}
+              >
+                lorem
+              </a>
+            </div>
+            <div
+              className="activate-dashboard_button"
+            >
+              <a
+                className="activate-button activate-button--primary activate-button--size-default activate-dashboard_button_style"
+                disabled={false}
+                href="/tables/ipsum"
+                onClick={[Function]}
+              >
+                ipsum
+              </a>
+            </div>
+            <div
+              className="activate-dashboard_button"
+            >
+              <a
+                className="activate-button activate-button--primary activate-button--size-default activate-dashboard_button_style"
+                disabled={false}
+                href="/tables/dolor"
+                onClick={[Function]}
+              >
+                dolor
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

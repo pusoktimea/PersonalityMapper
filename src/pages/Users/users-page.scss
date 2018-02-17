@@ -1,0 +1,45 @@
+@import '~compass-mixins/lib/compass';
+@import "../../styles/_colors.scss";
+
+.users-page {
+  &_table {
+    margin-bottom: 20px;
+
+    .activate-table_row_column, .activate-table_header_item {
+      text-align: center;
+      padding: 0 8px !important;
+      line-height: 35px;
+      font-size: 14px;
+    }
+
+    .edit-profile-button, .save-perm-button {
+      margin-right: 5px;
+    }
+
+    .save-perm-button {
+      min-width: 36px;
+    }
+
+    .roles-dropdown {
+      font-size: 12px;
+      line-height: 1.5;
+      padding: 1px 5px;
+      height: 25px;
+    }
+
+    .role-cell {
+      .empty-role {
+        font-style: italic;
+        color: $warningRed;
+      }
+    }
+  }
+
+  &_add-user-button {
+    margin-bottom: 10px;
+
+    .activate-icon {
+      margin-right: 10px;
+    }
+  }
+}

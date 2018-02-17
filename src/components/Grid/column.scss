@@ -1,0 +1,9 @@
+@import '~compass-mixins/lib/compass';
+
+$baseClass: '.activate-column';
+
+.activate-column {
+  @include box-sizing(border-box);
+  float: left;
+  position: relative;
+}

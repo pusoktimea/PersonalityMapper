@@ -1,0 +1,45 @@
+@import '~compass-mixins/lib/compass';
+@import "../../styles/_colors.scss";
+
+.profile-page {
+  &_form {
+    &_title {
+      border-bottom: 1px solid $alto;
+      color: $doveGray;
+      font-size: 20px;
+      line-height: 39px;
+      margin-bottom: 14px;
+      font-weight: 400;
+    }
+
+    &_button {
+      margin-top: 25px;
+      margin-bottom: 12px;
+      margin-left: 15px;
+
+      .activate-icon {
+        margin-right: 10px;
+      }
+    }
+    .activate-label {
+      width: 50%;
+      display: inline-block;
+      margin-bottom: 15px;
+
+      & > span {
+        @include box-sizing(border-box);
+        width: 25%;
+        font-size: 14px;
+        margin-right: 0;
+        padding: 0 15px;
+        vertical-align: middle;
+      }
+      
+      & > .activate-input {
+        @include box-sizing(border-box);
+        padding: 0 15px;
+        width: 75%;
+      }
+    }
+  }
+}

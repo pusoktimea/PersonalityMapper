@@ -1,0 +1,46 @@
+@import '~compass-mixins/lib/compass';
+@import "../../styles/_colors.scss";
+
+$baseClass: '.activate-time-picker';
+
+#{$baseClass} {
+  .react-time-picker {
+    &__button {
+      @include border-radius(5px);
+      background-color: transparent;
+      border: 1px solid $mercury;
+      height: 34px;
+      &__input {
+        padding: 6px 0px 6px 12px;
+        
+        input {
+          color: $doveGray;
+          font-size: 14px;
+          line-height: 1.42857143;
+          outline: none;
+        }
+      }
+    }
+    &__clear-button {
+      display: none;
+    }
+    &__clock-button {
+      @include border-radius(0 5px 5px 0);
+      padding: 6px 12px;
+      height: 34px;
+      border: none;
+      border-left: 1px solid $mercury;
+      outline: none;
+    }
+
+    &__clock {
+      display: none;
+    }
+  }
+
+  &_icon {
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: $doveGray;
+  }
+}

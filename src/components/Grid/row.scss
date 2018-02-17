@@ -1,0 +1,34 @@
+$baseClass: '.activate-row';
+$columnClass: '.activate-column';
+$columnsCount: 12;
+$spacing: 20px;
+
+#{$baseClass} {
+  &:after {
+    content: '';
+    display: block;
+    visibility: hidden;
+    height: 0;
+    font-size: 0;
+    clear: both;
+  }
+
+  @for $index from 1 through $columnsCount {
+    &--#{$index} {
+      #{$columnClass} {
+        $diff: $spacing / $index * ($index - 1);
+        @for $columnWidth from 1 through $columnsCount {
+          $width: 100% / $columnsCount * $columnWidth;
+          &--#{$columnWidth} {
+            width: calc(#{$width} - #{$diff});
+
+            &:not(:last-child) {
+              margin-right: $spacing;
+            }
+          }
+        }
+      }
+    }
+  }  
+}
+

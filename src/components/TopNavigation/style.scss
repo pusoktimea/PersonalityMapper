@@ -1,0 +1,127 @@
+@import '~compass-mixins/lib/compass';
+@import "../../styles/_colors.scss";
+
+$baseClass: '.activate-top-navigation';
+
+#{$baseClass} {
+  background-color: $mirage;
+  z-index: 904;
+  height: 66px;
+  padding: 0 32px 0 40px;
+  position: fixed;
+  width: 100%;
+  min-width: 320px;
+  &_logo {
+    color: $white;
+    font-size: 24px;
+    line-height: 60px;
+    text-decoration: none;
+    font-family: Roboto,sans-serif;
+    white-space: nowrap;
+    float: left;
+    outline: 0!important;
+    display: block;
+    &:hover {
+      color: $jungleGreen;
+    }
+    span {
+      color: $jungleGreen;
+    }
+  }
+  &_burger {
+    color: $white;
+    font-size: 30px;
+    margin: 15px;
+    &:hover {
+      color: $jungleGreen;
+      cursor: pointer;
+    }
+  }
+  &_profile {
+    float: right;
+    min-width: 230px;
+    margin-top: 10px;
+    margin-right: 75px;
+    &_name {
+      text-decoration: none;
+      color: $white;
+      font-size: 16px;
+      line-height: 45px;
+      font-family: Roboto,sans-serif;
+      white-space: nowrap;
+      float: left;
+      outline: 0!important;
+      display: block;
+      &:hover {
+        color: $jungleGreen;
+      }
+      span {
+        color: $jungleGreen;
+      }
+    }
+    &_image {
+      background: $scooter;
+      width: 45px;
+      height: 45px;
+      @include border-radius(50%);
+      float: right;
+    }
+  }
+}
+.profile-dropdown {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  a {
+    text-decoration: none;
+    text-align: left;
+    border: none;
+    text-decoration: none;
+    color: #7d7d7d;
+    padding: 4px 16px 4px 20px;
+    display: block;
+    clear: both;
+    font-weight: 400;
+    line-height: 1.42857143;
+    white-space: nowrap;
+    cursor: pointer;
+
+    .activate-icon {
+      margin-right: 10px;
+    }
+  }
+}
+.profile-dropdown_item:hover {
+  background-color: $jungleGreen;
+  a {
+    color: $white;
+  }
+}
+.rc-tooltip {
+  left: auto !important;
+  right: 22px;
+}
+.rc-tooltip-inner {
+  float: left;
+  min-width: 160px;
+  padding: 5px 0;
+  margin: 2px 0 0;
+  font-size: 14px;
+  text-align: left;
+  list-style: none;
+  background-color: $white !important;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  border: 1px solid $dustyGray;
+  border: 1px solid rgba(0,0,0,.15);
+  @include border-radius(4px);
+  @include box-shadow(rgba(0,0,0,.175) 0 6px 12px);
+}
+.rc-tooltip-placement-bottomRight .rc-tooltip-arrow {
+    top: -10px;
+    display: block;
+    width: 0;
+    height: 0;
+    border: 11px solid transparent;
+    border-bottom-color: $white !important;
+}

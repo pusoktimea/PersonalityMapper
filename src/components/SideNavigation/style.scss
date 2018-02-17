@@ -1,0 +1,62 @@
+@import '~compass-mixins/lib/compass';
+@import "../../styles/_colors.scss";
+
+$baseClass: '.activate-side-navigation';
+
+#{$baseClass} {
+  width: 180px;
+  top: 66px;
+  left: 0;
+  z-index: 904;
+  display: block;
+  min-height: 100%;
+  background-color: $mirage;
+  height: 100%;
+  position: fixed;
+  color: $white;
+  @include transition(width 0.3s linear);
+  &--minimised {
+    width: 52px;
+  }
+  &_items {
+    padding: 18px 0 0;
+    overflow: hidden;
+    width: auto;
+    margin: 0;
+    list-style: none;
+    &_item {
+      display: block;
+      position: relative;
+      float: none;
+      padding: 0;
+      a {
+        height: 42px;
+        padding-left: 18px;
+        font-size: 13px;
+        text-decoration: none;
+        line-height: 42px;
+        cursor: pointer;
+        color: $white;
+        overflow: hidden;
+        text-shadow: none;
+        white-space: nowrap;
+        display: block;
+        &:hover {
+          color: $jungleGreen;
+          border-right: 4px solid $jungleGreen;
+          transition: all 0.5s ease;
+          transition-property: top, height;
+        }
+        .activate-icon {
+          margin-right: 18px;
+          width: 16px;
+          display: inline-block;
+        }
+      }
+      &--selected {
+        background-color: $jungleGreen !important;
+        color: $white;
+      }
+    }
+  }
+}

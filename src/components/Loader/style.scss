@@ -1,0 +1,18 @@
+$baseClass: '.activate-loading';
+
+#{$baseClass} {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+    text-align: center;
+
+  #{$baseClass}_full-page-loading {
+    top: 50%;
+    position: relative;
+    margin-top: -90px;
+  }
+}

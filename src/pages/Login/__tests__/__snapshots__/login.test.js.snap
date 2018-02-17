@@ -1,0 +1,301 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login Page test initial load - renders and matches snapshot 1`] = `
+<div
+  className="activate-login"
+>
+  <div
+    className="activate-login_form"
+  >
+    <h2
+      className="activate-login_form_title"
+    >
+      Sign in to 
+      <span
+        className="activate-login_form_title_logo"
+      >
+        Activate
+      </span>
+      <span
+        className="activate-login_form_title_logo_bold"
+      >
+        MS
+      </span>
+    </h2>
+    <form
+      onSubmit={[Function]}
+    >
+      <div
+        className="activate-login_form_input"
+      >
+        <label
+          className="activate-label"
+        >
+          <div
+            className="activate-input activate-input--dark activate-input--with-icon activate-input--icon-left"
+          >
+            <span
+              className="activate-icon fa fa-user"
+              id={undefined}
+              onClick={undefined}
+            />
+            <input
+              className="activate-input_input"
+              disabled={false}
+              name="test_input"
+              onChange={[Function]}
+              placeholder="Username"
+              type="text"
+              value=""
+            />
+          </div>
+        </label>
+      </div>
+      <div
+        className="activate-login_form_input"
+      >
+        <label
+          className="activate-label"
+        >
+          <div
+            className="activate-input activate-input--dark activate-input--with-icon activate-input--icon-left"
+          >
+            <span
+              className="activate-icon fa fa-lock"
+              id={undefined}
+              onClick={undefined}
+            />
+            <input
+              className="activate-input_input"
+              disabled={false}
+              name="test_input"
+              onChange={[Function]}
+              placeholder="Password"
+              type="password"
+              value=""
+            />
+          </div>
+        </label>
+      </div>
+      <div
+        className="activate-login_form_input"
+      >
+        <button
+          className="activate-button activate-button--primary activate-button--size-default activate-button--disabled"
+          disabled={true}
+          onClick={[Function]}
+          to={undefined}
+        >
+          <span
+            className="activate-icon fa fa-sign-in"
+            id={undefined}
+            onClick={undefined}
+          />
+          Sign In
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Login Page test login in progress - renders and matches snapshot 1`] = `
+<div
+  className="activate-login"
+>
+  <div
+    className="activate-login_form"
+  >
+    <h2
+      className="activate-login_form_title"
+    >
+      Sign in to 
+      <span
+        className="activate-login_form_title_logo"
+      >
+        Activate
+      </span>
+      <span
+        className="activate-login_form_title_logo_bold"
+      >
+        MS
+      </span>
+    </h2>
+    <form
+      onSubmit={[Function]}
+    >
+      <div
+        className="activate-login_form_input"
+      >
+        <label
+          className="activate-label"
+        >
+          <div
+            className="activate-input activate-input--dark activate-input--with-icon activate-input--icon-left"
+          >
+            <span
+              className="activate-icon fa fa-user"
+              id={undefined}
+              onClick={undefined}
+            />
+            <input
+              className="activate-input_input"
+              disabled={false}
+              name="test_input"
+              onChange={[Function]}
+              placeholder="Username"
+              type="text"
+              value=""
+            />
+          </div>
+        </label>
+      </div>
+      <div
+        className="activate-login_form_input"
+      >
+        <label
+          className="activate-label"
+        >
+          <div
+            className="activate-input activate-input--dark activate-input--with-icon activate-input--icon-left"
+          >
+            <span
+              className="activate-icon fa fa-lock"
+              id={undefined}
+              onClick={undefined}
+            />
+            <input
+              className="activate-input_input"
+              disabled={false}
+              name="test_input"
+              onChange={[Function]}
+              placeholder="Password"
+              type="password"
+              value=""
+            />
+          </div>
+        </label>
+      </div>
+      <div
+        className="activate-login_form_input"
+      >
+        <button
+          className="activate-button activate-button--primary activate-button--size-default activate-button--disabled activate-button--loading"
+          disabled={true}
+          onClick={[Function]}
+          to={undefined}
+        >
+          <img
+            className="activate-button_loading-icon"
+            src={Object {}}
+          />
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Login Page test with error - renders and matches snapshot 1`] = `
+<div
+  className="activate-login"
+>
+  <div
+    className="activate-login_form"
+  >
+    <h2
+      className="activate-login_form_title"
+    >
+      Sign in to 
+      <span
+        className="activate-login_form_title_logo"
+      >
+        Activate
+      </span>
+      <span
+        className="activate-login_form_title_logo_bold"
+      >
+        MS
+      </span>
+    </h2>
+    <form
+      onSubmit={[Function]}
+    >
+      <div
+        className="activate-login_form_input"
+      >
+        <label
+          className="activate-label"
+        >
+          <div
+            className="activate-input activate-input--dark activate-input--with-icon activate-input--icon-left"
+          >
+            <span
+              className="activate-icon fa fa-user"
+              id={undefined}
+              onClick={undefined}
+            />
+            <input
+              className="activate-input_input"
+              disabled={false}
+              name="test_input"
+              onChange={[Function]}
+              placeholder="Username"
+              type="text"
+              value=""
+            />
+          </div>
+        </label>
+      </div>
+      <div
+        className="activate-login_form_input"
+      >
+        <label
+          className="activate-label"
+        >
+          <div
+            className="activate-input activate-input--dark activate-input--with-icon activate-input--icon-left"
+          >
+            <span
+              className="activate-icon fa fa-lock"
+              id={undefined}
+              onClick={undefined}
+            />
+            <input
+              className="activate-input_input"
+              disabled={false}
+              name="test_input"
+              onChange={[Function]}
+              placeholder="Password"
+              type="password"
+              value=""
+            />
+          </div>
+        </label>
+        <p
+          className="activate-login_form_error-message"
+        >
+          login failed
+        </p>
+      </div>
+      <div
+        className="activate-login_form_input"
+      >
+        <button
+          className="activate-button activate-button--primary activate-button--size-default activate-button--disabled"
+          disabled={true}
+          onClick={[Function]}
+          to={undefined}
+        >
+          <span
+            className="activate-icon fa fa-sign-in"
+            id={undefined}
+            onClick={undefined}
+          />
+          Sign In
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;

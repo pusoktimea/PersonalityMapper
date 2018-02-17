@@ -1,0 +1,30 @@
+@import '~compass-mixins/lib/compass';
+
+.edit-user-modal {
+  .activate-label {
+    width: 50%;
+    display: inline-block;
+    margin-bottom: 15px;
+
+    & > span {
+      @include box-sizing(border-box);
+      width: 25%;
+      font-size: 14px;
+      margin-right: 0;
+      padding: 0 15px;
+      vertical-align: middle;
+    }
+    
+    & > .activate-input {
+      @include box-sizing(border-box);
+      padding: 0 15px;
+      width: 75%;
+    }
+  }
+
+  .activate-button {
+    .activate-icon {
+      margin-right: 10px;
+    }
+  }
+}

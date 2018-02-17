@@ -1,0 +1,9 @@
+.activate-label {
+  font-size: 14px;
+  line-height: 1.42857143;
+
+  & > span {
+    display: inline-block;
+    margin-right: 10px;
+  }
+}

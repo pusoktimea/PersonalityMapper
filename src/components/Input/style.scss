@@ -1,0 +1,103 @@
+@import '~compass-mixins/lib/compass';
+@import "../../styles/_colors.scss";
+
+$themes: (
+  (
+    'name': 'light',
+    'color': $doveGray,
+    'borderColor': $mercury,
+    'backgroundColor': transparent
+  ),
+  (
+    'name': 'dark',
+    'color': $white,
+    'borderColor': $silver,
+    'backgroundColor': rgba(0,0,0,0.4)
+  )
+);
+
+@mixin input-theme(
+  $name: 'light',
+  $color: $doveGray,
+  $borderColor: $mercury,
+  $backgroundColor: transparent
+) {
+  &--#{$name} #{$baseClass}_input {
+    color: $color;
+    border-color: $borderColor;
+    background-color: $backgroundColor;
+    @include input-placeholder {
+      color: $color;
+    }
+  }
+};
+
+$baseClass: '.activate-input';
+
+#{$baseClass} { 
+  display: inline-block;
+
+  &_input {
+    @include box-sizing(border-box);
+    @include border-radius(5px);
+    @include transition(border-color ease-in-out .15s,box-shadow ease-in-out .15s);
+    border: 1px solid transparent;
+    padding: 0;
+    outline: none;
+    height: 34px;
+    padding: 6px 12px;
+    vertical-align: middle;
+    font-size: 14px;
+    line-height: 1.42857143;
+    width: 100%;
+  }
+
+  @each $theme in $themes {
+    @include input-theme($theme...);
+  }
+
+  &--disabled {
+    #{$baseClass}_input {
+      cursor: not-allowed;
+    }
+  }
+
+  &--with-icon {
+    .activate-icon {
+      @include box-sizing(border-box);
+      padding: 6px 12px;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 23px;
+      color: $emperor;
+      text-align: center;
+      background-color: $gallery;
+      border: 1px solid $silver;
+      height: 34px;
+    }
+
+    &#{$baseClass}--icon-left {
+      #{$baseClass}_input {
+        @include border-radius(0 5px 5px 0);
+        float: right;
+        border-left: none;
+      }
+      .activate-icon {
+        @include border-radius(5px 0 0 5px);
+        float: left;
+      }
+    }
+
+    &#{$baseClass}--icon-right {
+      #{$baseClass}_input {
+        @include border-radius(5px 0 0 5px);
+        float: left;
+        border-right: none;
+      }
+      .activate-icon {
+        @include border-radius(0 5px 5px 0);
+        float: right;
+      }
+    }
+  }
+}

@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tables Page test renders and matches snapshot 1`] = `
+<div
+  className="tables-page main-content"
+>
+  <h2
+    className="title"
+  >
+    Tables
+  </h2>
+  <div
+    className="activate-panel"
+  >
+    <div
+      className="activate-panel_header"
+    >
+      App Tables
+    </div>
+    <div
+      className="activate-panel_body"
+    >
+      <table
+        className="activate-table activate-table--condensed"
+      >
+        <thead
+          className="activate-table_header"
+        >
+          <tr>
+            <th
+              className="activate-table_header_item"
+            >
+              Table Name
+            </th>
+            <th
+              className="activate-table_header_item"
+            >
+              Created
+            </th>
+            <th
+              className="activate-table_header_item"
+            >
+              Records
+            </th>
+          </tr>
+        </thead>
+        <tbody
+          className="activate-table_body"
+        >
+          <tr
+            className="activate-table_row activate-table_row--odd"
+            onClick={[Function]}
+          >
+            <td
+              className="activate-table_row_column table-name-cell"
+            >
+              <a
+                className="activate-button activate-button--default activate-button--size-default"
+                disabled={false}
+                href="/tables/table 1"
+                onClick={[Function]}
+              >
+                table 1
+              </a>
+            </td>
+            <td
+              className="activate-table_row_column creation-date-cell"
+            >
+              Aug 27, 2017
+            </td>
+            <td
+              className="activate-table_row_column row-count-cell"
+            >
+              100
+            </td>
+          </tr>
+          <tr
+            className="activate-table_row"
+            onClick={[Function]}
+          >
+            <td
+              className="activate-table_row_column table-name-cell"
+            >
+              <a
+                className="activate-button activate-button--default activate-button--size-default"
+                disabled={false}
+                href="/tables/table 2"
+                onClick={[Function]}
+              >
+                table 2
+              </a>
+            </td>
+            <td
+              className="activate-table_row_column creation-date-cell"
+            >
+              Aug 27, 2017
+            </td>
+            <td
+              className="activate-table_row_column row-count-cell"
+            >
+              200
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+`;

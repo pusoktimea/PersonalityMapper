@@ -1,0 +1,112 @@
+@import '~compass-mixins/lib/compass';
+@import "../../styles/_colors.scss";
+
+$themes: (
+  (
+    'name': 'default',
+    'color': $emperor,
+    'borderColor': $alto,
+    'backgroundColor': transparent
+  ),
+  (
+    'name': 'primary',
+    'color': $white,
+    'borderColor': $jungleGreen,
+    'backgroundColor': $jungleGreen
+  ),
+  (
+    'name': 'success',
+    'color': $white,
+    'borderColor': $pistachio,
+    'backgroundColor': $pistachio
+  ),
+  (
+    'name': 'info',
+    'color': $white,
+    'borderColor': $scooter,
+    'backgroundColor': $scooter
+  ),
+  (
+    'name': 'warning',
+    'color': $white,
+    'borderColor': $goldenGrass,
+    'backgroundColor': $goldenGrass
+  ),
+  (
+    'name': 'danger',
+    'color': $white,
+    'borderColor': $mandy,
+    'backgroundColor': $mandy
+  )
+);
+
+@mixin button-theme(
+  $name: 'default',
+  $color: $white,
+  $borderColor: $white,
+  $backgroundColor: $white
+) {
+  &--#{$name} {
+    color: $color;
+    border-color: $borderColor;
+    background-color: $backgroundColor;
+
+    &:not(#{$baseClass}--disabled):hover {
+      border-color: $borderColor - 24;
+    }
+  }
+};
+
+$baseClass: '.activate-button';
+
+#{$baseClass} {
+  @include border-radius(5px);
+  @include transition(all .1s ease);
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  user-select: none;
+  border: 1px solid transparent;
+  text-decoration: none;
+  outline: none;
+
+  &:not(#{$baseClass}--disabled):hover {
+    @include transform(scale(1.05));
+  }
+
+  &--disabled {
+    @include opacity(0.65);
+    cursor: not-allowed;
+  }
+
+  &--loading {
+    #{$baseClass}_loading-icon {
+      height: 20px;
+      line-height: 100%;
+      vertical-align: middle;
+    }
+  }
+
+  &--size-small {
+    padding: 1px 5px;
+    font-size: 12px;
+    line-height: 1.5;
+
+    #{$baseClass}_loading-icon {
+      height: 13px;
+    }
+  }
+
+  @each $theme in $themes {
+    @include button-theme($theme...);
+  }
+}

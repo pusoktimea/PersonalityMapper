@@ -1,0 +1,29 @@
+@import '~compass-mixins/lib/compass';
+@import "../styles/_colors.scss";
+
+* {
+  font-family: Roboto,sans-serif;
+}
+body {
+  background: $porcelain;
+  margin: 0;
+}
+.main-content {
+  @include transition(margin .3s linear);
+  margin-left: 180px;
+  padding: 66px 40px 34px;
+  min-height: 500px;
+  &--stretched {
+    @include transition(margin .3s linear);
+    margin-left: 52px !important;
+}
+  
+  .title {
+    @include opacity(0.9);
+    font-weight: 700;
+    color: $doveGray;
+    width: auto;
+    font-size: 24px;
+    text-transform: uppercase;
+  }
+}

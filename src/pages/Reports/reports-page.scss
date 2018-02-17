@@ -1,0 +1,16 @@
+@import '~compass-mixins/lib/compass';
+@import "../../styles/_colors.scss";
+
+.reports-page {
+  .report-name-cell {
+    text-align: center;
+    padding: 0 8px !important;
+    line-height: 35px;
+    
+    .activate-button {
+      width: 175px;
+      padding: 5px 10px;
+      font-size: 12px;
+    }
+  }
+}

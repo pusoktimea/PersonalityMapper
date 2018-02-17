@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TimePicker test renders and matches snapshot 1`] = `
+<div
+  className="react-time-picker react-time-picker--closed activate-time-picker"
+  onFocus={[Function]}
+>
+  <div
+    className="react-time-picker__button"
+  >
+    <div
+      className="react-time-picker__button__input"
+    >
+      <input
+        max={null}
+        min={null}
+        name="time"
+        onChange={[Function]}
+        onFocus={[Function]}
+        required={undefined}
+        step={null}
+        style={
+          Object {
+            "left": "-9999px",
+            "position": "absolute",
+            "top": "-9999px",
+            "visibility": "hidden",
+          }
+        }
+        type="time"
+        value="00:00"
+      />
+      <input
+        className="react-time-picker__button__input__hour"
+        max={23}
+        min={0}
+        name="hour"
+        onChange={[Function]}
+        onKeyDown={[Function]}
+        placeholder="--"
+        required={null}
+        type="number"
+        value={0}
+      />
+      <span
+        className="react-time-picker__button__input__divider"
+      >
+        :
+      </span>
+      <input
+        className="react-time-picker__button__input__minute"
+        max={59}
+        min={0}
+        name="minute"
+        onChange={[Function]}
+        onKeyDown={[Function]}
+        placeholder="--"
+        required={null}
+        type="number"
+        value={0}
+      />
+    </div>
+    <button
+      className="react-time-picker__clear-button react-time-picker__button__icon"
+      onClick={[Function]}
+      onFocus={[Function]}
+      type="button"
+    />
+    <button
+      className="react-time-picker__clock-button react-time-picker__button__icon"
+      onBlur={undefined}
+      onClick={[Function]}
+      onFocus={[Function]}
+      type="button"
+    >
+      <span
+        className="activate-icon fa fa-clock-o activate-time-picker_icon"
+        id={undefined}
+        onClick={undefined}
+      />
+    </button>
+  </div>
+</div>
+`;

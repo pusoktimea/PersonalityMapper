@@ -1,0 +1,22 @@
+@import '~compass-mixins/lib/compass';
+@import "../../styles/_colors.scss";
+
+$baseClass: '.activate-dashboard';
+
+#{$baseClass} {
+    &_button {
+        margin-bottom: 10px;
+        &_style {
+            width: 175px;
+            font-size: 12px;
+            .activate-icon {
+                margin-right: 5px;
+            }
+        }
+    }
+    
+}
+
+.activate-row .activate-panel_body {
+    text-align: center;
+}

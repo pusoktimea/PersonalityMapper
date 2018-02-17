@@ -1,0 +1,60 @@
+@import '~compass-mixins/lib/compass';
+@import "../../styles/_colors.scss";
+
+$baseClass: '.activate-date-picker';
+
+#{$baseClass} {
+  &_summary {
+    margin: 0;
+    margin-bottom: 5px;
+    color: $doveGray;
+    font-weight: 400;
+    font-size: 13px;
+  }
+
+  &_picker {
+    .react-date-picker {
+      &__button {
+        @include border-radius(5px);
+        border: 1px solid $mercury;
+        height: 34px;
+        &__input {
+          padding: 6px 0px 6px 12px;
+          
+          input {
+            font-size: 14px;
+            line-height: 1.42857143;
+            outline: none;
+            height: 100%;
+          }
+        }
+      }
+      &__calendar-button {
+        @include border-radius(0 5px 5px 0);
+        padding: 6px 12px;
+        height: 34px;
+        border: none;
+        border-left: 1px solid $mercury;
+        outline: none;
+      }
+      &__clear-button {
+        display: none;
+      }
+    }
+
+    &_icon {
+      font-size: 14px;
+      line-height: 1.42857143;
+      color: $doveGray;
+    }
+
+    &_calendar {
+      @include border-radius(5px);
+      width: 350px;
+      max-width: 100%;
+      background: $white;
+      border: 1px solid $mercury;
+      line-height: 1.125em;
+    }
+  }
+}
