@@ -9,7 +9,7 @@ import './style.scss';
 
 const TopNavigation = () => (
   <div className="activate-top-navigation">
-    <Link to="/dashboard" className="activate-top-navigation_logo"><img src={logo} width="300"/></Link>
+    <Link to="/dashboard" className="activate-top-navigation_logo"><img src={logo} width="300" /></Link>
     <div className="activate-top-navigation_profile">
       <Link to="/profile" className="activate-top-navigation_profile_name"><span>Hi, </span>Timea Pusok</Link>
       <Tooltip

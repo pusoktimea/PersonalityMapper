@@ -1,6 +1,7 @@
 # Soft Psychology Consulting
 
-## Website
+## Admin Panel
+
 ### Setup
 
 1. Install node version 8.9.3. We recommend using [nvm](https://github.com/creationix/nvm) which makes managing node versions easier.
@@ -9,17 +10,6 @@
 ### Run in development mode
 
 Run `npm start` in the project root. This should open a browser window at address http://localhost:8080.
-
-HMR is enabled in development server so please make sure to disable safe write in your editor:
-
-- Sublime Text 3 - Add atomic_save: "false" to your user preferences
-- WebStorm - uncheck Use "safe write" in Preferences > Appearance & Behavior > System Settings
-
-Please make sure to update/install plugin in your editor to support .editorconfig rules.
-
-- Sublime Text https://github.com/sindresorhus/editorconfig-sublime#readme
-- Visual Studio Code https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig
-- Webstorm has built-in support for .editorconfig.
 
 ### Build for production
 
