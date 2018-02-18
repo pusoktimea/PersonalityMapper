@@ -2,10 +2,10 @@
 
 exports[`DatePicker test renders and matches snapshot with summary 1`] = `
 <div
-  className="activate-date-picker"
+  className="persmap-date-picker"
 >
   <p
-    className="activate-date-picker_summary"
+    className="persmap-date-picker_summary"
   >
     Selected date is: 
     <em>
@@ -13,7 +13,7 @@ exports[`DatePicker test renders and matches snapshot with summary 1`] = `
     </em>
   </p>
   <div
-    className="react-date-picker react-date-picker--closed activate-date-picker_picker"
+    className="react-date-picker react-date-picker--closed persmap-date-picker_picker"
     onFocus={[Function]}
   >
     <div
@@ -102,7 +102,7 @@ exports[`DatePicker test renders and matches snapshot with summary 1`] = `
         type="button"
       >
         <span
-          className="activate-icon fa fa-calendar activate-date-picker_picker_icon"
+          className="persmap-icon fa fa-calendar persmap-date-picker_picker_icon"
           id={undefined}
           onClick={undefined}
         />
@@ -114,10 +114,10 @@ exports[`DatePicker test renders and matches snapshot with summary 1`] = `
 
 exports[`DatePicker test renders and matches snapshot without summary 1`] = `
 <div
-  className="activate-date-picker"
+  className="persmap-date-picker"
 >
   <div
-    className="react-date-picker react-date-picker--closed activate-date-picker_picker"
+    className="react-date-picker react-date-picker--closed persmap-date-picker_picker"
     onFocus={[Function]}
   >
     <div
@@ -206,7 +206,7 @@ exports[`DatePicker test renders and matches snapshot without summary 1`] = `
         type="button"
       >
         <span
-          className="activate-icon fa fa-calendar activate-date-picker_picker_icon"
+          className="persmap-icon fa fa-calendar persmap-date-picker_picker_icon"
           id={undefined}
           onClick={undefined}
         />

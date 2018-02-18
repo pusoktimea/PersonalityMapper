@@ -1,7 +1,7 @@
 @import '~compass-mixins/lib/compass';
 @import "../../styles/_colors.scss";
 
-$baseClass: '.activate-dropdown';
+$baseClass: '.persmap-dropdown';
 
 #{$baseClass} {
   @include border-radius(5px);

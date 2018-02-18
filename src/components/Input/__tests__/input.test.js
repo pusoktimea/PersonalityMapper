@@ -24,19 +24,19 @@ describe('Input component test', () => {
       const classes = inputElement.classList;
 
       expect(classes).toBeTruthy();
-      expect(classes).toContain('activate-input--light');
+      expect(classes).toContain('persmap-input--light');
     });
 
     it('input is not disabled', () => {
       const classes = inputElement.classList;
-      const disabled = inputElement.querySelector('.activate-input_input').disabled;
+      const disabled = inputElement.querySelector('.persmap-input_input').disabled;
 
       expect(disabled).toBeFalsy();
-      expect(classes).not.toContain('activate-input--disabled');
+      expect(classes).not.toContain('persmap-input--disabled');
     });
 
     it('calls changeHandler on edit', () => {
-      const input = inputElement.querySelector('.activate-input_input');
+      const input = inputElement.querySelector('.persmap-input_input');
       Simulate.change(input, {value: 'test'});
 
       expect(changeHandler).toBeCalled();
@@ -54,10 +54,10 @@ describe('Input component test', () => {
 
     it('input is disabled', () => {
       const classes = inputElement.classList;
-      const disabled = inputElement.querySelector('.activate-input_input').disabled;
+      const disabled = inputElement.querySelector('.persmap-input_input').disabled;
 
       expect(disabled).toBeTruthy();
-      expect(classes).toContain('activate-input--disabled');
+      expect(classes).toContain('persmap-input--disabled');
     });
   });
 
@@ -71,11 +71,11 @@ describe('Input component test', () => {
     });
 
     it('renders icon on the left', () => {
-      const iconElement = inputElement.querySelector('.activate-icon');
+      const iconElement = inputElement.querySelector('.persmap-icon');
       const inputClasses = inputElement.classList;
 
-      expect(inputClasses).toContain('activate-input--with-icon');
-      expect(inputClasses).toContain('activate-input--icon-left');
+      expect(inputClasses).toContain('persmap-input--with-icon');
+      expect(inputClasses).toContain('persmap-input--icon-left');
       expect(iconElement).toBeTruthy();
     });
   });
@@ -90,7 +90,7 @@ describe('Input component test', () => {
     });
 
     it('calls sanitize function on change', () => {
-      const input = inputElement.querySelector('.activate-input_input');
+      const input = inputElement.querySelector('.persmap-input_input');
       Simulate.change(input, {value: 'test'});
 
       expect(sanitizeFn).toBeCalled();

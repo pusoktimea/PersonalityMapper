@@ -1,8 +1,8 @@
 @import '~compass-mixins/lib/compass';
 
-$baseClass: '.activate-column';
+$baseClass: '.persmap-column';
 
-.activate-column {
+.persmap-column {
   @include box-sizing(border-box);
   float: left;
   position: relative;

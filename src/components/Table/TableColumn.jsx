@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 
 const TableColumn = ({cellClassName, headerClassName, isHeader, children}) => {
-  const baseClass = 'activate-table_row_column';
+  const baseClass = 'persmap-table_row_column';
 
   if (isHeader) {
     return (
       <th className={cx(
-        'activate-table_header_item',
+        'persmap-table_header_item',
         headerClassName
       )}>
         {children}

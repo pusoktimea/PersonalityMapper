@@ -23,7 +23,7 @@ const NoMatch = () => (
   </div>
 );
 
-class ActivateAdmin extends Component {
+class PersmapAdmin extends Component {
   render() {
     return (
       <Provider store={store}>
@@ -42,6 +42,6 @@ class ActivateAdmin extends Component {
 }
 
 render(
-  <ActivateAdmin />,
+  <PersmapAdmin />,
   document.getElementById('app-container')
 );

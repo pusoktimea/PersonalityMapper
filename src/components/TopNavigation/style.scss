@@ -1,7 +1,7 @@
 @import '~compass-mixins/lib/compass';
 @import "../../styles/_colors.scss";
 
-$baseClass: '.activate-top-navigation';
+$baseClass: '.persmap-top-navigation';
 
 #{$baseClass} {
   background-color: $mirage;
@@ -76,7 +76,7 @@ $baseClass: '.activate-top-navigation';
     font-weight: 400;
     line-height: 1.42857143;
     white-space: nowrap;
-    .activate-icon {
+    .persmap-icon {
       margin-right: 10px;
     }
   }

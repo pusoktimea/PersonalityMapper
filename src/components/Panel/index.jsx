@@ -5,7 +5,7 @@ import cx from 'classnames';
 import './style.scss';
 
 const Panel = ({children, title, className}) => {
-  const baseClass = 'activate-panel';
+  const baseClass = 'persmap-panel';
 
   return (
     <div

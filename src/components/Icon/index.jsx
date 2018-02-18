@@ -9,7 +9,7 @@ const Icon = ({icon, className, id, onClick}) => {
     <span
       id={id}
       className={cx(
-        'activate-icon',
+        'persmap-icon',
         'fa',
         `fa-${icon}`,
         className

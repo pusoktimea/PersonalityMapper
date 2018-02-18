@@ -32,7 +32,7 @@ $themes: (
   }
 };
 
-$baseClass: '.activate-input';
+$baseClass: '.persmap-input';
 
 #{$baseClass} { 
   display: inline-block;
@@ -62,7 +62,7 @@ $baseClass: '.activate-input';
   }
 
   &--with-icon {
-    .activate-icon {
+    .persmap-icon {
       @include box-sizing(border-box);
       padding: 6px 12px;
       font-size: 14px;
@@ -81,7 +81,7 @@ $baseClass: '.activate-input';
         float: right;
         border-left: none;
       }
-      .activate-icon {
+      .persmap-icon {
         @include border-radius(5px 0 0 5px);
         float: left;
       }
@@ -93,7 +93,7 @@ $baseClass: '.activate-input';
         float: left;
         border-right: none;
       }
-      .activate-icon {
+      .persmap-icon {
         @include border-radius(0 5px 5px 0);
         float: right;
       }

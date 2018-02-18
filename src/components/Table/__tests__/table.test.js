@@ -134,30 +134,30 @@ describe('Table component test', () => {
     });
 
     it(`renders table header with ${testTableHeaders.length + 1} cells`, () => {
-      const tableHeader = tableElement.querySelector('.activate-table_header');
+      const tableHeader = tableElement.querySelector('.persmap-table_header');
 
       expect(tableHeader).toBeTruthy();
 
-      const headerCells = tableHeader.querySelectorAll('.activate-table_header_item');
+      const headerCells = tableHeader.querySelectorAll('.persmap-table_header_item');
 
       expect(headerCells).toBeTruthy();
       expect(headerCells.length).toBe(testTableHeaders.length + 1);
     });
 
     it(`renders ${testTableRows.length} rows with ${testTableHeaders.length + 1} cells`, () => {
-      const tableRows = tableElement.querySelectorAll('.activate-table_body .activate-table_row');
+      const tableRows = tableElement.querySelectorAll('.persmap-table_body .persmap-table_row');
 
       expect(tableRows).toBeTruthy();
       expect(tableRows.length).toBe(testTableRows.length);
 
-      const rowCells = tableRows[0].querySelectorAll('.activate-table_row_column');
+      const rowCells = tableRows[0].querySelectorAll('.persmap-table_row_column');
 
       expect(rowCells).toBeTruthy();
       expect(rowCells.length).toBe(testTableHeaders.length + 1);
     });
 
     it('calls onRowSelect when clicking a row', () => {
-      const tableRows = tableElement.querySelectorAll('.activate-table_body .activate-table_row');
+      const tableRows = tableElement.querySelectorAll('.persmap-table_body .persmap-table_row');
 
       expect(tableRows).toBeTruthy();
 
@@ -166,11 +166,11 @@ describe('Table component test', () => {
     });
 
     it('calls onToggleSubData when clicking subdata toggle', () => {
-      const tableRows = tableElement.querySelectorAll('.activate-table_body .activate-table_row');
+      const tableRows = tableElement.querySelectorAll('.persmap-table_body .persmap-table_row');
 
       expect(tableRows).toBeTruthy();
 
-      const rowControl = tableRows[1].querySelector('.activate-table_row--control');
+      const rowControl = tableRows[1].querySelector('.persmap-table_row--control');
 
       expect(rowControl).toBeTruthy();
 

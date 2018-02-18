@@ -49,7 +49,7 @@ class Table extends Component {
 
   renderHeader = () => {
     return (
-      <thead className="activate-table_header">
+      <thead className="persmap-table_header">
         <TableRow
           row={this.props.headers}
           isHeaderRow
@@ -60,15 +60,15 @@ class Table extends Component {
 
   renderRows = () => {
     return (
-      <tbody className="activate-table_body">
+      <tbody className="persmap-table_body">
         {this.props.items.map((row, index) => (
           <TableRow
             row={row}
-            key={`activate-table-row-${index}`}
+            key={`persmap-table-row-${index}`}
             onSelect={this.selectRow}
             onMultiSelect={this.multiSelectRow}
             selected={this.state.selectedRows.includes(row.id)}
-            rowClassName={(index + 1) % 2 !== 0 ? 'activate-table_row--odd' : ''}
+            rowClassName={(index + 1) % 2 !== 0 ? 'persmap-table_row--odd' : ''}
             onToggleSubData={this.props.onToggleSubData}
           />
         ))}
@@ -76,7 +76,7 @@ class Table extends Component {
     );
   }
   render() {
-    const baseClass = 'activate-table';
+    const baseClass = 'persmap-table';
 
     const {
       className,

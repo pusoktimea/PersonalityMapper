@@ -7,7 +7,7 @@ import fullPageLoading from './loading.svg';
 import './style.scss';
 
 const Loader = ({className}) => {
-  const baseClass = 'activate-loading';
+  const baseClass = 'persmap-loading';
 
   return (
     <div

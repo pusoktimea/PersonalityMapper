@@ -28,7 +28,7 @@ class TableRow extends Component {
     const {row, rowClassName, isHeaderRow, selected, onSelect, onMultiSelect} = this.props;
     const {isSubDataVisible} = this.state;
 
-    const baseClass = 'activate-table_row';
+    const baseClass = 'persmap-table_row';
     const renderableColumns = Object.entries(row).filter(([key, _]) => (
       !['hasSubData'].includes(key)
     )).map(([_, value]) => value);
@@ -66,7 +66,7 @@ class TableRow extends Component {
           </TableColumn>
           {renderableColumns.map((content, index) => (
             <TableColumn
-              key={`activate-table-cell-${index}`}
+              key={`persmap-table-cell-${index}`}
               isHeader={isHeaderRow}
             >
               {content}

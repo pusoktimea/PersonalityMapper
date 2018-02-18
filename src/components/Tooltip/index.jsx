@@ -5,10 +5,10 @@ import Tooltip from 'rc-tooltip';
 
 import 'rc-tooltip/assets/bootstrap.css';
 
-const ActivateTooltip = ({overlay, trigger, placement, children, className}) => (
+const PersmapTooltip = ({overlay, trigger, placement, children, className}) => (
   <Tooltip
     overlayClassName={cx(
-      'activate-tooltip',
+      'persmap-tooltip',
       className
     )}
     placement={placement}
@@ -19,7 +19,7 @@ const ActivateTooltip = ({overlay, trigger, placement, children, className}) => 
   </Tooltip>
 );
 
-ActivateTooltip.propTypes = {
+PersmapTooltip.propTypes = {
   children: PropTypes.element.isRequired,
   overlay: PropTypes.oneOfType([
     PropTypes.string,
@@ -30,9 +30,9 @@ ActivateTooltip.propTypes = {
   className: PropTypes.string
 };
 
-ActivateTooltip.defaultProps = {
+PersmapTooltip.defaultProps = {
   trigger: 'hover',
   placement: 'top'
 };
 
-export default ActivateTooltip;
+export default PersmapTooltip;

@@ -2,17 +2,17 @@
 
 exports[`Grid test renders and matches snapshot 1`] = `
 <div
-  className="activate-row activate-row--2"
+  className="persmap-row persmap-row--2"
   columnCount={2}
 >
   <div
-    className="activate-column activate-column--6"
+    className="persmap-column persmap-column--6"
     width={6}
   >
     test column
   </div>
   <div
-    className="activate-column activate-column--6"
+    className="persmap-column persmap-column--6"
     width={6}
   >
     test column

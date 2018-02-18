@@ -33,7 +33,7 @@ class Dropdown extends Component {
       items
     } = this.props;
 
-    const baseClass = 'activate-dropdown';
+    const baseClass = 'persmap-dropdown';
     return (
       <select
         className={cx(

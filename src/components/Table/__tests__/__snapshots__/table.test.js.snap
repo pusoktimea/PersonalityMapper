@@ -2,143 +2,143 @@
 
 exports[`Table component test Snapshot tests for each modifier renders table only with bordered turned on and matches snapshot 1`] = `
 <table
-  className="activate-table activate-table--bordered"
+  className="persmap-table persmap-table--bordered"
 >
   <thead
-    className="activate-table_header"
+    className="persmap-table_header"
   >
     <tr
-      className="activate-table_row"
+      className="persmap-table_row"
       onClick={[Function]}
     >
       <th
-        className="activate-table_header_item"
+        className="persmap-table_header_item"
       >
         
       </th>
       <th
-        className="activate-table_header_item"
+        className="persmap-table_header_item"
       >
         id
       </th>
       <th
-        className="activate-table_header_item"
+        className="persmap-table_header_item"
       >
         col1
       </th>
       <th
-        className="activate-table_header_item"
+        className="persmap-table_header_item"
       >
         col2
       </th>
       <th
-        className="activate-table_header_item"
+        className="persmap-table_header_item"
       >
         col3
       </th>
     </tr>
   </thead>
   <tbody
-    className="activate-table_body"
+    className="persmap-table_body"
   >
     <tr
-      className="activate-table_row activate-table_row--odd"
+      className="persmap-table_row persmap-table_row--odd"
       onClick={[Function]}
     >
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         <span
-          className="activate-icon fa fa-plus-circle"
+          className="persmap-icon fa fa-plus-circle"
           id={undefined}
           onClick={undefined}
         />
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         1
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         11
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         12
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         13
       </td>
     </tr>
     <tr
-      className="activate-table_row"
+      className="persmap-table_row"
       onClick={[Function]}
     >
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         <span
-          className="activate-icon fa fa-chevron-down activate-table_row--control"
+          className="persmap-icon fa fa-chevron-down persmap-table_row--control"
           id={undefined}
           onClick={[Function]}
         />
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         2
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         21
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         22
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         23
       </td>
     </tr>
     <tr
-      className="activate-table_row activate-table_row--odd"
+      className="persmap-table_row persmap-table_row--odd"
       onClick={[Function]}
     >
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         <span
-          className="activate-icon fa fa-plus-circle"
+          className="persmap-icon fa fa-plus-circle"
           id={undefined}
           onClick={undefined}
         />
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         3
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         31
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         32
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         33
       </td>
@@ -149,143 +149,143 @@ exports[`Table component test Snapshot tests for each modifier renders table onl
 
 exports[`Table component test Snapshot tests for each modifier renders table only with condensed turned on and matches snapshot 1`] = `
 <table
-  className="activate-table activate-table--condensed"
+  className="persmap-table persmap-table--condensed"
 >
   <thead
-    className="activate-table_header"
+    className="persmap-table_header"
   >
     <tr
-      className="activate-table_row"
+      className="persmap-table_row"
       onClick={[Function]}
     >
       <th
-        className="activate-table_header_item"
+        className="persmap-table_header_item"
       >
         
       </th>
       <th
-        className="activate-table_header_item"
+        className="persmap-table_header_item"
       >
         id
       </th>
       <th
-        className="activate-table_header_item"
+        className="persmap-table_header_item"
       >
         col1
       </th>
       <th
-        className="activate-table_header_item"
+        className="persmap-table_header_item"
       >
         col2
       </th>
       <th
-        className="activate-table_header_item"
+        className="persmap-table_header_item"
       >
         col3
       </th>
     </tr>
   </thead>
   <tbody
-    className="activate-table_body"
+    className="persmap-table_body"
   >
     <tr
-      className="activate-table_row activate-table_row--odd"
+      className="persmap-table_row persmap-table_row--odd"
       onClick={[Function]}
     >
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         <span
-          className="activate-icon fa fa-plus-circle"
+          className="persmap-icon fa fa-plus-circle"
           id={undefined}
           onClick={undefined}
         />
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         1
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         11
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         12
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         13
       </td>
     </tr>
     <tr
-      className="activate-table_row"
+      className="persmap-table_row"
       onClick={[Function]}
     >
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         <span
-          className="activate-icon fa fa-chevron-down activate-table_row--control"
+          className="persmap-icon fa fa-chevron-down persmap-table_row--control"
           id={undefined}
           onClick={[Function]}
         />
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         2
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         21
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         22
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         23
       </td>
     </tr>
     <tr
-      className="activate-table_row activate-table_row--odd"
+      className="persmap-table_row persmap-table_row--odd"
       onClick={[Function]}
     >
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         <span
-          className="activate-icon fa fa-plus-circle"
+          className="persmap-icon fa fa-plus-circle"
           id={undefined}
           onClick={undefined}
         />
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         3
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         31
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         32
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         33
       </td>
@@ -296,143 +296,143 @@ exports[`Table component test Snapshot tests for each modifier renders table onl
 
 exports[`Table component test Snapshot tests for each modifier renders table only with hovered turned on and matches snapshot 1`] = `
 <table
-  className="activate-table activate-table--hovered"
+  className="persmap-table persmap-table--hovered"
 >
   <thead
-    className="activate-table_header"
+    className="persmap-table_header"
   >
     <tr
-      className="activate-table_row"
+      className="persmap-table_row"
       onClick={[Function]}
     >
       <th
-        className="activate-table_header_item"
+        className="persmap-table_header_item"
       >
         
       </th>
       <th
-        className="activate-table_header_item"
+        className="persmap-table_header_item"
       >
         id
       </th>
       <th
-        className="activate-table_header_item"
+        className="persmap-table_header_item"
       >
         col1
       </th>
       <th
-        className="activate-table_header_item"
+        className="persmap-table_header_item"
       >
         col2
       </th>
       <th
-        className="activate-table_header_item"
+        className="persmap-table_header_item"
       >
         col3
       </th>
     </tr>
   </thead>
   <tbody
-    className="activate-table_body"
+    className="persmap-table_body"
   >
     <tr
-      className="activate-table_row activate-table_row--odd"
+      className="persmap-table_row persmap-table_row--odd"
       onClick={[Function]}
     >
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         <span
-          className="activate-icon fa fa-plus-circle"
+          className="persmap-icon fa fa-plus-circle"
           id={undefined}
           onClick={undefined}
         />
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         1
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         11
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         12
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         13
       </td>
     </tr>
     <tr
-      className="activate-table_row"
+      className="persmap-table_row"
       onClick={[Function]}
     >
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         <span
-          className="activate-icon fa fa-chevron-down activate-table_row--control"
+          className="persmap-icon fa fa-chevron-down persmap-table_row--control"
           id={undefined}
           onClick={[Function]}
         />
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         2
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         21
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         22
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         23
       </td>
     </tr>
     <tr
-      className="activate-table_row activate-table_row--odd"
+      className="persmap-table_row persmap-table_row--odd"
       onClick={[Function]}
     >
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         <span
-          className="activate-icon fa fa-plus-circle"
+          className="persmap-icon fa fa-plus-circle"
           id={undefined}
           onClick={undefined}
         />
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         3
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         31
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         32
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         33
       </td>
@@ -443,143 +443,143 @@ exports[`Table component test Snapshot tests for each modifier renders table onl
 
 exports[`Table component test Snapshot tests for each modifier renders table only with striped turned on and matches snapshot 1`] = `
 <table
-  className="activate-table activate-table--striped"
+  className="persmap-table persmap-table--striped"
 >
   <thead
-    className="activate-table_header"
+    className="persmap-table_header"
   >
     <tr
-      className="activate-table_row"
+      className="persmap-table_row"
       onClick={[Function]}
     >
       <th
-        className="activate-table_header_item"
+        className="persmap-table_header_item"
       >
         
       </th>
       <th
-        className="activate-table_header_item"
+        className="persmap-table_header_item"
       >
         id
       </th>
       <th
-        className="activate-table_header_item"
+        className="persmap-table_header_item"
       >
         col1
       </th>
       <th
-        className="activate-table_header_item"
+        className="persmap-table_header_item"
       >
         col2
       </th>
       <th
-        className="activate-table_header_item"
+        className="persmap-table_header_item"
       >
         col3
       </th>
     </tr>
   </thead>
   <tbody
-    className="activate-table_body"
+    className="persmap-table_body"
   >
     <tr
-      className="activate-table_row activate-table_row--odd"
+      className="persmap-table_row persmap-table_row--odd"
       onClick={[Function]}
     >
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         <span
-          className="activate-icon fa fa-plus-circle"
+          className="persmap-icon fa fa-plus-circle"
           id={undefined}
           onClick={undefined}
         />
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         1
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         11
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         12
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         13
       </td>
     </tr>
     <tr
-      className="activate-table_row"
+      className="persmap-table_row"
       onClick={[Function]}
     >
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         <span
-          className="activate-icon fa fa-chevron-down activate-table_row--control"
+          className="persmap-icon fa fa-chevron-down persmap-table_row--control"
           id={undefined}
           onClick={[Function]}
         />
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         2
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         21
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         22
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         23
       </td>
     </tr>
     <tr
-      className="activate-table_row activate-table_row--odd"
+      className="persmap-table_row persmap-table_row--odd"
       onClick={[Function]}
     >
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         <span
-          className="activate-icon fa fa-plus-circle"
+          className="persmap-icon fa fa-plus-circle"
           id={undefined}
           onClick={undefined}
         />
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         3
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         31
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         32
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         33
       </td>
@@ -590,143 +590,143 @@ exports[`Table component test Snapshot tests for each modifier renders table onl
 
 exports[`Table component test Snapshot tests for each modifier renders table with all modifiers turned off and matches snapshot 1`] = `
 <table
-  className="activate-table"
+  className="persmap-table"
 >
   <thead
-    className="activate-table_header"
+    className="persmap-table_header"
   >
     <tr
-      className="activate-table_row"
+      className="persmap-table_row"
       onClick={[Function]}
     >
       <th
-        className="activate-table_header_item"
+        className="persmap-table_header_item"
       >
         
       </th>
       <th
-        className="activate-table_header_item"
+        className="persmap-table_header_item"
       >
         id
       </th>
       <th
-        className="activate-table_header_item"
+        className="persmap-table_header_item"
       >
         col1
       </th>
       <th
-        className="activate-table_header_item"
+        className="persmap-table_header_item"
       >
         col2
       </th>
       <th
-        className="activate-table_header_item"
+        className="persmap-table_header_item"
       >
         col3
       </th>
     </tr>
   </thead>
   <tbody
-    className="activate-table_body"
+    className="persmap-table_body"
   >
     <tr
-      className="activate-table_row activate-table_row--odd"
+      className="persmap-table_row persmap-table_row--odd"
       onClick={[Function]}
     >
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         <span
-          className="activate-icon fa fa-plus-circle"
+          className="persmap-icon fa fa-plus-circle"
           id={undefined}
           onClick={undefined}
         />
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         1
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         11
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         12
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         13
       </td>
     </tr>
     <tr
-      className="activate-table_row"
+      className="persmap-table_row"
       onClick={[Function]}
     >
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         <span
-          className="activate-icon fa fa-chevron-down activate-table_row--control"
+          className="persmap-icon fa fa-chevron-down persmap-table_row--control"
           id={undefined}
           onClick={[Function]}
         />
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         2
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         21
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         22
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         23
       </td>
     </tr>
     <tr
-      className="activate-table_row activate-table_row--odd"
+      className="persmap-table_row persmap-table_row--odd"
       onClick={[Function]}
     >
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         <span
-          className="activate-icon fa fa-plus-circle"
+          className="persmap-icon fa fa-plus-circle"
           id={undefined}
           onClick={undefined}
         />
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         3
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         31
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         32
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         33
       </td>
@@ -737,143 +737,143 @@ exports[`Table component test Snapshot tests for each modifier renders table wit
 
 exports[`Table component test Snapshot tests for each modifier renders table with all modifiers turned on and matches snapshot 1`] = `
 <table
-  className="activate-table activate-table--condensed activate-table--bordered activate-table--striped activate-table--hovered"
+  className="persmap-table persmap-table--condensed persmap-table--bordered persmap-table--striped persmap-table--hovered"
 >
   <thead
-    className="activate-table_header"
+    className="persmap-table_header"
   >
     <tr
-      className="activate-table_row"
+      className="persmap-table_row"
       onClick={[Function]}
     >
       <th
-        className="activate-table_header_item"
+        className="persmap-table_header_item"
       >
         
       </th>
       <th
-        className="activate-table_header_item"
+        className="persmap-table_header_item"
       >
         id
       </th>
       <th
-        className="activate-table_header_item"
+        className="persmap-table_header_item"
       >
         col1
       </th>
       <th
-        className="activate-table_header_item"
+        className="persmap-table_header_item"
       >
         col2
       </th>
       <th
-        className="activate-table_header_item"
+        className="persmap-table_header_item"
       >
         col3
       </th>
     </tr>
   </thead>
   <tbody
-    className="activate-table_body"
+    className="persmap-table_body"
   >
     <tr
-      className="activate-table_row activate-table_row--odd"
+      className="persmap-table_row persmap-table_row--odd"
       onClick={[Function]}
     >
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         <span
-          className="activate-icon fa fa-plus-circle"
+          className="persmap-icon fa fa-plus-circle"
           id={undefined}
           onClick={undefined}
         />
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         1
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         11
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         12
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         13
       </td>
     </tr>
     <tr
-      className="activate-table_row"
+      className="persmap-table_row"
       onClick={[Function]}
     >
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         <span
-          className="activate-icon fa fa-chevron-down activate-table_row--control"
+          className="persmap-icon fa fa-chevron-down persmap-table_row--control"
           id={undefined}
           onClick={[Function]}
         />
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         2
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         21
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         22
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         23
       </td>
     </tr>
     <tr
-      className="activate-table_row activate-table_row--odd"
+      className="persmap-table_row persmap-table_row--odd"
       onClick={[Function]}
     >
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         <span
-          className="activate-icon fa fa-plus-circle"
+          className="persmap-icon fa fa-plus-circle"
           id={undefined}
           onClick={undefined}
         />
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         3
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         31
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         32
       </td>
       <td
-        className="activate-table_row_column"
+        className="persmap-table_row_column"
       >
         33
       </td>

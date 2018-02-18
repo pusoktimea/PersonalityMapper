@@ -1,7 +1,7 @@
 @import '~compass-mixins/lib/compass';
 @import "../../styles/_colors.scss";
 
-$baseClass: '.activate-side-navigation';
+$baseClass: '.persmap-side-navigation';
 
 #{$baseClass} {
   width: 180px;
@@ -43,7 +43,7 @@ $baseClass: '.activate-side-navigation';
           transition: all 0.5s ease;
           transition-property: top, height;
         }
-        .activate-icon {
+        .persmap-icon {
           margin-right: 18px;
           width: 16px;
           display: inline-block;

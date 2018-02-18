@@ -25,6 +25,6 @@ describe('Tooltip component test', () => {
     expect(tooltipElement.textContent).toBe('target');
 
     Simulate.click(tooltipElement);
-    expect(document.querySelector('.activate-tooltip').textContent).toBe('test');
+    expect(document.querySelector('.persmap-tooltip').textContent).toBe('test');
   });
 });
