@@ -8,7 +8,7 @@ import Icon from '../Icon';
 
 import './style.scss';
 
-class ActivateDatePicker extends Component {
+class PersmapDatePicker extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -66,15 +66,15 @@ class ActivateDatePicker extends Component {
   }
 }
 
-ActivateDatePicker.propTypes = {
+PersmapDatePicker.propTypes = {
   value: PropTypes.instanceOf(Date),
   onChange: PropTypes.func,
   className: PropTypes.string,
   showSummary: PropTypes.bool
 };
 
-ActivateDatePicker.defaultProps = {
+PersmapDatePicker.defaultProps = {
   showSummary: true
 };
 
-export default ActivateDatePicker;
+export default PersmapDatePicker;
