@@ -7,7 +7,7 @@ import loadingIcon from './loading-indicator.svg';
 import './style.scss';
 
 const Button = ({children, theme, disabled, isLoading, onClick, className}) => {
-  const baseClass = 'activate-button';
+  const baseClass = 'persmap-button';
 
   return (
     <button

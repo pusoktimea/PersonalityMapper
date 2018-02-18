@@ -33,7 +33,7 @@ describe('Button component test', () => {
       const classes = buttonElement.classList;
 
       expect(classes).toBeTruthy();
-      expect(classes).toContain('activate-button--primary');
+      expect(classes).toContain('persmap-button--primary');
     });
 
     it('button is not disabled', () => {
@@ -41,14 +41,14 @@ describe('Button component test', () => {
       const disabled = buttonElement.disabled;
 
       expect(disabled).toBeFalsy();
-      expect(classes).not.toContain('activate-button--disabled');
+      expect(classes).not.toContain('persmap-button--disabled');
     });
 
     it('button is not loading', () => {
       const classes = buttonElement.classList;
 
       expect(classes).toBeTruthy();
-      expect(classes).not.toContain('activate-button--loading');
+      expect(classes).not.toContain('persmap-button--loading');
     });
 
     it('calls clickHandler on click', () => {
@@ -83,7 +83,7 @@ describe('Button component test', () => {
       const classes = buttonElement.classList;
 
       expect(classes).toBeTruthy();
-      expect(classes).toContain('activate-button--primary');
+      expect(classes).toContain('persmap-button--primary');
     });
 
     it('button is disabled', () => {
@@ -91,7 +91,7 @@ describe('Button component test', () => {
       const disabled = buttonElement.disabled;
 
       expect(disabled).toBeTruthy();
-      expect(classes).toContain('activate-button--disabled');
+      expect(classes).toContain('persmap-button--disabled');
     });
   });
 
@@ -110,7 +110,7 @@ describe('Button component test', () => {
     });
 
     it('renders loading animation', () => {
-      const loader = buttonElement.querySelector('.activate-button_loading-icon');
+      const loader = buttonElement.querySelector('.persmap-button_loading-icon');
 
       expect(loader).toBeTruthy();
     });

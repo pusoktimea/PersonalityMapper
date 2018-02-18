@@ -10,15 +10,7 @@ import {
 import {configureStore} from './store';
 import Layout from './pages/Layout';
 import Dashboard from './pages/Dashboard';
-import Tables from './pages/Tables';
-import SingleTable from './pages/SingleTable';
-import Search from './pages/Search';
-import Reports from './pages/Reports';
-import SingleReport from './pages/SingleReport';
-import Users from './pages/Users';
-import Roles from './pages/Roles';
 import Profile from './pages/Profile';
-import Upload from './pages/Upload';
 import Login from './pages/Login';
 
 import 'styles/style.scss';
@@ -39,15 +31,7 @@ class ActivateAdmin extends Component {
           <Switch>
             <Layout path="/" exact component={Dashboard} />
             <Layout path="/dashboard" exact component={Dashboard} />
-            <Layout path="/tables" exact component={Tables} />
-            <Layout path="/tables/:table_name" component={SingleTable} />
-            <Layout path="/search" component={Search} />
-            <Layout path="/reports" exact component={Reports} />
-            <Layout path="/reports/:report_name" component={SingleReport} />
-            <Layout path="/users" component={Users} />
-            <Layout path="/roles" component={Roles} />
             <Layout path="/profile" component={Profile} />
-            <Layout path="/upload" component={Upload} />
             <Route path="/login" component={Login} />
             <Route component={NoMatch} />
           </Switch>

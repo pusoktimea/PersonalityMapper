@@ -57,7 +57,7 @@ $themes: (
   }
 };
 
-$baseClass: '.activate-button';
+$baseClass: '.persmap-button';
 
 #{$baseClass} {
   @include border-radius(5px);
