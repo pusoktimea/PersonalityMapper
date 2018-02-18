@@ -34,7 +34,7 @@ describe('Dropdown component test', () => {
       const classes = dropdownElement.classList;
 
       expect(dropdownElement.disabled).toBeFalsy();
-      expect(classes).not.toContain('activate-dropdown--disabled');
+      expect(classes).not.toContain('persmap-dropdown--disabled');
     });
 
     it('calls changeHandler on onchange', () => {
@@ -69,7 +69,7 @@ describe('Dropdown component test', () => {
       const classes = dropdownElement.classList;
 
       expect(dropdownElement.disabled).toBeTruthy();
-      expect(classes).toContain('activate-dropdown--disabled');
+      expect(classes).toContain('persmap-dropdown--disabled');
     });
   });
 });

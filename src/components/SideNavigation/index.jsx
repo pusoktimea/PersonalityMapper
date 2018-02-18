@@ -5,12 +5,12 @@ import Icon from '../Icon';
 import './style.scss';
 
 const SideNavigation = () => (
-  <div className="activate-side-navigation">
-    <ul className="activate-side-navigation_items">
-      <li className="activate-side-navigation_items_item">
+  <div className="persmap-side-navigation">
+    <ul className="persmap-side-navigation_items">
+      <li className="persmap-side-navigation_items_item">
         <Link to="/"><Icon icon="users" />Dashboard</Link>
       </li>
-      <li className="activate-side-navigation_items_item">
+      <li className="persmap-side-navigation_items_item">
         <Link to="/profile"><Icon icon="calendar-check-o" />Profile</Link>
       </li>
     </ul>

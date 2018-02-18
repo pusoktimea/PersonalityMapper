@@ -1,7 +1,7 @@
 @import '~compass-mixins/lib/compass';
 @import "../../styles/_colors.scss";
 
-$baseClass: '.activate-date-picker';
+$baseClass: '.persmap-date-picker';
 
 #{$baseClass} {
   &_summary {

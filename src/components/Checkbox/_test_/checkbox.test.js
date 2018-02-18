@@ -21,14 +21,14 @@ describe('Checkbox component test', () => {
 
     it('Checkbox is not disabled', () => {
       const classes = checkboxElement.classList;
-      const disabled = checkboxElement.querySelector('.activate-checkbox_checkbox').disabled;
+      const disabled = checkboxElement.querySelector('.persmap-checkbox_checkbox').disabled;
 
       expect(disabled).toBeFalsy();
-      expect(classes).not.toContain('activate-checkbox--disabled');
+      expect(classes).not.toContain('persmap-checkbox--disabled');
     });
 
     it('calls changeHandler on edit', () => {
-      const checkbox = checkboxElement.querySelector('.activate-checkbox_checkbox');
+      const checkbox = checkboxElement.querySelector('.persmap-checkbox_checkbox');
       Simulate.change(checkbox, {checked: true});
 
       expect(changeHandler).toBeCalled();
@@ -46,10 +46,10 @@ describe('Checkbox component test', () => {
 
     it('Checkbox is disabled', () => {
       const classes = checkboxElement.classList;
-      const disabled = checkboxElement.querySelector('.activate-checkbox_checkbox').disabled;
+      const disabled = checkboxElement.querySelector('.persmap-checkbox_checkbox').disabled;
 
       expect(disabled).toBeTruthy();
-      expect(classes).toContain('activate-checkbox--disabled');
+      expect(classes).toContain('persmap-checkbox--disabled');
     });
   });
 });

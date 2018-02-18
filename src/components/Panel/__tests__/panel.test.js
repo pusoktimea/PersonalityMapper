@@ -20,14 +20,14 @@ describe('Panel component test', () => {
   });
 
   it('renders title for the panel', () => {
-    const title = panelElement.querySelector('.activate-panel_header');
+    const title = panelElement.querySelector('.persmap-panel_header');
 
     expect(title).toBeTruthy();
     expect(title.textContent).toBe('test panel title');
   });
 
   it('renders body for the panel', () => {
-    const body = panelElement.querySelector('.activate-panel_body');
+    const body = panelElement.querySelector('.persmap-panel_body');
 
     expect(body).toBeTruthy();
     expect(body.textContent).toBe('test panel body');

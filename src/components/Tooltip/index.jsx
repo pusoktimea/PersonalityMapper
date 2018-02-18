@@ -8,7 +8,7 @@ import 'rc-tooltip/assets/bootstrap.css';
 const ActivateTooltip = ({overlay, trigger, placement, children, className}) => (
   <Tooltip
     overlayClassName={cx(
-      'activate-tooltip',
+      'persmap-tooltip',
       className
     )}
     placement={placement}

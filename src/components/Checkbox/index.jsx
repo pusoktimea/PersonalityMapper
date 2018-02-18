@@ -39,7 +39,7 @@ class Checkbox extends Component {
       'onChange'
     ]);
 
-    const baseClass = 'activate-checkbox';
+    const baseClass = 'persmap-checkbox';
     return (
       <div className={cx(
         baseClass,

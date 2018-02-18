@@ -45,7 +45,7 @@ class Input extends Component {
       'className', 'value', 'onChange', 'theme', 'iconPosition', 'icon', 'sanitizeFn'
     ]);
 
-    const baseClass = 'activate-input';
+    const baseClass = 'persmap-input';
     return (
       <div className={cx(
         baseClass,

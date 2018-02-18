@@ -5,7 +5,7 @@ import './style.scss';
 
 const Label = ({children}) => {
   return (
-    <label className="activate-label">
+    <label className="persmap-label">
       {
         React.Children.map(children, (child) => (
           typeof child.type !== 'undefined' ?

@@ -13,7 +13,7 @@ class Column extends Component {
 
   render() {
     const {width, children, className} = this.props;
-    const baseClass = 'activate-column';
+    const baseClass = 'persmap-column';
     return (
       <div
         className={cx(

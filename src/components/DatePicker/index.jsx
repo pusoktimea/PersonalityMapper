@@ -34,7 +34,7 @@ class ActivateDatePicker extends Component {
       showSummary
     } = this.props;
 
-    const baseClass = 'activate-date-picker';
+    const baseClass = 'persmap-date-picker';
     return (
       <div
         className={cx(

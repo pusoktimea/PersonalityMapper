@@ -13,7 +13,7 @@ class Row extends Component {
 
   render() {
     const {columnCount, children, className} = this.props;
-    const baseClass = 'activate-row';
+    const baseClass = 'persmap-row';
     return (
       <div
         className={cx(

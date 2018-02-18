@@ -8,10 +8,10 @@ import logo from './SoftPsychology Consulting-2.png';
 import './style.scss';
 
 const TopNavigation = () => (
-  <div className="activate-top-navigation">
-    <Link to="/dashboard" className="activate-top-navigation_logo"><img src={logo} width="300" /></Link>
-    <div className="activate-top-navigation_profile">
-      <Link to="/profile" className="activate-top-navigation_profile_name"><span>Hi, </span>Timea Pusok</Link>
+  <div className="persmap-top-navigation">
+    <Link to="/dashboard" className="persmap-top-navigation_logo"><img src={logo} width="300" /></Link>
+    <div className="persmap-top-navigation_profile">
+      <Link to="/profile" className="persmap-top-navigation_profile_name"><span>Hi, </span>Timea Pusok</Link>
       <Tooltip
         overlay={(
           <ul className="profile-dropdown">
@@ -24,7 +24,7 @@ const TopNavigation = () => (
           </ul>)}
         placement="topRight"
         trigger="click">
-        <img className="activate-top-navigation_profile_image" src={img} />
+        <img className="persmap-top-navigation_profile_image" src={img} />
       </Tooltip>
     </div>
   </div>
