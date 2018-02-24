@@ -9,12 +9,20 @@ import Button from 'components/Button';
 import Icon from 'components/Icon';
 import Row from 'components/Grid/Row';
 import Column from 'components/Grid/Column';
+import Modal from 'components/Modal'
 
 import './profile-page.scss';
 
 class ProfilePage extends PureComponent {
   static propTypes = {
     isSideBarMinimised: PropTypes.bool
+  }
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      showModal: false
+    };
   }
 
   render() {
@@ -76,6 +84,7 @@ class ProfilePage extends PureComponent {
               <Button
                 theme="primary"
                 className="profile-page_form_button"
+                onClick={() => this.setState({showModal: true})}
               >
                 <Icon icon="check-square-o" />
                 Save Changes
@@ -124,6 +133,14 @@ class ProfilePage extends PureComponent {
             </Panel>
           </Column>
         </Row>
+        {
+          this.state.showModal &&
+          <Modal
+            title="Modal"
+          >
+            <p>Your first modal</p>
+          </Modal>
+        }
       </div>
     );
   }
