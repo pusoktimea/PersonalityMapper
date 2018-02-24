@@ -42,13 +42,24 @@
         width: 75%;
         margin-bottom: 15px;
       }
-      & > textarea {
-        @include box-sizing(border-box);
-        padding: 0 15px;
-        width: 70%;
-        margin-bottom: 15px;
-
-      }
     }
+
   }
 }
+        .persmap-characteristics{
+          display: table;
+    
+          & > .persmap-textarea {
+            @include box-sizing(border-box);
+            margin-bottom: 15px;
+            width: 75%;
+            padding: 0 15px;
+          }
+    
+          & > textarea{
+            color: #FFFFFF;
+            border-color: #CBCBCB;
+            background-color: rgba(0, 0, 0, 0.4);
+            float: right;
+          }
+        }

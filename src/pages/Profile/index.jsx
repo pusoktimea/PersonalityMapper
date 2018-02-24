@@ -100,14 +100,18 @@ class ProfilePage extends PureComponent {
                   name="pers_type"
                 />
               </Label>
-              <Label>
-                Characteristics
-                <textarea rows="6" cols="50"
-                  theme="dark"
-                  value="Give some additional info about your personality"
-                  name="characteristics"
-                />
-              </Label>
+              <div className="persmap-characteristics">
+                <Label>
+                  Characteristics
+                  <div className="persmap-textarea">
+                    <textarea rows="6" cols="50"
+                    theme="dark"
+                    value="Give some additional info about your personality"
+                    name="characteristics"
+                    />
+                  </div>
+                </Label>
+              </div>  
               <Button
                 theme="primary"
                 className="profile-page_form_button"
