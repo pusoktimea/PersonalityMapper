@@ -21,9 +21,43 @@
         margin-right: 10px;
       }
     }
+
+    &_characteristics {
+
+      & > span {
+        width: 25%;
+        font-size: 14px;
+      }
+
+      & > .persmap-textarea {
+        @include box-sizing(border-box);
+        margin-bottom: 15px;
+        width: 75%;
+        padding: 0 15px;
+        color: red;
+        float: right;
+
+        & > textarea{
+          color: #FFFFFF;
+          border-color: #CBCBCB;
+          background-color: rgba(0, 0, 0, 0.4);
+          width: 93%;
+          border-radius: 5px;
+          outline: none;
+          height: 192px;
+          padding: 6px 12px;
+          vertical-align: middle;
+          font-size: 14px;
+          line-height: 1.42857143;
+          border: 1px solid transparent;
+        }
+      }
+    }
+
     .persmap-input_input {
       width: 100%;
     }
+
     .persmap-label {
       width: 50%;
       margin-bottom: 15px;
@@ -43,23 +77,6 @@
         margin-bottom: 15px;
       }
     }
-
   }
 }
-        .persmap-characteristics{
-          display: table;
-    
-          & > .persmap-textarea {
-            @include box-sizing(border-box);
-            margin-bottom: 15px;
-            width: 75%;
-            padding: 0 15px;
-          }
-    
-          & > textarea{
-            color: #FFFFFF;
-            border-color: #CBCBCB;
-            background-color: rgba(0, 0, 0, 0.4);
-            float: right;
-          }
-        }
+
