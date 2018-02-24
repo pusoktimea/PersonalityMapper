@@ -88,5 +88,8 @@
   "pre-commit": [
     "lint-and-test-staged"
   ],
-  "dependencies": {}
+  "dependencies": {
+    "chart.js": "^2.7.1",
+    "react-chartjs-2": "^2.7.0"
+  }
 }
