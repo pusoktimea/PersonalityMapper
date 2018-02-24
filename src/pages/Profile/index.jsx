@@ -29,8 +29,6 @@ class ProfilePage extends PureComponent {
         <Row columnCount={2}>
           <Column
             style={{
-              background: '#888888',
-              padding: '10px',
               textAlign: 'center'
             }}
             width={6}
@@ -49,6 +47,7 @@ class ProfilePage extends PureComponent {
                 Phone
                 <Input
                   theme="dark"
+                  type="number"
                   name="phone"
                   value="phone"
                 />
@@ -79,14 +78,12 @@ class ProfilePage extends PureComponent {
                 className="profile-page_form_button"
               >
                 <Icon icon="check-square-o" />
-                Update Profile
+                Save Changes
               </Button>
             </Panel>
           </Column>
           <Column
             style={{
-              background: '#888888',
-              padding: '10px',
               textAlign: 'center'
             }}
             width={6}
@@ -96,6 +93,7 @@ class ProfilePage extends PureComponent {
                 Personality type
                 <Input
                   theme="dark"
+                  type="text"
                   value="Your personality type"
                   name="pers_type"
                 />
