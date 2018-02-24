@@ -1,0 +1,27 @@
+@import '~compass-mixins/lib/compass';
+@import "../../styles/_colors.scss";
+
+.activate-modal {
+  color: $doveGray;
+  .modal-title {
+    font-size: 18px;
+  }
+  &--medium {
+    .modal-dialog {
+      width: 600px;
+    }
+  }
+
+  &--large {
+    .modal-dialog {
+      width: 900px;
+    }
+  }
+
+  &--xlarge {
+    .modal-dialog {
+      width: 1100px;
+    }
+  }
+
+}
