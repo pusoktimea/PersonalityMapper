@@ -7,6 +7,8 @@ import Label from 'components/Label';
 import Input from 'components/Input';
 import Button from 'components/Button';
 import Icon from 'components/Icon';
+import Row from 'components/Grid/Row';
+import Column from 'components/Grid/Column';
 
 import './profile-page.scss';
 
@@ -24,62 +26,98 @@ class ProfilePage extends PureComponent {
     return (
       <div className={cx('profile-page', baseClass, isSideBarMinimised && `${baseClass}--stretched`)}>
         <h2 className="title">Profile</h2>
-        <Panel className="profile-page_form">
-          <h3 className="profile-page_form_title">General Information</h3>
-          <Label>
-            Full Name
-            <Input
-              theme="dark"
-              value="full_name"
-              name="full_name"
-            />
-          </Label>
-          <Label>
-            Phone
-            <Input
-              theme="dark"
-              name="phone"
-              value="phone"
-            />
-          </Label>
-          <Label>
-            Email
-            <Input
-              theme="dark"
-              type="email"
-              name="email"
-              value="email"
-            />
-          </Label>
-          <h3 className="profile-page_form_title">Change Password</h3>
-          <Label>
-            New Password
-            <Input
-              theme="dark"
-              placeholder="Enter New Password"
-              type="password"
-              name="password"
-              value="password"
-            />
-          </Label>
-          <Label>
-            Confirm Password
-            <Input
-              theme="dark"
-              placeholder="Confirm Password"
-              type="password"
-              name="confirm_password"
-              value="confirm_password"
-            />
-          </Label>
-          <Button
-            theme="primary"
-            className="profile-page_form_button"
+        <Row columnCount={2}>
+          <Column
+            style={{
+              background: '#888888',
+              padding: '10px',
+              textAlign: 'center'
+            }}
+            width={6}
           >
-            <Icon icon="check-square-o" />
-            Update Profile
-          </Button>
-        </Panel>
+            <Panel className="profile-page_form" title="I am:">
+              <Label>
+                Email
+                <Input
+                  theme="dark"
+                  type="email"
+                  name="email"
+                  value="email"
+                />
+              </Label>
+              <Label>
+                Phone
+                <Input
+                  theme="dark"
+                  name="phone"
+                  value="phone"
+                />
+              </Label>
+              <h3 className="profile-page_form_title">Change Password</h3>
+              <Label>
+                New Password
+                <Input
+                  theme="dark"
+                  placeholder="Enter New Password"
+                  type="password"
+                  name="password"
+                  value="password"
+                />
+              </Label>
+              <Label>
+                Confirm Password
+                <Input
+                  theme="dark"
+                  placeholder="Confirm Password"
+                  type="password"
+                  name="confirm_password"
+                  value="confirm_password"
+                />
+              </Label>
+              <Button
+                theme="primary"
+                className="profile-page_form_button"
+              >
+                <Icon icon="check-square-o" />
+                Update Profile
+              </Button>
+            </Panel>
+          </Column>
+          <Column
+            style={{
+              background: '#888888',
+              padding: '10px',
+              textAlign: 'center'
+            }}
+            width={6}
+          >
+            <Panel className="profile-page_form" title="My personality is:">
+              <Label>
+                Personality type
+                <Input
+                  theme="dark"
+                  value="Your personality type"
+                  name="pers_type"
+                />
+              </Label>
+              <Label>
+                Characteristics
+                <textarea rows="6" cols="50"
+                  theme="dark"
+                  value="Give some additional info about your personality"
+                  name="characteristics"
+                />
+              </Label>
+              <Button
+                theme="primary"
+                className="profile-page_form_button"
+              >
+                <Icon icon="check-square-o" />
+                Save Changes
+              </Button>
+            </Panel>
+          </Column>
+        </Row>
       </div>
     );
   }

@@ -26,7 +26,6 @@
     }
     .persmap-label {
       width: 50%;
-      display: inline-block;
       margin-bottom: 15px;
 
       & > span {
@@ -34,7 +33,6 @@
         width: 25%;
         font-size: 14px;
         margin-right: 0;
-        padding: 0 15px;
         vertical-align: middle;
       }
 
@@ -42,6 +40,14 @@
         @include box-sizing(border-box);
         padding: 0 15px;
         width: 75%;
+        margin-bottom: 15px;
+      }
+      & > textarea {
+        @include box-sizing(border-box);
+        padding: 0 15px;
+        width: 70%;
+        margin-bottom: 15px;
+
       }
     }
   }
