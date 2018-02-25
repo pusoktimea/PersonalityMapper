@@ -21,8 +21,14 @@ class ProfilePage extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      showModal: false
+      isOpen: false
     };
+  }
+
+  changeModalState = () => {
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
   }
 
   render() {
@@ -84,7 +90,6 @@ class ProfilePage extends PureComponent {
               <Button
                 theme="primary"
                 className="profile-page_form_button"
-                onClick={() => this.setState({showModal: true})}
               >
                 <Icon icon="check-square-o" />
                 Save Changes
@@ -126,6 +131,7 @@ class ProfilePage extends PureComponent {
               <Button
                 theme="info"
                 className="profile-page_form_button_modal"
+                onClick={this.changeModalState}
               >
                 <Icon icon="question-circle" />
                 Take Personality Test
@@ -134,10 +140,10 @@ class ProfilePage extends PureComponent {
           </Column>
         </Row>
         {
-          this.state.showModal &&
-          <Modal
-            title="Modal"
-          >
+          this.state.isOpen &&
+          <Modal title="Modal" 
+            size="large"
+            onClose={this.changeModalState}>
             <p>Your first modal</p>
           </Modal>
         }
