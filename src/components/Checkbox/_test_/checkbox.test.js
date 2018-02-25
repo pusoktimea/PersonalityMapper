@@ -4,52 +4,52 @@ import React from 'react';
 import {findDOMNode} from 'react-dom';
 import {renderIntoDocument, Simulate} from 'react-dom/test-utils';
 
-import Checkbox from '../index';
+import RadioButton from '../index';
 
 const changeHandler = jest.fn();
-let checkboxElement = null;
+let radioElement = null;
 
-describe('Checkbox component test', () => {
-  describe('Enabled Checkbox', () => {
+describe('RadioButton component test', () => {
+  describe('Enabled RadioButton', () => {
     it('renders into DOM', () => {
-      checkboxElement = findDOMNode(renderIntoDocument(
-        <Checkbox onChange={changeHandler} />
+      radioElement = findDOMNode(renderIntoDocument(
+        <RadioButton onChange={changeHandler} />
       ));
 
-      expect(checkboxElement).toBeTruthy();
+      expect(radioElement).toBeTruthy();
     });
 
-    it('Checkbox is not disabled', () => {
-      const classes = checkboxElement.classList;
-      const disabled = checkboxElement.querySelector('.persmap-checkbox_checkbox').disabled;
+    it('RadioButton is not disabled', () => {
+      const classes = radioElement.classList;
+      const disabled = radioElement.querySelector('.persmap-radio_radio').disabled;
 
       expect(disabled).toBeFalsy();
-      expect(classes).not.toContain('persmap-checkbox--disabled');
+      expect(classes).not.toContain('persmap-radio--disabled');
     });
 
     it('calls changeHandler on edit', () => {
-      const checkbox = checkboxElement.querySelector('.persmap-checkbox_checkbox');
-      Simulate.change(checkbox, {checked: true});
+      const radio = radioElement.querySelector('.persmap-radio_radio');
+      Simulate.change(radio, {checked: true});
 
       expect(changeHandler).toBeCalled();
     });
   });
 
-  describe('Disabled Checkbox', () => {
+  describe('Disabled RadioButton', () => {
     it('renders into DOM', () => {
-      checkboxElement = findDOMNode(renderIntoDocument(
-        <Checkbox disabled />
+      radioElement = findDOMNode(renderIntoDocument(
+        <RadioButton disabled />
       ));
 
-      expect(checkboxElement).toBeTruthy();
+      expect(radioElement).toBeTruthy();
     });
 
-    it('Checkbox is disabled', () => {
-      const classes = checkboxElement.classList;
-      const disabled = checkboxElement.querySelector('.persmap-checkbox_checkbox').disabled;
+    it('RadioButton is disabled', () => {
+      const classes = radioElement.classList;
+      const disabled = radioElement.querySelector('.persmap-radio_radio').disabled;
 
       expect(disabled).toBeTruthy();
-      expect(classes).toContain('persmap-checkbox--disabled');
+      expect(classes).toContain('persmap-radio--disabled');
     });
   });
 });

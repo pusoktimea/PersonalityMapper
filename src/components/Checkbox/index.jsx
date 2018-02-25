@@ -39,7 +39,7 @@ class RadioButton extends Component {
       'onChange'
     ]);
 
-    const baseClass = 'persmap-checkbox';
+    const baseClass = 'persmap-radio';
     return (
       <div className={cx(
         baseClass,
