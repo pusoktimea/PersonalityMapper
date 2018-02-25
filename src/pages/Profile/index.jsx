@@ -25,7 +25,7 @@ class ProfilePage extends PureComponent {
 
     return (
       <div className={cx('profile-page', baseClass, isSideBarMinimised && `${baseClass}--stretched`)}>
-        <h2 className="title">Profile</h2>
+        <h2 className="title">Timea Pusok</h2>
         <Row columnCount={2}>
           <Column
             style={{
@@ -113,6 +113,13 @@ class ProfilePage extends PureComponent {
               >
                 <Icon icon="check-square-o" />
                 Save Changes
+              </Button>
+              <Button
+                theme="info"
+                className="profile-page_form_button_modal"
+              >
+                <Icon icon="question-circle" />
+                Take Personality Test
               </Button>
             </Panel>
           </Column>

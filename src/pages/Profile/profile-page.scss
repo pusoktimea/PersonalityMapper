@@ -17,8 +17,10 @@
       margin-bottom: 12px;
       margin-left: 15px;
 
-      .persmap-icon {
-        margin-right: 10px;
+      &_modal{
+        margin-top: 25px;
+        margin-bottom: 12px;
+        margin-left: 25%;
       }
     }
 
@@ -76,6 +78,10 @@
         width: 75%;
         margin-bottom: 15px;
       }
+    }
+    
+    .persmap-icon {
+      margin-right: 10px;
     }
   }
 }
