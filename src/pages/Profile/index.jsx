@@ -9,7 +9,7 @@ import Button from 'components/Button';
 import Icon from 'components/Icon';
 import Row from 'components/Grid/Row';
 import Column from 'components/Grid/Column';
-import Modal from 'components/Modal'
+import Modal from 'components/Modal';
 
 import './profile-page.scss';
 
