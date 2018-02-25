@@ -1,0 +1,88 @@
+@import '~compass-mixins/lib/compass';
+@import "../../styles/_colors.scss";
+
+.profile-page {
+  &_form {
+    &_title {
+      border-bottom: 1px solid $alto;
+      color: $doveGray;
+      font-size: 20px;
+      line-height: 39px;
+      margin-bottom: 14px;
+      font-weight: 400;
+    }
+
+    &_button {
+      margin-top: 25px;
+      margin-bottom: 12px;
+      margin-left: 15px;
+
+      &_modal{
+        margin-top: 25px;
+        margin-bottom: 12px;
+        margin-left: 25%;
+      }
+    }
+
+    &_characteristics {
+
+      & > span {
+        width: 25%;
+        font-size: 14px;
+      }
+
+      & > .persmap-textarea {
+        @include box-sizing(border-box);
+        margin-bottom: 15px;
+        width: 75%;
+        padding: 0 15px;
+        color: red;
+        float: right;
+
+        & > textarea{
+          color: #FFFFFF;
+          border-color: #CBCBCB;
+          background-color: rgba(0, 0, 0, 0.4);
+          width: 93%;
+          border-radius: 5px;
+          outline: none;
+          height: 192px;
+          padding: 6px 12px;
+          vertical-align: middle;
+          font-size: 14px;
+          line-height: 1.42857143;
+          border: 1px solid transparent;
+        }
+      }
+    }
+
+    .persmap-input_input {
+      width: 100%;
+    }
+
+    .persmap-label {
+      width: 50%;
+      margin-bottom: 15px;
+
+      & > span {
+        @include box-sizing(border-box);
+        width: 25%;
+        font-size: 14px;
+        margin-right: 0;
+        vertical-align: middle;
+      }
+
+      & > .persmap-input {
+        @include box-sizing(border-box);
+        padding: 0 15px;
+        width: 75%;
+        margin-bottom: 15px;
+      }
+    }
+    
+    .persmap-icon {
+      margin-right: 10px;
+    }
+  }
+}
+
