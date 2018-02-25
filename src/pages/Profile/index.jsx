@@ -141,7 +141,7 @@ class ProfilePage extends PureComponent {
         </Row>
         {
           this.state.isOpen &&
-          <Modal title="Modal" 
+          <Modal title="Modal"
             size="large"
             onClose={this.changeModalState}>
             <p>Your first modal</p>
