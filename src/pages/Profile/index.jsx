@@ -10,8 +10,7 @@ import Icon from 'components/Icon';
 import Row from 'components/Grid/Row';
 import Column from 'components/Grid/Column';
 import Modal from 'components/Modal';
-import RadioButton from 'components/Modal';
-
+import RadioButton from 'components/RadioButton';
 import './profile-page.scss';
 
 class ProfilePage extends PureComponent {
@@ -149,9 +148,9 @@ class ProfilePage extends PureComponent {
             <Label>
               <RadioButton
                 disabled={false}
-                 name="test_radio"
+                name="test_radio"
               />
-              Test label
+            Test label
             </Label>
           </Modal>
         }
