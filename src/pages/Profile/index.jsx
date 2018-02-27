@@ -151,14 +151,14 @@ class ProfilePage extends PureComponent {
                 name="test_radio"
               />
             Answer1
-            <br/>
-            <RadioButton
+              <br />
+              <RadioButton
                 disabled={false}
                 name="test_radio"
               />
             Answer2
-            <br/>
-            <RadioButton
+              <br />
+              <RadioButton
                 disabled={false}
                 name="test_radio"
               />
