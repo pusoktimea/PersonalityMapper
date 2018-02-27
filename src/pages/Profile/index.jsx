@@ -144,13 +144,25 @@ class ProfilePage extends PureComponent {
           <Modal title="Modal"
             size="large"
             onClose={this.changeModalState}>
-            <p>Your first modal</p>
+            <p>Question 1</p>
             <Label>
               <RadioButton
                 disabled={false}
                 name="test_radio"
               />
-            Test label
+            Answer1
+            <br/>
+            <RadioButton
+                disabled={false}
+                name="test_radio"
+              />
+            Answer2
+            <br/>
+            <RadioButton
+                disabled={false}
+                name="test_radio"
+              />
+            Answer3
             </Label>
           </Modal>
         }
