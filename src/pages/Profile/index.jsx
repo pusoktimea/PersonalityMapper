@@ -9,12 +9,26 @@ import Button from 'components/Button';
 import Icon from 'components/Icon';
 import Row from 'components/Grid/Row';
 import Column from 'components/Grid/Column';
-
+import Modal from 'components/Modal';
+import RadioButton from 'components/RadioButton';
 import './profile-page.scss';
 
 class ProfilePage extends PureComponent {
   static propTypes = {
     isSideBarMinimised: PropTypes.bool
+  }
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      isOpen: false
+    };
+  }
+
+  changeModalState = () => {
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
   }
 
   render() {
@@ -117,6 +131,7 @@ class ProfilePage extends PureComponent {
               <Button
                 theme="info"
                 className="profile-page_form_button_modal"
+                onClick={this.changeModalState}
               >
                 <Icon icon="question-circle" />
                 Take Personality Test
@@ -124,6 +139,33 @@ class ProfilePage extends PureComponent {
             </Panel>
           </Column>
         </Row>
+        {
+          this.state.isOpen &&
+          <Modal title="Modal"
+            size="large"
+            onClose={this.changeModalState}>
+            <p>Question 1</p>
+            <Label>
+              <RadioButton
+                disabled={false}
+                name="test_radio"
+              />
+            Answer1
+              <br />
+              <RadioButton
+                disabled={false}
+                name="test_radio"
+              />
+            Answer2
+              <br />
+              <RadioButton
+                disabled={false}
+                name="test_radio"
+              />
+            Answer3
+            </Label>
+          </Modal>
+        }
       </div>
     );
   }

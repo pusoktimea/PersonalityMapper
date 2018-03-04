@@ -5,7 +5,7 @@ import omit from 'lodash.omit';
 
 import './style.scss';
 
-class Checkbox extends Component {
+class RadioButton extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -39,7 +39,7 @@ class Checkbox extends Component {
       'onChange'
     ]);
 
-    const baseClass = 'persmap-checkbox';
+    const baseClass = 'persmap-radio';
     return (
       <div className={cx(
         baseClass,
@@ -48,10 +48,10 @@ class Checkbox extends Component {
       )}>
         <input
           {...inputProps}
-          className={`${baseClass}_checkbox`}
+          className={`${baseClass}_radio`}
           value={value}
           onChange={this.onChange}
-          type="checkbox"
+          type="radio"
           checked={checked}
         />
       </div>
@@ -59,7 +59,7 @@ class Checkbox extends Component {
   }
 }
 
-Checkbox.propTypes = {
+RadioButton.propTypes = {
   value: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number
@@ -70,8 +70,8 @@ Checkbox.propTypes = {
   className: PropTypes.string
 };
 
-Checkbox.defaultProps = {
+RadioButton.defaultProps = {
   disabled: false
 };
 
-export default Checkbox;
+export default RadioButton;
