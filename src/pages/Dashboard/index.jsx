@@ -17,18 +17,21 @@ class Dashboard extends PureComponent {
   render() {
     const doughnut_data = {
       labels: [
-        'Norbi is the Best',
-        'Timi is the Best'
+        'Personality X',
+        'Personality Y',
+        'Personality Z'
       ],
       datasets: [{
-        data: [300, 50],
+        data: [300, 50, 150],
         backgroundColor: [
           '#FF6384',
-          '#36A2EB'
+          '#36A2EB',
+          '#EEEEEE'
         ],
         hoverBackgroundColor: [
           '#FF6384',
-          '#36A2EB'
+          '#36A2EB',
+          '#EEEEEE'
         ]
       }]
     };
