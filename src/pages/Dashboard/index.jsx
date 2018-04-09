@@ -1,6 +1,7 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
+import {doGet} from '../../utils/APIUtils';
 
 import {Doughnut, Bar} from 'react-chartjs-2';
 
@@ -11,13 +12,29 @@ import './dashboard-page.scss';
 
 class Dashboard extends PureComponent {
   static propTypes = {
+    isTablesLoaded: PropTypes.bool,
+    onGetTables: PropTypes.func,
+    tables: PropTypes.object,
     isSideBarMinimised: PropTypes.bool
+  };
+
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
+  componentWillMount() {
+    return doGet('notes/5aaed2963a1c9b858fd5b404').then((response) => {
+      this.setState({text: response.data.text});
+    });
+
   }
 
   render() {
     const doughnut_data = {
       labels: [
-        'Personality X',
+        // 'Personality X',
+        this.state.text,
         'Personality Y',
         'Personality Z'
       ],
