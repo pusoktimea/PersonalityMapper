@@ -49,6 +49,15 @@ class ProfilePage extends PureComponent {
           >
             <Panel className="profile-page_form" title="I am:">
               <Label>
+                Name
+                <Input
+                  theme="dark"
+                  type="text"
+                  name="name"
+                  value="name"
+                />
+              </Label>
+              <Label>
                 Email
                 <Input
                   theme="dark"
