@@ -23,18 +23,18 @@ class Dashboard extends PureComponent {
     this.state = {};
   }
 
-  componentWillMount() {
-    return doGet('notes/5aaed2963a1c9b858fd5b404').then((response) => {
-      this.setState({text: response.data.text});
-    });
+  // componentWillMount() {
+  //   return doGet('notes/5aaed2963a1c9b858fd5b404').then((response) => {
+  //     this.setState({text: response.data.text});
+  //   });
 
-  }
+  // }
 
   render() {
     const doughnut_data = {
       labels: [
-        // 'Personality X',
-        this.state.text,
+        'Personality X',
+        // this.state.text,
         'Personality Y',
         'Personality Z'
       ],

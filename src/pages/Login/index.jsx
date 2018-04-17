@@ -22,11 +22,14 @@ class Login extends PureComponent {
     };
   }
 
+  
   loginHandler = () => {
-    return doPost('login', {
+    const data = {
       username: this.state.username,
       password: this.state.password
-    }).then((response) => {
+    }
+    
+    return doPost('login', data).then((response) => {
       if (response.auth == true) {
         this.props.history.push('/dashboard');
       }
