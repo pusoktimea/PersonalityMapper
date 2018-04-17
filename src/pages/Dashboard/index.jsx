@@ -1,7 +1,7 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import {doGet} from '../../utils/APIUtils';
+// import {doGet} from '../../utils/APIUtils';
 
 import {Doughnut, Bar} from 'react-chartjs-2';
 
