@@ -35,6 +35,11 @@ $baseClass: '.activate-login';
       text-align: center;
       margin-bottom: 20px;
     }
+    &_error-message {
+      color: $red;
+      font-size: 16px;
+      line-height: 18px;
+    }
   }
 }
 .activate-input_input {
