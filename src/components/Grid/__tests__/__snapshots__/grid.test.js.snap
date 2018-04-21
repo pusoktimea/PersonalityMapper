@@ -3,7 +3,6 @@
 exports[`Grid test renders and matches snapshot 1`] = `
 <div
   className="persmap-row persmap-row--2"
-  columnCount={2}
 >
   <div
     className="persmap-column persmap-column--6"

@@ -1,6 +1,8 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
+import cookie from 'js-cookie';
+import {doGet} from '../../utils/APIUtils';
 
 import Panel from 'components/Panel';
 import Label from 'components/Label';
@@ -21,8 +23,26 @@ class ProfilePage extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      isOpen: false
+      isOpen: false,
+      name: 'Your Name',
+      email: 'Your Email',
+      phoneNbr: 123456789,
+      persType: 'Your personality type',
+      characteristics: 'Give some additional info about your personality'
     };
+  }
+
+  componentDidMount() {
+    const loggedInUser = cookie.get('loggedInUser');
+    return doGet(`userInfo/${loggedInUser}`).then((response) => {
+      this.setState({
+        name: response.data.username,
+        email: response.data.email,
+        phoneNbr: response.data.phone,
+        persType: response.data.persType,
+        characteristics: response.data.characteristics
+      });
+    });
   }
 
   changeModalState = () => {
@@ -35,6 +55,13 @@ class ProfilePage extends PureComponent {
     const {
       isSideBarMinimised
     } = this.props;
+    const {
+      name,
+      email,
+      phoneNbr,
+      persType,
+      characteristics
+    } = this.state;
     const baseClass = 'main-content';
 
     return (
@@ -52,9 +79,9 @@ class ProfilePage extends PureComponent {
                 Name
                 <Input
                   theme="dark"
-                  type="text"
                   name="name"
-                  value="name"
+                  value={name}
+                  onChange={this.changeHandler}
                 />
               </Label>
               <Label>
@@ -63,7 +90,8 @@ class ProfilePage extends PureComponent {
                   theme="dark"
                   type="email"
                   name="email"
-                  value="email"
+                  value={email}
+                  onChange={this.changeHandler}
                 />
               </Label>
               <Label>
@@ -72,7 +100,8 @@ class ProfilePage extends PureComponent {
                   theme="dark"
                   type="number"
                   name="phone"
-                  value="phone"
+                  value={phoneNbr}
+                  onChange={this.changeHandler}
                 />
               </Label>
               <h3 className="profile-page_form_title">Change Password</h3>
@@ -117,7 +146,8 @@ class ProfilePage extends PureComponent {
                 <Input
                   theme="dark"
                   type="text"
-                  value="Your personality type"
+                  value={persType}
+                  onChange={this.changeHandler}
                   name="pers_type"
                 />
               </Label>
@@ -125,7 +155,8 @@ class ProfilePage extends PureComponent {
                 <span>Characteristics</span>
                 <div className="persmap-textarea">
                   <textarea
-                    value="Give some additional info about your personality"
+                    defaultValue={characteristics}
+                    onChange={this.changeHandler}
                     name="characteristics"
                   />
                 </div>

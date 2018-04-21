@@ -38,6 +38,7 @@ class Login extends PureComponent {
         const minutes = 30;
         expireDate.setTime(expireDate.getTime() + (minutes * 60 * 1000));
         cookie.set('authToken', response.token, {expires: expireDate});
+        cookie.set('loggedInUser', response.user, {expires: expireDate});
         this.props.history.push('/dashboard');
       } else {
         this.setState({errorMessage: 'Whooops! Incorrect username or password!'});
