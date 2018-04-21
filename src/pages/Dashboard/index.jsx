@@ -1,6 +1,7 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
+// import cookie from 'js-cookie';
 // import {doGet} from '../../utils/APIUtils';
 
 import {Doughnut, Bar} from 'react-chartjs-2';
@@ -24,8 +25,10 @@ class Dashboard extends PureComponent {
   }
 
   // componentWillMount() {
-  //   return doGet('notes/5aaed2963a1c9b858fd5b404').then((response) => {
-  //     this.setState({text: response.data.text});
+  //   const loggedInUser = cookie.get('loggedInUser');
+  //   console.log(loggedInUser);
+  //   return doGet(`userInfo/${loggedInUser}`).then((response) => {
+  //     console.log(response);
   //   });
 
   // }
