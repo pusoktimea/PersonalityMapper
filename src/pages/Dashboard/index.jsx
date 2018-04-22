@@ -1,12 +1,14 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-// import {doGet} from '../../utils/APIUtils';
+import {doGet} from '../../utils/APIUtils';
 
 import {Doughnut, Bar} from 'react-chartjs-2';
 
 import Row from 'components/Grid/Row';
 import Column from 'components/Grid/Column';
+import Panel from 'components/Panel';
+import Icon from 'components/Icon';
 
 import './dashboard-page.scss';
 
@@ -20,15 +22,22 @@ class Dashboard extends PureComponent {
 
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      allTeams: [],
+      allUsers: []
+    };
   }
 
-  // componentWillMount() {
-  //   return doGet('notes/5aaed2963a1c9b858fd5b404').then((response) => {
-  //     this.setState({text: response.data.text});
-  //   });
+  componentWillMount() {
 
-  // }
+    const teamsRequest=doGet('allTeams').then((response) => {
+      this.setState({allTeams: response.data});
+    });
+    const usersRequest=doGet('allUsers').then((response) => {
+      this.setState({allUsers: response.data});
+    });
+    console.log(this.state);
+  }
 
   render() {
     const doughnut_data = {
@@ -76,8 +85,8 @@ class Dashboard extends PureComponent {
     return (
       <div className={cx('profile-page', baseClass, isSideBarMinimised && `${baseClass}--stretched`)}>
         <h2 className="title">Dashboard</h2>
-        <Row columnCount={2}>
-          <Column
+        <Row columnCount={3}>
+          {/* <Column
             style={{
               textAlign: 'center'
             }}
@@ -85,7 +94,7 @@ class Dashboard extends PureComponent {
           >
             1
             <Doughnut data={doughnut_data} />
-          </Column>
+          </Column> */}
           <Column
             style={{
               textAlign: 'center'
@@ -94,6 +103,38 @@ class Dashboard extends PureComponent {
           >
             2
             <Bar data={bar_data} />
+          </Column>
+          <Column
+            width={3}
+          >
+            <Panel title='My Company'>
+             {
+                this.state.allUsers.map((item, index) => (
+                  <div key={index}>
+                    <Icon icon='user'/>
+                    <p>
+                      {item.name}
+                    </p>
+                  </div>
+                ))
+              }
+            </Panel>
+          </Column>
+          <Column
+            width={3}
+          >
+            <Panel title='Teams'>
+              {
+                this.state.allTeams.map((item, index) => (
+                  <div key={index}>
+                    <Icon icon='users'/>
+                    <p>
+                      {item.team}
+                    </p>
+                  </div>
+                ))
+              }
+            </Panel>
           </Column>
         </Row>
       </div>
