@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import {doGet} from '../../utils/APIUtils';
 
-import {Doughnut, Bar} from 'react-chartjs-2';
+// import {Doughnut, Bar} from 'react-chartjs-2';
+import  {Bar} from 'react-chartjs-2';
 
 import Row from 'components/Grid/Row';
 import Column from 'components/Grid/Column';
@@ -29,38 +30,36 @@ class Dashboard extends PureComponent {
   }
 
   componentWillMount() {
-
-    const teamsRequest=doGet('allTeams').then((response) => {
+    doGet('allTeams').then((response) => {
       this.setState({allTeams: response.data});
     });
-    const usersRequest=doGet('allUsers').then((response) => {
+    doGet('allUsers').then((response) => {
       this.setState({allUsers: response.data});
     });
-    console.log(this.state);
   }
 
   render() {
-    const doughnut_data = {
-      labels: [
-        'Personality X',
-        // this.state.text,
-        'Personality Y',
-        'Personality Z'
-      ],
-      datasets: [{
-        data: [300, 50, 150],
-        backgroundColor: [
-          '#FF6384',
-          '#36A2EB',
-          '#EEEEEE'
-        ],
-        hoverBackgroundColor: [
-          '#FF6384',
-          '#36A2EB',
-          '#EEEEEE'
-        ]
-      }]
-    };
+    // const doughnut_data = {
+    //   labels: [
+    //     'Personality X',
+    //     // this.state.text,
+    //     'Personality Y',
+    //     'Personality Z'
+    //   ],
+    //   datasets: [{
+    //     data: [300, 50, 150],
+    //     backgroundColor: [
+    //       '#FF6384',
+    //       '#36A2EB',
+    //       '#EEEEEE'
+    //     ],
+    //     hoverBackgroundColor: [
+    //       '#FF6384',
+    //       '#36A2EB',
+    //       '#EEEEEE'
+    //     ]
+    //   }]
+    // };
 
     const bar_data = {
       labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
@@ -107,11 +106,11 @@ class Dashboard extends PureComponent {
           <Column
             width={3}
           >
-            <Panel title='My Company'>
-             {
+            <Panel title="My Company">
+              {
                 this.state.allUsers.map((item, index) => (
                   <div key={index}>
-                    <Icon icon='user'/>
+                    <Icon icon="user" />
                     <p>
                       {item.name}
                     </p>
@@ -123,11 +122,11 @@ class Dashboard extends PureComponent {
           <Column
             width={3}
           >
-            <Panel title='Teams'>
+            <Panel title="Teams">
               {
                 this.state.allTeams.map((item, index) => (
                   <div key={index}>
-                    <Icon icon='users'/>
+                    <Icon icon="users" />
                     <p>
                       {item.team}
                     </p>
