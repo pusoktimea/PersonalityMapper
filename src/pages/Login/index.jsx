@@ -49,11 +49,11 @@ class Login extends PureComponent {
   render() {
     const {username, password} = this.state;
     return (
-      <div className="activate-login">
-        <div className="activate-login_form">
-          <img className="activate-login_form_logo" src={logo} width="300" />
-          <h2 className="activate-login_form_title">Sign in</h2>
-          <div className="activate-login_form_input">
+      <div className="login">
+        <div className="login_form">
+          <img className="login_form_logo" src={logo} width="300" />
+          <h2 className="login_form_title">Sign in</h2>
+          <div className="login_form_input">
             <Label>
               <Input
                 icon="user"
@@ -67,7 +67,7 @@ class Login extends PureComponent {
               />
             </Label>
           </div>
-          <div className="activate-login_form_input">
+          <div className="login_form_input">
             <Label>
               <Input
                 icon="lock"
@@ -80,11 +80,11 @@ class Login extends PureComponent {
                 onChange={value => this.setState({password: value})}
               />
             </Label>
-            <p className="activate-login_form_error-message">
+            <p className="login_form_error-message">
               {this.state.errorMessage}
             </p>
           </div>
-          <div className="activate-login_form_input">
+          <div className="login_form_input">
             <Button
               onClick={this.loginHandler}
               disabled={false}
