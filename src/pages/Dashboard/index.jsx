@@ -110,8 +110,8 @@ class Dashboard extends PureComponent {
               {
                 this.state.allUsers.map((item, index) => (
                   <div key={index}>
-                    <Icon icon="user" /> 
-                    <span> 
+                    <Icon icon="user" />
+                    <span>
                       {item.name}
                     </span>
                   </div>
