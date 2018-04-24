@@ -82,7 +82,7 @@ class Dashboard extends PureComponent {
     const baseClass = 'main-content';
 
     return (
-      <div className={cx('profile-page', baseClass, isSideBarMinimised && `${baseClass}--stretched`)}>
+      <div className={cx('dashboard-page', baseClass, isSideBarMinimised && `${baseClass}--stretched`)}>
         <h2 className="title">Dashboard</h2>
         <Row columnCount={3}>
           {/* <Column
@@ -110,10 +110,10 @@ class Dashboard extends PureComponent {
               {
                 this.state.allUsers.map((item, index) => (
                   <div key={index}>
-                    <Icon icon="user" />
-                    <p>
+                    <Icon icon="user" /> 
+                    <span> 
                       {item.name}
-                    </p>
+                    </span>
                   </div>
                 ))
               }
@@ -127,9 +127,9 @@ class Dashboard extends PureComponent {
                 this.state.allTeams.map((item, index) => (
                   <div key={index}>
                     <Icon icon="users" />
-                    <p>
+                    <span>
                       {item.team}
-                    </p>
+                    </span>
                   </div>
                 ))
               }
