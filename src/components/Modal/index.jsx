@@ -27,7 +27,7 @@ class Modal extends Component {
       Dismiss
     } = BSModal;
 
-    const baseClass = 'activate-modal';
+    const baseClass = 'persmap-modal';
 
     return (
       <BSModal

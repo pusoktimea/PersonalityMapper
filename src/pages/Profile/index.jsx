@@ -1,6 +1,4 @@
 import React, {Component, Fragment} from 'react';
-import PropTypes from 'prop-types';
-import cx from 'classnames';
 import cookie from 'js-cookie';
 import {doGet} from '../../utils/APIUtils';
 
@@ -17,10 +15,6 @@ import Loader from 'components/Loader';
 import './profile-page.scss';
 
 class ProfilePage extends Component {
-  static propTypes = {
-    isSideBarMinimised: PropTypes.bool
-  }
-
   constructor(props) {
     super(props);
     this.state = {
@@ -29,14 +23,15 @@ class ProfilePage extends Component {
       email: 'Your Email',
       phoneNbr: 123456789,
       persType: 'Your personality type',
-      characteristics: 'Give some additional info about your personality'
+      characteristics: 'Give some additional info about your personality',
+      allQuestions: []
     };
     this.handleTextAreaChange = this.handleTextAreaChange.bind(this);
   }
 
   componentDidMount() {
     const loggedInUser = cookie.get('loggedInUser');
-    return doGet(`userInfo/${loggedInUser}`).then((response) => {
+    doGet(`userInfo/${loggedInUser}`).then((response) => {
       this.setState({
         name: response.data.username,
         email: response.data.email,
@@ -44,6 +39,9 @@ class ProfilePage extends Component {
         persType: response.data.persType,
         characteristics: response.data.characteristics
       });
+    });
+    doGet('mbtiQuestions').then((response) => {
+      this.setState({allQuestions: response.data});
     });
   }
 
@@ -63,19 +61,16 @@ class ProfilePage extends Component {
 
   render() {
     const {
-      isSideBarMinimised
-    } = this.props;
-    const {
       name,
       email,
       phoneNbr,
       persType,
       characteristics
     } = this.state;
-    const baseClass = 'main-content';
+    const baseClass = 'profile-page';
 
     return (
-      <div className={cx('profile-page', baseClass, isSideBarMinimised && `${baseClass}--stretched`)}>
+      <div className={baseClass}>
         <h2 className="title">{name}</h2>
         <Row columnCount={2}>
           {
@@ -88,7 +83,7 @@ class ProfilePage extends Component {
                   }}
                   width={6}
                 >
-                  <Panel className="profile-page_form" title="I am:">
+                  <Panel className={`${baseClass}_form`} title="I am:">
                     <Label>
                       Name
                       <Input
@@ -118,7 +113,7 @@ class ProfilePage extends Component {
                         onChange={this.changeHandler}
                       />
                     </Label>
-                    {/* <h3 className="profile-page_form_title">Change Password</h3>
+                    {/* <h3 className={`${baseClass}_form_title`}>Change Password</h3>
                     <Label>
                       New Password
                       <Input
@@ -141,7 +136,7 @@ class ProfilePage extends Component {
                     </Label> */}
                     <Button
                       theme="primary"
-                      className="profile-page_form_button"
+                      className={`${baseClass}_form_button`}
                     >
                       <Icon icon="check-square-o" />
                       Save Changes
@@ -154,7 +149,7 @@ class ProfilePage extends Component {
                   }}
                   width={6}
                 >
-                  <Panel className="profile-page_form" title="My personality is:">
+                  <Panel className={`${baseClass}_form`} title="My personality is:">
                     <Label>
                       Personality type
                       <Input
@@ -167,7 +162,7 @@ class ProfilePage extends Component {
                         rows="5"
                       />
                     </Label>
-                    <div className="profile-page_form_characteristics">
+                    <div className={`${baseClass}_form_characteristics`}>
                       <span>Characteristics</span>
                       <div className="persmap-textarea">
                         <textarea
@@ -179,14 +174,14 @@ class ProfilePage extends Component {
                     </div>
                     <Button
                       theme="primary"
-                      className="profile-page_form_button"
+                      className={`${baseClass}_form_button`}
                     >
                       <Icon icon="check-square-o" />
                       Save Changes
                     </Button>
                     <Button
                       theme="info"
-                      className="profile-page_form_button_modal"
+                      className={`${baseClass}_form_button_modal`}
                       onClick={this.changeModalState}
                     >
                       <Icon icon="question-circle" />
@@ -199,29 +194,36 @@ class ProfilePage extends Component {
         </Row>
         {
           this.state.isOpen &&
-          <Modal title="Modal"
+          <Modal title="MBTI Personality Test"
             size="large"
-            onClose={this.changeModalState}>
-            <p>Question 1</p>
-            <Label>
-              <RadioButton
-                disabled={false}
-                name="test_radio"
-              />
-            Answer1
-              <br />
-              <RadioButton
-                disabled={false}
-                name="test_radio"
-              />
-            Answer2
-              <br />
-              <RadioButton
-                disabled={false}
-                name="test_radio"
-              />
-            Answer3
-            </Label>
+            onClose={this.changeModalState}
+            className={`${baseClass}_profile-modal`}>
+            <p> Choose an answer from each question below: </p>
+            {
+              this.state.allQuestions.map((item,index) => (
+                <div key={index}>
+                  <span className={`${baseClass}_profile-modal_question`}>
+                    {item.question}
+                  </span>
+                  <Label>
+                    <div className={`${baseClass}_profile-modal_answer`}>
+                      <RadioButton
+                        disabled={false}
+                        name="test_radio"
+                      />
+                      {item.answerA}
+                    </div>
+                    <div className={`${baseClass}_profile-modal_answer`}>
+                      <RadioButton
+                        disabled={false}
+                        name="test_radio"
+                      />
+                      {item.answerB}
+                    </div>
+                  </Label>
+                </div>
+              ))
+            }
           </Modal>
         }
       </div>
