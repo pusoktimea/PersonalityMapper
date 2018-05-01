@@ -27,7 +27,7 @@ class Modal extends Component {
       Dismiss
     } = BSModal;
 
-    const baseClass = 'activate-modal';
+    const baseClass = 'persmap-modal';
 
     return (
       <BSModal
@@ -50,7 +50,7 @@ class Modal extends Component {
         <Footer>
           {
             showCancel &&
-            <Dismiss className="activate-button activate-button--default cancel-button">Cancel</Dismiss>
+            <Dismiss className="persmap-button persmap-button--danger">Cancel</Dismiss>
           }
           {submitButton}
         </Footer>
