@@ -17,11 +17,23 @@ class TopNavigation extends PureComponent {
   static propTypes = {
     history: PropTypes.object
   }
+  constructor(props) {
+    super(props);
+    this.state = {
+      username: ''
+    };
+  }
+
+  componentWillMount() {
+    const loggedInUser = cookie.get('loggedInUser');
+    this.setState({username: loggedInUser});
+  }
   // when clicking Sign Out it calls the logoutHandler function that removed the
   // authToken from the cookies and redirects you to the /login
   logoutHandler = () => {
     cookie.remove('authToken').then(() => {
       this.props.history.push('/login');
+      cookie.remove('loggedInUser');
     });
   }
 
@@ -30,7 +42,7 @@ class TopNavigation extends PureComponent {
       <div className="persmap-top-navigation">
         <Link to="/dashboard" className="persmap-top-navigation_logo"><img src={logo} width="300" /></Link>
         <div className="persmap-top-navigation_profile">
-          <Link to="/profile" className="persmap-top-navigation_profile_name"><span>Hi, </span>Timea Pusok</Link>
+          <Link to="/profile" className="persmap-top-navigation_profile_name"><span>Hi, </span>{this.state.username}</Link>
           <Tooltip
             overlay={(
               <ul className="profile-dropdown">
