@@ -16,11 +16,13 @@
       margin-top: 25px;
       margin-bottom: 12px;
       margin-left: 15px;
+      float: right;
+      .persmap-icon {
+        margin-right: 10px;
+      }
 
-      &_modal{
-        margin-top: 25px;
-        margin-bottom: 12px;
-        margin-left: 25%;
+      &_pers-test{
+        margin: 10px;
       }
     }
 

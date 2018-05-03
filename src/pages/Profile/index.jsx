@@ -1,6 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import cookie from 'js-cookie';
-import {doGet} from '../../utils/APIUtils';
+import cx from 'classnames';
+import {doGet, doPatch} from '../../utils/APIUtils';
 
 import Panel from 'components/Panel';
 import Label from 'components/Label';
@@ -19,6 +20,7 @@ class ProfilePage extends Component {
     super(props);
     this.state = {
       isOpen: false,
+      isButtonStateOnSave: false,
       name: 'Your Name',
       email: 'Your Email',
       phoneNbr: 123456789,
@@ -59,8 +61,30 @@ class ProfilePage extends Component {
     });
   }
 
+  changeButtonState = () => {
+    this.setState({
+      isButtonStateOnSave: !this.state.isButtonStateOnSave
+    });
+  }
+
+  saveProfile = () => {
+    const data = {
+      name: this.state.name,
+      email: this.state.email,
+      phone: this.state.phoneNbr,
+      persType: this.state.persType,
+      characteristics: this.state.characteristics
+    };
+    const loggedInUser = cookie.get('loggedInUser');
+    doPatch(`userInfo/${loggedInUser}`, data).then((response) => {
+      // console.log(response);
+    });
+    this.changeButtonState();
+  }
+
   render() {
     const {
+      isButtonStateOnSave,
       name,
       email,
       phoneNbr,
@@ -70,13 +94,34 @@ class ProfilePage extends Component {
     const baseClass = 'profile-page';
 
     return (
-      <div className={baseClass}>
+      <div className={cx('main-content', baseClass)}>
         <h2 className="title">{name}</h2>
-        <Row columnCount={2}>
-          {
-            this.state.name === 'Your Name' ?
-              <Loader /> :
-              <Fragment>
+        {
+          this.state.name === 'Your Name' ?
+            <Loader /> :
+            <Fragment>
+              <Row columnCount={1}>
+                {
+                  isButtonStateOnSave ?
+                    <Button
+                      theme="info"
+                      className={`${baseClass}_form_button`}
+                      onClick={this.saveProfile}
+                    >
+                      <Icon icon="save" />
+                    Save Changes
+                    </Button> :
+                    <Button
+                      theme="primary"
+                      className={`${baseClass}_form_button`}
+                      onClick={this.changeButtonState}
+                    >
+                      <Icon icon="check-square-o" />
+                    Update Profile
+                    </Button>
+                }
+              </Row>
+              <Row columnCount={2}>
                 <Column
                   style={{
                     textAlign: 'center'
@@ -85,22 +130,24 @@ class ProfilePage extends Component {
                 >
                   <Panel className={`${baseClass}_form`} title="I am:">
                     <Label>
-                      Name
+                    Name
                       <Input
                         theme="dark"
                         name="name"
                         value={name}
                         onChange={this.changeHandler}
+                        disabled={!isButtonStateOnSave}
                       />
                     </Label>
                     <Label>
-                      Email
+                    Email
                       <Input
                         theme="dark"
                         type="email"
                         name="email"
                         value={email}
                         onChange={this.changeHandler}
+                        disabled={!isButtonStateOnSave}
                       />
                     </Label>
                     <Label>
@@ -111,36 +158,9 @@ class ProfilePage extends Component {
                         name="phoneNbr"
                         value={phoneNbr}
                         onChange={this.changeHandler}
+                        disabled={!isButtonStateOnSave}
                       />
                     </Label>
-                    {/* <h3 className={`${baseClass}_form_title`}>Change Password</h3>
-                    <Label>
-                      New Password
-                      <Input
-                        theme="dark"
-                        placeholder="Enter New Password"
-                        type="password"
-                        name="password"
-                        value="password"
-                      />
-                    </Label>
-                    <Label>
-                      Confirm Password
-                      <Input
-                        theme="dark"
-                        placeholder="Confirm Password"
-                        type="password"
-                        name="confirm_password"
-                        value="confirm_password"
-                      />
-                    </Label> */}
-                    <Button
-                      theme="primary"
-                      className={`${baseClass}_form_button`}
-                    >
-                      <Icon icon="check-square-o" />
-                      Save Changes
-                    </Button>
                   </Panel>
                 </Column>
                 <Column
@@ -151,7 +171,7 @@ class ProfilePage extends Component {
                 >
                   <Panel className={`${baseClass}_form`} title="My personality is:">
                     <Label>
-                      Personality type
+                    Personality type
                       <Input
                         theme="dark"
                         type="text"
@@ -160,6 +180,7 @@ class ProfilePage extends Component {
                         name="persType"
                         cols="40"
                         rows="5"
+                        disabled={!isButtonStateOnSave}
                       />
                     </Label>
                     <div className={`${baseClass}_form_characteristics`}>
@@ -169,19 +190,13 @@ class ProfilePage extends Component {
                           value={characteristics}
                           onChange={this.handleTextAreaChange}
                           name="characteristics"
+                          disabled={!isButtonStateOnSave}
                         />
                       </div>
                     </div>
                     <Button
-                      theme="primary"
-                      className={`${baseClass}_form_button`}
-                    >
-                      <Icon icon="check-square-o" />
-                      Save Changes
-                    </Button>
-                    <Button
                       theme="info"
-                      className={`${baseClass}_form_button_modal`}
+                      className={`${baseClass}_form_button_pers-test`}
                       onClick={this.changeModalState}
                     >
                       <Icon icon="question-circle" />
@@ -189,9 +204,9 @@ class ProfilePage extends Component {
                     </Button>
                   </Panel>
                 </Column>
-              </Fragment>
-          }
-        </Row>
+              </Row>
+            </Fragment>
+        }
         {
           this.state.isOpen &&
           <Modal title="MBTI Personality Test"

@@ -39,6 +39,23 @@ export const doPost = (url, data, skipContentType = false) => {
   });
 };
 
+export const doPut = (url, data, skipContentType = false) => {
+  return axios.put(apiHost() + url, data, {
+    headers: headerKeys(skipContentType),
+    transformRequest: (obj) => {
+      const str = [];
+      for (let p in obj) {
+        str.push(encodeURIComponent(p) + '=' + encodeURIComponent(obj[p]));
+      }
+      return str.join('&');
+    }
+  }).then((response) => {
+    return response.data;
+  }).catch((error) => {
+    console.error('API error: ', error); // eslint-disable-line no-console
+  });
+};
+
 export const doPatch = (url, data, skipContentType = false) => {
   return axios.patch(apiHost() + url, data, {
     headers: headerKeys(skipContentType),
