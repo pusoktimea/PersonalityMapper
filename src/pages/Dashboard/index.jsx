@@ -2,7 +2,9 @@ import React, {PureComponent, Fragment} from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import cookie from 'js-cookie';
+
 import {doGet} from '../../utils/APIUtils';
+
 
 import {Doughnut, Bar} from 'react-chartjs-2';
 
@@ -27,6 +29,7 @@ class Dashboard extends PureComponent {
     this.state = {
       allTeams: [],
       allUsers: [],
+      allPerstype: {},
       team: null
     };
   }
@@ -39,6 +42,19 @@ class Dashboard extends PureComponent {
     });
     doGet('allUsers').then((response) => {
       this.setState({allUsers: response.data});
+    });
+    doGet('allPerstype').then((response) => {
+      const allPersType = response.data.map(a => (a.profile.persType));
+      const persTypeCounter = allPersType.reduce((persTypeCount, currentPerstype) =>  {
+        if(typeof persTypeCount[currentPerstype] !== 'undefined'){
+          persTypeCount[currentPerstype]++;
+          return persTypeCount;
+        } else {
+          persTypeCount[currentPerstype] = 1;
+          return persTypeCount;
+        }
+      }, {});
+      this.setState({allPerstype: persTypeCounter});
     });
     doGet(`userInfo/${loggedInUser}`).then((response) => {
       this.setState({team: response.data.team});
@@ -65,25 +81,31 @@ class Dashboard extends PureComponent {
     };
   }
 
-  render() {
-    const bar_data = {
-      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+  barChart() {
+    const persTypes = Object.keys(this.state.allPerstype);
+    const persTypeNumbers = Object.values(this.state.allPerstype);
+    persTypeNumbers.push(0);
+    return {
+      labels: persTypes,
       datasets: [
         {
-          label: 'Dummy Data',
+          label: 'MBTI Personality Type Test',
           backgroundColor: 'rgba(255,99,132,0.2)',
           borderColor: 'rgba(255,99,132,1)',
           borderWidth: 1,
           hoverBackgroundColor: 'rgba(255,99,132,0.4)',
           hoverBorderColor: 'rgba(255,99,132,1)',
-          data: [65, 59, 80, 81, 56, 55, 40]
+          data: persTypeNumbers
         }
       ]
     };
+  }
 
-    const doughnut_data = {
+  doughnutData() {
+    // Team Chart
+    return {
       labels: [
-        'Personality X',
+        'X',
         // this.state.text,
         'Personality Y',
         'Personality Z'
@@ -101,6 +123,33 @@ class Dashboard extends PureComponent {
           '#EEEEEE'
         ]
       }]
+    };
+  }
+
+  render() {
+
+    const chartOptions = {
+      tooltips: {
+        // enabled: false,
+        // mode: 'index',
+        // position: 'nearest',
+        //Set the name of the custom function here
+
+        mode: 'label',
+        callbacks: {
+          title: function(tooltipItem, data) {
+            return data.labels[tooltipItem[0].index];
+          },
+
+          beforeLabel: function(tooltipItem, data) {
+            return 'Data1: ';
+          },
+
+          label: function(tooltipItem, data) {
+            return 'Data2: ';
+          }
+        }
+      }
     };
 
     const {
@@ -122,26 +171,12 @@ class Dashboard extends PureComponent {
                   }}
                   width={getViews.chartWidth}
                 >
-                  Title
+                  Personality types
                   {
                     this.state.team === 'Management' ?
-                      <Bar data={bar_data} /> :
-                      <Doughnut data={doughnut_data} />
+                      <Bar data={this.barChart()} options={chartOptions} /> :
+                      <Doughnut data={this.doughnutData()} />
                   }
-                </Column>
-                <Column width={3}>
-                  <Panel title="My Company">
-                    {
-                      this.state.allUsers.map((item, index) => (
-                        <div key={index}>
-                          <Icon icon="user" />
-                          <span>
-                            {item.name}
-                          </span>
-                        </div>
-                      ))
-                    }
-                  </Panel>
                 </Column>
                 {
                   this.state.team === 'Management' &&
@@ -160,6 +195,20 @@ class Dashboard extends PureComponent {
                     </Panel>
                   </Column>
                 }
+                <Column width={3}>
+                  <Panel title="My Company">
+                    {
+                      this.state.allUsers.map((item, index) => (
+                        <div key={index}>
+                          <Icon icon="user" />
+                          <span>
+                            {item.profile.name}
+                          </span>
+                        </div>
+                      ))
+                    }
+                  </Panel>
+                </Column>
               </Fragment>
           }
         </Row>
