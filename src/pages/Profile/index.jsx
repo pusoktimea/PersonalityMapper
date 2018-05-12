@@ -13,6 +13,7 @@ import Column from 'components/Grid/Column';
 import Modal from 'components/Modal';
 import RadioButton from 'components/RadioButton';
 import Loader from 'components/Loader';
+import Alert from 'components/Alert';
 import './profile-page.scss';
 
 class ProfilePage extends Component {
@@ -21,12 +22,14 @@ class ProfilePage extends Component {
     this.state = {
       isOpen: false,
       isButtonStateOnSave: false,
-      name: 'Your Name',
+      name: '',
       email: 'Your Email',
       phoneNbr: 123456789,
       persType: 'Your personality type',
       characteristics: 'Give some additional info about your personality',
-      allQuestions: []
+      allQuestions: [],
+      updateSuccess: false,
+      updateFailed: false
     };
     this.handleTextAreaChange = this.handleTextAreaChange.bind(this);
   }
@@ -35,11 +38,11 @@ class ProfilePage extends Component {
     const loggedInUser = cookie.get('loggedInUser');
     doGet(`userInfo/${loggedInUser}`).then((response) => {
       this.setState({
-        name: response.data.username,
-        email: response.data.email,
-        phoneNbr: response.data.phone,
-        persType: response.data.persType,
-        characteristics: response.data.characteristics
+        name: response.data.profile.name,
+        email: response.data.profile.email,
+        phoneNbr: response.data.profile.phone,
+        persType: response.data.profile.persType,
+        characteristics: response.data.profile.characteristics
       });
     });
     doGet('mbtiQuestions').then((response) => {
@@ -76,10 +79,18 @@ class ProfilePage extends Component {
       characteristics: this.state.characteristics
     };
     const loggedInUser = cookie.get('loggedInUser');
-    doPatch(`userInfo/${loggedInUser}`, data).then((response) => {
-      // console.log(response);
+    doPatch(`update/profile/${loggedInUser}`, data).then((response) => {
+      if (response.success == true) {
+        this.setState({updateSuccess: true});
+      } else {
+        this.setState({updateFailed: true});
+      }
     });
     this.changeButtonState();
+  }
+
+  hideAlert =() => {
+    this.setState({updateSuccess: false});
   }
 
   render() {
@@ -89,7 +100,9 @@ class ProfilePage extends Component {
       email,
       phoneNbr,
       persType,
-      characteristics
+      characteristics,
+      updateSuccess,
+      updateFailed
     } = this.state;
     const baseClass = 'profile-page';
 
@@ -121,6 +134,19 @@ class ProfilePage extends Component {
                     </Button>
                 }
               </Row>
+              {updateSuccess && (
+                <Alert theme="success" onClose={this.hideAlert}>
+                  <strong>Profile Successfully updated</strong>
+                  <br />
+                </Alert>
+              )}
+              {updateFailed && (
+                <Alert theme="failure" onClose={this.hideAlert}>
+                  <strong>Ooops! Profile wasn't updated Successfully!</strong>
+                  <br />
+                </Alert>
+              )
+              }
               <Row columnCount={2}>
                 <Column
                   style={{
