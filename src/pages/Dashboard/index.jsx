@@ -136,7 +136,7 @@ class Dashboard extends PureComponent {
                         <div key={index}>
                           <Icon icon="user" />
                           <span>
-                            {item.name}
+                            {item.profile.name}
                           </span>
                         </div>
                       ))
