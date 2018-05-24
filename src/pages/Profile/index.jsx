@@ -111,13 +111,18 @@ class ProfilePage extends Component {
   }
 
   calculateAnswers = (start) => {
+    // const answer is the array of answers submitted ex:["A", "B", "B", "A"...]
     const answers = this.state.allAnswers;
-    const keys = range(start, answers.length ,7);
+    // const keys is the array of answer numbers ex:[0, 7, 14, 21, 28, 35, 42, 49, 56, 63] <- this will represent the nr. of the question
+    const keys = range(start, answers.length, 7);
+    // with the JS reduce function we all the "A" and "B" answers in the given range ^
     return keys.reduce((acc, key) => {
       if (answers[key]) {
         acc[answers[key]] ? acc[answers[key]] += 1 : acc[answers[key]] = 1;
       }
       return acc;
+      // we return the number of the answers -> ex: {A: 3, B: 7}
+      // this will be the answerGroupX
     }, {});
   }
 
@@ -131,6 +136,8 @@ class ProfilePage extends Component {
 
   handleSubmit = () => {
     console.log('You have selected: ', this.state.allAnswers);
+    // push the answers (A or B) in the answersGroup constants.
+    // we call the calculateAnswers func with the number we want to use as start param for the range func.
     const answerGroup1 = this.calculateAnswers(0);
     const answerGroup2 = this.calculateAnswers(1);
     const answerGroup3 = this.calculateAnswers(2);
@@ -138,7 +145,8 @@ class ProfilePage extends Component {
     const answerGroup5 = this.calculateAnswers(4);
     const answerGroup6 = this.calculateAnswers(5);
     const answerGroup7 = this.calculateAnswers(6);
-
+    // we concat the 2-3 , 4-5 and 6-7 groups according the MBTI calculation formula
+    // and sum the "A"s and "B"s in these two objects using the sumAnswers func.
     const finalSum1 = answerGroup1;
     const finalSum2 = this.sumAnswers(answerGroup2, answerGroup3);
     const finalSum3 = this.sumAnswers(answerGroup4, answerGroup5);
