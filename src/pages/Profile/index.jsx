@@ -1,6 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import cookie from 'js-cookie';
 import cx from 'classnames';
+import range from 'lodash.range';
 import {doGet, doPatch} from '../../utils/APIUtils';
 
 import Panel from 'components/Panel';
@@ -11,7 +12,6 @@ import Icon from 'components/Icon';
 import Row from 'components/Grid/Row';
 import Column from 'components/Grid/Column';
 import Modal from 'components/Modal';
-import RadioButton from 'components/RadioButton';
 import Loader from 'components/Loader';
 import Alert from 'components/Alert';
 import './profile-page.scss';
@@ -29,9 +29,12 @@ class ProfilePage extends Component {
       characteristics: 'Give some additional info about your personality',
       allQuestions: [],
       updateSuccess: false,
-      updateFailed: false
+      updateFailed: false,
+      allAnswers: []
     };
     this.handleTextAreaChange = this.handleTextAreaChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -46,7 +49,10 @@ class ProfilePage extends Component {
       });
     });
     doGet('mbtiQuestions').then((response) => {
-      this.setState({allQuestions: response.data});
+      this.setState({
+        allQuestions: response.data,
+        allAnswers: Array(response.data.length).fill('')
+      });
     });
   }
 
@@ -91,6 +97,72 @@ class ProfilePage extends Component {
 
   hideAlert =() => {
     this.setState({updateSuccess: false});
+  }
+
+  handleChange(index, selectedAnswer) {
+    this.setState({
+      allAnswers: this.state.allAnswers.map((item, idx) => {
+        if (idx === index) {
+          return selectedAnswer;
+        }
+        return item;
+      })
+    });
+  }
+
+  calculateAnswers = (start) => {
+    const answers = this.state.allAnswers;
+    const keys = range(start, answers.length ,7);
+    return keys.reduce((acc, key) => {
+      if (answers[key]) {
+        acc[answers[key]] ? acc[answers[key]] += 1 : acc[answers[key]] = 1;
+      }
+      return acc;
+    }, {});
+  }
+
+  sumAnswers = (group1, group2) => {
+    const values = Object.keys(group1).concat(Object.keys(group2));
+    return values.reduce(function(obj, k) {
+      obj[k] = (group1[k] || 0) + (group2[k] || 0);
+      return obj;
+    }, {});
+  }
+
+  handleSubmit = () => {
+    console.log('You have selected: ', this.state.allAnswers);
+    const answerGroup1 = this.calculateAnswers(0);
+    const answerGroup2 = this.calculateAnswers(1);
+    const answerGroup3 = this.calculateAnswers(2);
+    const answerGroup4 = this.calculateAnswers(3);
+    const answerGroup5 = this.calculateAnswers(4);
+    const answerGroup6 = this.calculateAnswers(5);
+    const answerGroup7 = this.calculateAnswers(6);
+
+    const finalSum1 = answerGroup1;
+    const finalSum2 = this.sumAnswers(answerGroup2, answerGroup3);
+    const finalSum3 = this.sumAnswers(answerGroup4, answerGroup5);
+    const finalSum4 = this.sumAnswers(answerGroup6, answerGroup7);
+    console.log('finalSum1', finalSum1);
+    console.log('finalSum2', finalSum2);
+    console.log('finalSum3', finalSum3);
+    console.log('finalSum4', finalSum4);
+    const E = finalSum1['A'];
+    const I = finalSum1['B'];
+    const S = finalSum2['A'];
+    const N = finalSum2['B'];
+    const T = finalSum3['A'];
+    const F = finalSum3['B'];
+    const J = finalSum4['A'];
+    const P = finalSum4['B'];
+    console.log('E', E);
+    console.log('I', I);
+    console.log('S', S);
+    console.log('N', N);
+    console.log('T', T);
+    console.log('F', F);
+    console.log('J', J);
+    console.log('P', P);
   }
 
   render() {
@@ -237,6 +309,15 @@ class ProfilePage extends Component {
           this.state.isOpen &&
           <Modal title="MBTI Personality Test"
             size="large"
+            submitButton={
+              <Button
+                theme="primary"
+                className={`${baseClass}_form_button_pers-test`}
+                onClick={this.handleSubmit}
+              >
+                Evaluate
+              </Button>
+            }
             onClose={this.changeModalState}
             className={`${baseClass}_profile-modal`}>
             <p> Choose an answer from each question below: </p>
@@ -246,18 +327,26 @@ class ProfilePage extends Component {
                   <span className={`${baseClass}_profile-modal_question`}>
                     {item.question}
                   </span>
-                  <Label>
+                  <Label className={`${baseClass}_profile-modal_answer`}>
                     <div className={`${baseClass}_profile-modal_answer`}>
-                      <RadioButton
-                        disabled={false}
-                        name="test_radio"
+                      <input
+                        type="radio"
+                        name={`question_${index}`}
+                        value="A"
+                        checked={this.state.allAnswers[index] === 'A'}
+                        onChange={() => this.handleChange(index, 'A')}
                       />
                       {item.answerA}
                     </div>
+                  </Label>
+                  <Label className={`${baseClass}_profile-modal_answer`}>
                     <div className={`${baseClass}_profile-modal_answer`}>
-                      <RadioButton
-                        disabled={false}
-                        name="test_radio"
+                      <input
+                        type="radio"
+                        name={`question_${index}`}
+                        value="B"
+                        checked={this.state.allAnswers[index] === 'B'}
+                        onChange={() => this.handleChange(index, 'B')}
                       />
                       {item.answerB}
                     </div>
