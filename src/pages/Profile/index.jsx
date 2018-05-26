@@ -2,6 +2,7 @@ import React, {Component, Fragment} from 'react';
 import cookie from 'js-cookie';
 import cx from 'classnames';
 import {doGet, doPatch} from '../../utils/APIUtils';
+import {getPersType, calculateAnswers, sumAnswers} from '../../utils/persTypeCalculation';
 
 import Panel from 'components/Panel';
 import Label from 'components/Label';
@@ -11,7 +12,6 @@ import Icon from 'components/Icon';
 import Row from 'components/Grid/Row';
 import Column from 'components/Grid/Column';
 import Modal from 'components/Modal';
-import RadioButton from 'components/RadioButton';
 import Loader from 'components/Loader';
 import Alert from 'components/Alert';
 import './profile-page.scss';
@@ -29,9 +29,13 @@ class ProfilePage extends Component {
       characteristics: 'Give some additional info about your personality',
       allQuestions: [],
       updateSuccess: false,
-      updateFailed: false
+      updateFailed: false,
+      allAnswers: [],
+      persTypeResult: ''
     };
     this.handleTextAreaChange = this.handleTextAreaChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -46,7 +50,10 @@ class ProfilePage extends Component {
       });
     });
     doGet('mbtiQuestions').then((response) => {
-      this.setState({allQuestions: response.data});
+      this.setState({
+        allQuestions: response.data,
+        allAnswers: Array(response.data.length).fill('')
+      });
     });
   }
 
@@ -91,6 +98,108 @@ class ProfilePage extends Component {
 
   hideAlert =() => {
     this.setState({updateSuccess: false});
+    this.setState({updateFailed: false});
+    this.setState({testResult: false});
+    // after displaying the alert we'll reload the page without using the cache
+    window.location.reload(true);
+  }
+
+  handleChange(index, selectedAnswer) {
+    this.setState({
+      allAnswers: this.state.allAnswers.map((item, idx) => {
+        if (idx === index) {
+          return selectedAnswer;
+        }
+        return item;
+      })
+    });
+  }
+
+  handleSubmit = () => {
+    this.changeModalState();
+    // push the answers (A or B) in the answersGroup constants.
+    // we call the calculateAnswers func with the number we want to use as start param for the range func.
+    const answers = this.state.allAnswers;
+    const answerGroup1 = calculateAnswers(0, answers);
+    const answerGroup2 = calculateAnswers(1, answers);
+    const answerGroup3 = calculateAnswers(2, answers);
+    const answerGroup4 = calculateAnswers(3, answers);
+    const answerGroup5 = calculateAnswers(4, answers);
+    const answerGroup6 = calculateAnswers(5, answers);
+    const answerGroup7 = calculateAnswers(6, answers);
+    // we concat the 2-3 , 4-5 and 6-7 groups according the MBTI calculation formula
+    // and sum the "A"s and "B"s in these two objects using the sumAnswers func.
+    const finalSum1 = answerGroup1;
+    const finalSum2 = sumAnswers(answerGroup2, answerGroup3);
+    const finalSum3 = sumAnswers(answerGroup4, answerGroup5);
+    const finalSum4 = sumAnswers(answerGroup6, answerGroup7);
+    const E = finalSum1['A'];
+    const I = finalSum1['B'];
+    const S = finalSum2['A'];
+    const N = finalSum2['B'];
+    const T = finalSum3['A'];
+    const F = finalSum3['B'];
+    const J = finalSum4['A'];
+    const P = finalSum4['B'];
+
+    let persType1;
+    let persType2;
+    let persType3;
+    let persType4;
+
+    switch (E > I) {
+      case true:
+        persType1 = 'E';
+        break;
+
+      case false:
+        persType1 = 'I';
+        break;
+    }
+    switch (S > N) {
+      case true:
+        persType2 = 'S';
+        break;
+
+      case false:
+        persType2 = 'N';
+        break;
+    }
+    switch (T > F) {
+      case true:
+        persType3 = 'T';
+        break;
+
+      case false:
+        persType3 = 'F';
+        break;
+    }
+    switch (J > P) {
+      case true:
+        persType4 = 'J';
+        break;
+
+      case false:
+        persType4 = 'P';
+        break;
+    }
+    const persTypeLetterResult = persType1 + persType2 + persType3 + persType4;
+    const persTypeResult = getPersType(persTypeLetterResult);
+    this.setState({persTypeResult: persTypeResult});
+
+    const profileData = {
+      name: this.state.name,
+      email: this.state.email,
+      phone: this.state.phoneNbr,
+      persType: persTypeResult,
+      characteristics: this.state.characteristics
+    };
+    const loggedInUser = cookie.get('loggedInUser');
+    doPatch(`update/profile/${loggedInUser}`, profileData).then((response) => {
+      if (response.success == true) {
+        this.setState({testResult: true});
+      }
+    });
   }
 
   render() {
@@ -102,7 +211,8 @@ class ProfilePage extends Component {
       persType,
       characteristics,
       updateSuccess,
-      updateFailed
+      updateFailed,
+      testResult
     } = this.state;
     const baseClass = 'profile-page';
 
@@ -145,8 +255,7 @@ class ProfilePage extends Component {
                   <strong>Ooops! Profile wasn't updated Successfully!</strong>
                   <br />
                 </Alert>
-              )
-              }
+              )}
               <Row columnCount={2}>
                 <Column
                   style={{
@@ -233,10 +342,25 @@ class ProfilePage extends Component {
               </Row>
             </Fragment>
         }
+        {testResult && (
+          <Alert theme="success" onClose={this.hideAlert}>
+            <strong>Congratulations! Your personality type is: {this.state.persTypeResult}</strong>
+            <br />
+          </Alert>
+        )}
         {
           this.state.isOpen &&
           <Modal title="MBTI Personality Test"
             size="large"
+            submitButton={
+              <Button
+                theme="primary"
+                className={`${baseClass}_form_button_pers-test`}
+                onClick={this.handleSubmit}
+              >
+                Evaluate
+              </Button>
+            }
             onClose={this.changeModalState}
             className={`${baseClass}_profile-modal`}>
             <p> Choose an answer from each question below: </p>
@@ -246,18 +370,26 @@ class ProfilePage extends Component {
                   <span className={`${baseClass}_profile-modal_question`}>
                     {item.question}
                   </span>
-                  <Label>
+                  <Label className={`${baseClass}_profile-modal_answer`}>
                     <div className={`${baseClass}_profile-modal_answer`}>
-                      <RadioButton
-                        disabled={false}
-                        name="test_radio"
+                      <input
+                        type="radio"
+                        name={`question_${index}`}
+                        value="A"
+                        checked={this.state.allAnswers[index] === 'A'}
+                        onChange={() => this.handleChange(index, 'A')}
                       />
                       {item.answerA}
                     </div>
+                  </Label>
+                  <Label className={`${baseClass}_profile-modal_answer`}>
                     <div className={`${baseClass}_profile-modal_answer`}>
-                      <RadioButton
-                        disabled={false}
-                        name="test_radio"
+                      <input
+                        type="radio"
+                        name={`question_${index}`}
+                        value="B"
+                        checked={this.state.allAnswers[index] === 'B'}
+                        onChange={() => this.handleChange(index, 'B')}
                       />
                       {item.answerB}
                     </div>

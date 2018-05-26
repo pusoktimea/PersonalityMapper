@@ -90,6 +90,7 @@
   ],
   "dependencies": {
     "chart.js": "^2.7.2",
+    "lodash.range": "^3.2.0",
     "react-chartjs-2": "^2.7.2"
   }
 }
