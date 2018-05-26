@@ -1,8 +1,8 @@
 import React, {Component, Fragment} from 'react';
 import cookie from 'js-cookie';
 import cx from 'classnames';
-import range from 'lodash.range';
 import {doGet, doPatch} from '../../utils/APIUtils';
+import {getPersType, calculateAnswers, sumAnswers} from '../../utils/persTypeCalculation';
 
 import Panel from 'components/Panel';
 import Label from 'components/Label';
@@ -30,7 +30,8 @@ class ProfilePage extends Component {
       allQuestions: [],
       updateSuccess: false,
       updateFailed: false,
-      allAnswers: []
+      allAnswers: [],
+      persTypeResult: ''
     };
     this.handleTextAreaChange = this.handleTextAreaChange.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -97,6 +98,10 @@ class ProfilePage extends Component {
 
   hideAlert =() => {
     this.setState({updateSuccess: false});
+    this.setState({updateFailed: false});
+    this.setState({testResult: false});
+    // after displaying the alert we'll reload the page without using the cache
+    window.location.reload(true);
   }
 
   handleChange(index, selectedAnswer) {
@@ -110,50 +115,24 @@ class ProfilePage extends Component {
     });
   }
 
-  calculateAnswers = (start) => {
-    // const answer is the array of answers submitted ex:["A", "B", "B", "A"...]
-    const answers = this.state.allAnswers;
-    // const keys is the array of answer numbers ex:[0, 7, 14, 21, 28, 35, 42, 49, 56, 63] <- this will represent the nr. of the question
-    const keys = range(start, answers.length, 7);
-    // with the JS reduce function we all the "A" and "B" answers in the given range ^
-    return keys.reduce((acc, key) => {
-      if (answers[key]) {
-        acc[answers[key]] ? acc[answers[key]] += 1 : acc[answers[key]] = 1;
-      }
-      return acc;
-      // we return the number of the answers -> ex: {A: 3, B: 7}
-      // this will be the answerGroupX
-    }, {});
-  }
-
-  sumAnswers = (group1, group2) => {
-    const values = [ 'A', 'B' ];
-    return values.reduce(function(obj, k) {
-      obj[k] = (group1[k] || 0) + (group2[k] || 0);
-      return obj;
-    }, {});
-  }
-
   handleSubmit = () => {
+    this.changeModalState();
     // push the answers (A or B) in the answersGroup constants.
     // we call the calculateAnswers func with the number we want to use as start param for the range func.
-    const answerGroup1 = this.calculateAnswers(0);
-    const answerGroup2 = this.calculateAnswers(1);
-    const answerGroup3 = this.calculateAnswers(2);
-    const answerGroup4 = this.calculateAnswers(3);
-    const answerGroup5 = this.calculateAnswers(4);
-    const answerGroup6 = this.calculateAnswers(5);
-    const answerGroup7 = this.calculateAnswers(6);
+    const answers = this.state.allAnswers;
+    const answerGroup1 = calculateAnswers(0, answers);
+    const answerGroup2 = calculateAnswers(1, answers);
+    const answerGroup3 = calculateAnswers(2, answers);
+    const answerGroup4 = calculateAnswers(3, answers);
+    const answerGroup5 = calculateAnswers(4, answers);
+    const answerGroup6 = calculateAnswers(5, answers);
+    const answerGroup7 = calculateAnswers(6, answers);
     // we concat the 2-3 , 4-5 and 6-7 groups according the MBTI calculation formula
     // and sum the "A"s and "B"s in these two objects using the sumAnswers func.
     const finalSum1 = answerGroup1;
-    const finalSum2 = this.sumAnswers(answerGroup2, answerGroup3);
-    const finalSum3 = this.sumAnswers(answerGroup4, answerGroup5);
-    const finalSum4 = this.sumAnswers(answerGroup6, answerGroup7);
-    console.log('finalSum1', finalSum1);
-    console.log('finalSum2', finalSum2);
-    console.log('finalSum3', finalSum3);
-    console.log('finalSum4', finalSum4);
+    const finalSum2 = sumAnswers(answerGroup2, answerGroup3);
+    const finalSum3 = sumAnswers(answerGroup4, answerGroup5);
+    const finalSum4 = sumAnswers(answerGroup6, answerGroup7);
     const E = finalSum1['A'];
     const I = finalSum1['B'];
     const S = finalSum2['A'];
@@ -162,14 +141,6 @@ class ProfilePage extends Component {
     const F = finalSum3['B'];
     const J = finalSum4['A'];
     const P = finalSum4['B'];
-    console.log('E', E);
-    console.log('I', I);
-    console.log('S', S);
-    console.log('N', N);
-    console.log('T', T);
-    console.log('F', F);
-    console.log('J', J);
-    console.log('P', P);
 
     let persType1;
     let persType2;
@@ -212,8 +183,23 @@ class ProfilePage extends Component {
         persType4 = 'P';
         break;
     }
+    const persTypeLetterResult = persType1 + persType2 + persType3 + persType4;
+    const persTypeResult = getPersType(persTypeLetterResult);
+    this.setState({persTypeResult: persTypeResult});
 
-    console.log('Your perstype is: ', persType1 + persType2 + persType3 + persType4);
+    const profileData = {
+      name: this.state.name,
+      email: this.state.email,
+      phone: this.state.phoneNbr,
+      persType: persTypeResult,
+      characteristics: this.state.characteristics
+    };
+    const loggedInUser = cookie.get('loggedInUser');
+    doPatch(`update/profile/${loggedInUser}`, profileData).then((response) => {
+      if (response.success == true) {
+        this.setState({testResult: true});
+      }
+    });
   }
 
   render() {
@@ -225,7 +211,8 @@ class ProfilePage extends Component {
       persType,
       characteristics,
       updateSuccess,
-      updateFailed
+      updateFailed,
+      testResult
     } = this.state;
     const baseClass = 'profile-page';
 
@@ -268,8 +255,7 @@ class ProfilePage extends Component {
                   <strong>Ooops! Profile wasn't updated Successfully!</strong>
                   <br />
                 </Alert>
-              )
-              }
+              )}
               <Row columnCount={2}>
                 <Column
                   style={{
@@ -356,6 +342,12 @@ class ProfilePage extends Component {
               </Row>
             </Fragment>
         }
+        {testResult && (
+          <Alert theme="success" onClose={this.hideAlert}>
+            <strong>Congratulations! Your personality type is: {this.state.persTypeResult}</strong>
+            <br />
+          </Alert>
+        )}
         {
           this.state.isOpen &&
           <Modal title="MBTI Personality Test"
