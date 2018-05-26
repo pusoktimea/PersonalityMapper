@@ -127,7 +127,7 @@ class ProfilePage extends Component {
   }
 
   sumAnswers = (group1, group2) => {
-    const values = Object.keys(group1).concat(Object.keys(group2));
+    const values = [ 'A', 'B' ];
     return values.reduce(function(obj, k) {
       obj[k] = (group1[k] || 0) + (group2[k] || 0);
       return obj;
@@ -135,7 +135,6 @@ class ProfilePage extends Component {
   }
 
   handleSubmit = () => {
-    console.log('You have selected: ', this.state.allAnswers);
     // push the answers (A or B) in the answersGroup constants.
     // we call the calculateAnswers func with the number we want to use as start param for the range func.
     const answerGroup1 = this.calculateAnswers(0);
@@ -171,6 +170,50 @@ class ProfilePage extends Component {
     console.log('F', F);
     console.log('J', J);
     console.log('P', P);
+
+    let persType1;
+    let persType2;
+    let persType3;
+    let persType4;
+
+    switch (E > I) {
+      case true:
+        persType1 = 'E';
+        break;
+
+      case false:
+        persType1 = 'I';
+        break;
+    }
+    switch (S > N) {
+      case true:
+        persType2 = 'S';
+        break;
+
+      case false:
+        persType2 = 'N';
+        break;
+    }
+    switch (T > F) {
+      case true:
+        persType3 = 'T';
+        break;
+
+      case false:
+        persType3 = 'F';
+        break;
+    }
+    switch (J > P) {
+      case true:
+        persType4 = 'J';
+        break;
+
+      case false:
+        persType4 = 'P';
+        break;
+    }
+
+    console.log('Your perstype is: ', persType1 + persType2 + persType3 + persType4);
   }
 
   render() {
