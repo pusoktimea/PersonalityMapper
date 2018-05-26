@@ -89,7 +89,7 @@
     "lint-and-test-staged"
   ],
   "dependencies": {
-    "chart.js": "^2.7.1",
-    "react-chartjs-2": "^2.7.0"
+    "chart.js": "^2.7.2",
+    "react-chartjs-2": "^2.7.2"
   }
 }
