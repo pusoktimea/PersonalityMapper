@@ -3,7 +3,7 @@ import cookie from 'js-cookie';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
 import {doGet, doPatch} from '../../utils/APIUtils';
-import {getPersType, calculateAnswers, sumAnswers} from '../../utils/persTypeCalculation';
+import {calculateAnswers, sumAnswers} from '../../utils/persTypeCalculation';
 
 import Panel from 'components/Panel';
 import Label from 'components/Label';
@@ -37,7 +37,6 @@ class ProfilePage extends Component {
       updateSuccess: false,
       updateFailed: false,
       allAnswers: [],
-      persTypeResult: '',
       isLoggedInUsersProfile: false
     };
     this.handleTextAreaChange = this.handleTextAreaChange.bind(this);
@@ -200,8 +199,6 @@ class ProfilePage extends Component {
         break;
     }
     const persTypeLetterResult = persType1 + persType2 + persType3 + persType4;
-    const persTypeResult = getPersType(persTypeLetterResult);
-    this.setState({persTypeResult: persTypeResult});
 
     doGet(`characteristics/${persTypeLetterResult}`).then((response) => {
       this.setState({
@@ -376,7 +373,7 @@ class ProfilePage extends Component {
         }
         {testResult && (
           <Alert theme="success" onClose={this.hideAlert}>
-            <strong>Congratulations! Your personality type is: {this.state.persTypeResult}</strong>
+            <strong>Congratulations! Your personality type is: {this.state.persType}</strong>
             <br />
           </Alert>
         )}
