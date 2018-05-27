@@ -194,7 +194,7 @@ class Dashboard extends PureComponent {
                           this.state.persInTeam.map((item, index) => (
                             <div key={index}>
                               <Icon icon="user" />
-                              <Link to={`/profile/${item.profile.name}`}>
+                              <Link to={`/profile/${item.username}`}>
                                 {item.profile.name} - {item.profile.persType}
                               </Link>
                             </div>
@@ -209,7 +209,7 @@ class Dashboard extends PureComponent {
                       this.state.allUsers.map((item, index) => (
                         <div key={index}>
                           <Icon icon="user" />
-                          <Link to={`/profile/${item.profile.name}`}>
+                          <Link to={`/profile/${item.username}`}>
                             {item.profile.name}
                           </Link>
                         </div>
@@ -226,6 +226,3 @@ class Dashboard extends PureComponent {
 }
 
 export default Dashboard;
-
-
-
