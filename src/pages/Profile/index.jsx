@@ -1,6 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import cookie from 'js-cookie';
 import cx from 'classnames';
+import PropTypes from 'prop-types';
 import {doGet, doPatch} from '../../utils/APIUtils';
 import {getPersType, calculateAnswers, sumAnswers} from '../../utils/persTypeCalculation';
 
@@ -17,6 +18,11 @@ import Alert from 'components/Alert';
 import './profile-page.scss';
 
 class ProfilePage extends Component {
+
+  static propTypes = {
+    match: PropTypes.object.isRequired
+  };
+
   constructor(props) {
     super(props);
     this.state = {
@@ -31,16 +37,28 @@ class ProfilePage extends Component {
       updateSuccess: false,
       updateFailed: false,
       allAnswers: [],
-      persTypeResult: ''
+      persTypeResult: '',
+      isLoggedInUsersProfile: false
     };
     this.handleTextAreaChange = this.handleTextAreaChange.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    const previousProfileName = this.props.match.params.profile_name;
+    const newProfileName = nextProps.match.params.profile_name;
+
+    if (previousProfileName !== newProfileName) {
+      window.location.reload(true);
+    }
+  }
+
   componentDidMount() {
+    const {match: {params}} = this.props;
     const loggedInUser = cookie.get('loggedInUser');
-    doGet(`userInfo/${loggedInUser}`).then((response) => {
+    this.setState({isLoggedInUsersProfile: loggedInUser === params.profile_name});
+    doGet(`userInfo/${params.profile_name}`).then((response) => {
       this.setState({
         name: response.data.profile.name,
         email: response.data.profile.email,
@@ -62,7 +80,7 @@ class ProfilePage extends Component {
   }
 
   handleTextAreaChange(event) {
-    this.setState({characteristics: event.target.characteristics});
+    this.setState({characteristics: event.target.value});
   }
 
   changeModalState = () => {
@@ -85,8 +103,8 @@ class ProfilePage extends Component {
       persType: this.state.persType,
       characteristics: this.state.characteristics
     };
-    const loggedInUser = cookie.get('loggedInUser');
-    doPatch(`update/profile/${loggedInUser}`, data).then((response) => {
+    const {match: {params}} = this.props;
+    doPatch(`update/profile/${params.profile_name}`, data).then((response) => {
       if (response.success == true) {
         this.setState({updateSuccess: true});
       } else {
@@ -194,8 +212,8 @@ class ProfilePage extends Component {
       persType: persTypeResult,
       characteristics: this.state.characteristics
     };
-    const loggedInUser = cookie.get('loggedInUser');
-    doPatch(`update/profile/${loggedInUser}`, profileData).then((response) => {
+    const {match: {params}} = this.props;
+    doPatch(`update/profile/${params.profile_name}`, profileData).then((response) => {
       if (response.success == true) {
         this.setState({testResult: true});
       }
@@ -212,7 +230,8 @@ class ProfilePage extends Component {
       characteristics,
       updateSuccess,
       updateFailed,
-      testResult
+      testResult,
+      isLoggedInUsersProfile
     } = this.state;
     const baseClass = 'profile-page';
 
@@ -223,27 +242,30 @@ class ProfilePage extends Component {
           this.state.name === 'Your Name' ?
             <Loader /> :
             <Fragment>
-              <Row columnCount={1}>
-                {
-                  isButtonStateOnSave ?
-                    <Button
-                      theme="info"
-                      className={`${baseClass}_form_button`}
-                      onClick={this.saveProfile}
-                    >
-                      <Icon icon="save" />
-                    Save Changes
-                    </Button> :
-                    <Button
-                      theme="primary"
-                      className={`${baseClass}_form_button`}
-                      onClick={this.changeButtonState}
-                    >
-                      <Icon icon="check-square-o" />
-                    Update Profile
-                    </Button>
-                }
-              </Row>
+              {
+                isLoggedInUsersProfile &&
+                <Row columnCount={1}>
+                  {
+                    isButtonStateOnSave ?
+                      <Button
+                        theme="info"
+                        className={`${baseClass}_form_button`}
+                        onClick={this.saveProfile}
+                      >
+                        <Icon icon="save" />
+                      Save Changes
+                      </Button> :
+                      <Button
+                        theme="primary"
+                        className={`${baseClass}_form_button`}
+                        onClick={this.changeButtonState}
+                      >
+                        <Icon icon="check-square-o" />
+                      Update Profile
+                      </Button>
+                  }
+                </Row>
+              }
               {updateSuccess && (
                 <Alert theme="success" onClose={this.hideAlert}>
                   <strong>Profile Successfully updated</strong>
@@ -322,6 +344,8 @@ class ProfilePage extends Component {
                       <span>Characteristics</span>
                       <div className="persmap-textarea">
                         <textarea
+                          ref="characteristics"
+                          type="text"
                           value={characteristics}
                           onChange={this.handleTextAreaChange}
                           name="characteristics"
@@ -329,14 +353,17 @@ class ProfilePage extends Component {
                         />
                       </div>
                     </div>
-                    <Button
-                      theme="info"
-                      className={`${baseClass}_form_button_pers-test`}
-                      onClick={this.changeModalState}
-                    >
-                      <Icon icon="question-circle" />
-                      Take Personality Test
-                    </Button>
+                    {
+                      isLoggedInUsersProfile &&
+                      <Button
+                        theme="info"
+                        className={`${baseClass}_form_button_pers-test`}
+                        onClick={this.changeModalState}
+                      >
+                        <Icon icon="question-circle" />
+                        Take Personality Test
+                      </Button>
+                    }
                   </Panel>
                 </Column>
               </Row>

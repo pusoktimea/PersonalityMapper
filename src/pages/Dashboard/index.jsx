@@ -2,9 +2,9 @@ import React, {PureComponent, Fragment} from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import cookie from 'js-cookie';
+import {Link} from 'react-router-dom';
 
 import {doGet} from '../../utils/APIUtils';
-
 
 import {Doughnut, Bar} from 'react-chartjs-2';
 
@@ -194,9 +194,9 @@ class Dashboard extends PureComponent {
                           this.state.persInTeam.map((item, index) => (
                             <div key={index}>
                               <Icon icon="user" />
-                              <span>
+                              <Link to={`/profile/${item.profile.name}`}>
                                 {item.profile.name} - {item.profile.persType}
-                              </span>
+                              </Link>
                             </div>
                           ))
                         }
@@ -209,9 +209,9 @@ class Dashboard extends PureComponent {
                       this.state.allUsers.map((item, index) => (
                         <div key={index}>
                           <Icon icon="user" />
-                          <span>
+                          <Link to={`/profile/${item.profile.name}`}>
                             {item.profile.name}
-                          </span>
+                          </Link>
                         </div>
                       ))
                     }

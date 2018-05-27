@@ -31,7 +31,8 @@ class PersmapAdmin extends Component {
           <Switch>
             <Layout path="/" exact component={Dashboard} />
             <Layout path="/dashboard" exact component={Dashboard} />
-            <Layout path="/profile" component={Profile} />
+            {/* <Layout path="/profile" component={Profile} /> */}
+            <Layout path="/profile/:profile_name" component={Profile} />
             <Route path="/login" component={Login} />
             <Route component={NoMatch} />
           </Switch>
