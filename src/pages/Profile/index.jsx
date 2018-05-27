@@ -118,8 +118,6 @@ class ProfilePage extends Component {
     this.setState({updateSuccess: false});
     this.setState({updateFailed: false});
     this.setState({testResult: false});
-    // after displaying the alert we'll reload the page without using the cache
-    window.location.reload(true);
   }
 
   handleChange(index, selectedAnswer) {
@@ -205,19 +203,26 @@ class ProfilePage extends Component {
     const persTypeResult = getPersType(persTypeLetterResult);
     this.setState({persTypeResult: persTypeResult});
 
-    const profileData = {
-      name: this.state.name,
-      email: this.state.email,
-      phone: this.state.phoneNbr,
-      persType: persTypeResult,
-      characteristics: this.state.characteristics
-    };
-    const {match: {params}} = this.props;
-    doPatch(`update/profile/${params.profile_name}`, profileData).then((response) => {
-      if (response.success == true) {
-        this.setState({testResult: true});
-      }
+    doGet(`characteristics/${persTypeLetterResult}`).then((response) => {
+      this.setState({
+        characteristics: response.data[0].characteristics,
+        persType: response.data[0].persType
+      });
+      const profileData = {
+        name: this.state.name,
+        email: this.state.email,
+        phone: this.state.phoneNbr,
+        persType: this.state.persType,
+        characteristics: this.state.characteristics
+      };
+      const {match: {params}} = this.props;
+      doPatch(`update/profile/${params.profile_name}`, profileData).then((response) => {
+        if (response.success == true) {
+          this.setState({testResult: true});
+        }
+      });
     });
+
   }
 
   render() {
