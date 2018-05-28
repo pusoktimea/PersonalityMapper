@@ -115,7 +115,6 @@ class Dashboard extends PureComponent {
 
   doughnutData() {
     const persTypes = Object.keys(this.state.persTypeInTeam);
-    console.log("mi ez", persTypes)    
     const persTypeSum = Object.values(this.state.persTypeInTeam);
     return {
       labels: persTypes,
@@ -191,15 +190,13 @@ class Dashboard extends PureComponent {
                     <Column width={3}>
                       <table>
                         <tbody>
-                              {
-                                Object.keys(this.state.persTypeInTeam).map((item,index) => (
-                                  <th key = {index}>
-                                    
-                                      {item}
-                                    
-                                  </th> 
-                                ))
-                              }  
+                          {
+                            Object.keys(this.state.persTypeInTeam).map((item,index) => (
+                              <th key={index}>
+                                {item}
+                              </th>
+                            ))
+                          }
                         </tbody>
                       </table>
                       {/* <Panel title="My Team">
