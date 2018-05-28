@@ -24,57 +24,17 @@ export const sumAnswers = (group1, group2) => {
   }, {});
 };
 
-// export const getPersType = persTypeResult => {
-//   switch (persTypeResult) {
-//     case 'ENFJ':
-//       persTypeResult = 'ENFJ - The Giver ';
-//       break;
-//     case 'ENTJ':
-//       persTypeResult = 'ENTJ - The Executive';
-//       break;
-//     case 'ENFP':
-//       persTypeResult = 'ENFP - The Inspirer';
-//       break;
-//     case 'ENTP':
-//       persTypeResult = 'ENTP - The Visionary';
-//       break;
-//     case 'ESFJ':
-//       persTypeResult = 'ESFJ - The Caregiver';
-//       break;
-//     case 'ESFP':
-//       persTypeResult = 'ESFP - The Performer';
-//       break;
-//     case 'ESTJ':
-//       persTypeResult = 'ESTJ - The Guardian';
-//       break;
-//     case 'ESTP':
-//       persTypeResult = 'ESTP - The Doer';
-//       break;
-//     case 'INFJ':
-//       persTypeResult = 'INFJ - The Protector';
-//       break;
-//     case 'INFP':
-//       persTypeResult = 'INFP - The Idealist';
-//       break;
-//     case 'INTJ':
-//       persTypeResult = 'INTJ - The Scientist';
-//       break;
-//     case 'INTP':
-//       persTypeResult = 'INTP - The Thinker';
-//       break;
-//     case 'ISFJ':
-//       persTypeResult = 'ISFJ - The Nurturer';
-//       break;
-//     case 'ISFP':
-//       persTypeResult = 'ISFP - The Artist';
-//       break;
-//     case 'ISTJ':
-//       persTypeResult = 'ISTJ - The Duty Fulfiller';
-//       break;
-//     case 'ISTP':
-//       persTypeResult = 'ISTP - The Mechanic';
-//       break;
-//     default: return 'Please Complete Personality Test';
-//   }
-//   return persTypeResult;
-// };
+let persType;
+
+export const compareTypes = (typeSum1, typeSum2, type1, type2) => {
+  switch (typeSum1 > typeSum2) {
+    case true:
+      persType = type1;
+      break;
+
+    case false:
+      persType = type2;
+      break;
+  }
+  return persType;
+};

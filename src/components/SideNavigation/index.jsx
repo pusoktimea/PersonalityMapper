@@ -15,7 +15,7 @@ const SideNavigation = () => (
         <Link to="/"><Icon icon="users" />Dashboard</Link>
       </li>
       <li className="persmap-side-navigation_items_item">
-        <Link to={`/profile/${loggedInUser}`}><Icon icon="calendar-check-o" />Profile</Link>
+        <Link to={`/profile/${loggedInUser}`}><Icon icon="calendar-check-o" />My Profile</Link>
       </li>
     </ul>
   </div>

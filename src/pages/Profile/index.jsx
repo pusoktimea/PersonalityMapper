@@ -3,7 +3,7 @@ import cookie from 'js-cookie';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
 import {doGet, doPatch} from '../../utils/APIUtils';
-import {calculateAnswers, sumAnswers} from '../../utils/persTypeCalculation';
+import {calculateAnswers, sumAnswers, compareTypes} from '../../utils/persTypeCalculation';
 
 import Panel from 'components/Panel';
 import Label from 'components/Label';
@@ -157,47 +157,11 @@ class ProfilePage extends Component {
     const J = finalSum4['A'];
     const P = finalSum4['B'];
 
-    let persType1;
-    let persType2;
-    let persType3;
-    let persType4;
+    const persType1 = compareTypes(E, I, 'E', 'I');
+    const persType2 = compareTypes(S, N, 'S', 'N');
+    const persType3 = compareTypes(T, F, 'T', 'F');
+    const persType4 = compareTypes(J, P, 'J', 'P');
 
-    switch (E > I) {
-      case true:
-        persType1 = 'E';
-        break;
-
-      case false:
-        persType1 = 'I';
-        break;
-    }
-    switch (S > N) {
-      case true:
-        persType2 = 'S';
-        break;
-
-      case false:
-        persType2 = 'N';
-        break;
-    }
-    switch (T > F) {
-      case true:
-        persType3 = 'T';
-        break;
-
-      case false:
-        persType3 = 'F';
-        break;
-    }
-    switch (J > P) {
-      case true:
-        persType4 = 'J';
-        break;
-
-      case false:
-        persType4 = 'P';
-        break;
-    }
     const persTypeLetterResult = persType1 + persType2 + persType3 + persType4;
 
     doGet(`characteristics/${persTypeLetterResult}`).then((response) => {

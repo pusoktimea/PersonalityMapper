@@ -102,7 +102,7 @@ class Dashboard extends PureComponent {
       labels: persTypes,
       datasets: [
         {
-          label: 'MBTI Personality Type - Test Results',
+          label: 'MBTI Types',
           backgroundColor: 'rgba(255,99,132,0.2)',
           borderColor: 'rgba(255,99,132,1)',
           borderWidth: 1,
@@ -114,7 +114,7 @@ class Dashboard extends PureComponent {
     };
   }
 
-  doughnutData(team) {
+  doughnutData() {
     const persTypes = Object.keys(this.state.persTypeInTeam);
     const persTypeSum = Object.values(this.state.persTypeInTeam);
     return {
@@ -152,9 +152,10 @@ class Dashboard extends PureComponent {
               <Fragment>
                 <Column
                   style={{
-                    textAlign: 'center'
+                    textAlign: 'center',
+                    marginRight: 0
                   }}
-                  width={6}
+                  width={8}
                 >
                   {
                     this.state.team === 'Management' ?
@@ -168,13 +169,13 @@ class Dashboard extends PureComponent {
                         <h2>
                           Personality types in team {this.state.team}
                         </h2>
-                        <Doughnut data={this.doughnutData(this.state.team)} />
+                        <Doughnut data={this.doughnutData()} />
                       </div>
                   }
                 </Column>
                 {
                   this.state.team === 'Management' ?
-                    <Column width={3}>
+                    <Column width={4}>
                       <Panel title="Teams">
                         {
                           Object.keys(this.state.allTeams).map((item, index) => (
@@ -188,7 +189,7 @@ class Dashboard extends PureComponent {
                         }
                       </Panel>
                     </Column> :
-                    <Column width={3}>
+                    <Column width={4}>
                       <Panel title="My Team">
                         {
                           this.state.persInTeam.map((item, index) => (
@@ -203,7 +204,7 @@ class Dashboard extends PureComponent {
                       </Panel>
                     </Column>
                 }
-                <Column width={3}>
+                <Column width={4}>
                   <Panel title="My Company">
                     {
                       this.state.allUsers.map((item, index) => (
