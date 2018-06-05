@@ -31,9 +31,9 @@ class TopNavigation extends PureComponent {
   // when clicking Sign Out it calls the logoutHandler function that removed the
   // authToken from the cookies and redirects you to the /login
   logoutHandler = () => {
+    cookie.remove('loggedInUser');
     cookie.remove('authToken').then(() => {
       this.props.history.push('/login');
-      cookie.remove('loggedInUser');
     });
   }
 
