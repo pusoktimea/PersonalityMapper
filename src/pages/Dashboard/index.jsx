@@ -84,6 +84,7 @@ class Dashboard extends PureComponent {
         }
       }, {});
       this.setState({allPerstype: persTypeCounter});
+      console.log(this.state.allPerstype);
     });
   }
 
