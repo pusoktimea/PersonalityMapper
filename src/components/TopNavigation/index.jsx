@@ -42,12 +42,12 @@ class TopNavigation extends PureComponent {
       <div className="persmap-top-navigation">
         <Link to="/dashboard" className="persmap-top-navigation_logo"><img src={logo} width="300" /></Link>
         <div className="persmap-top-navigation_profile">
-          <Link to="/profile" className="persmap-top-navigation_profile_name"><span>Hi, </span>{this.state.username}</Link>
+          <Link to={`/profile/${this.state.username}`} className="persmap-top-navigation_profile_name"><span>Hi, </span>{this.state.username}</Link>
           <Tooltip
             overlay={(
               <ul className="profile-dropdown">
                 <li className="profile-dropdown_item">
-                  <Link to="/profile"><Icon icon="user" />Profile</Link>
+                  <Link to={`/profile/${this.state.username}`}><Icon icon="user" />Profile</Link>
                 </li>
                 <li className="profile-dropdown_item">
                   <Link onClick={this.logoutHandler} to="/login"><Icon icon="power-off" />Sign out</Link>
