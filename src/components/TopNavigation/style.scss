@@ -89,7 +89,9 @@ $baseClass: '.persmap-top-navigation';
 }
 .rc-tooltip {
   left: auto !important;
-  right: 22px;
+  right: 22px !important;
+  top: 55px !important;
+  position: fixed;
 }
 .rc-tooltip-inner {
   float: left;
@@ -114,4 +116,13 @@ $baseClass: '.persmap-top-navigation';
     height: 0;
     border: 11px solid transparent;
     border-bottom-color: $white !important;
+}
+
+.rc-tooltip-placement-topRight .rc-tooltip-arrow {
+  top: -10px;
+  display: block;
+  width: 0;
+  height: 0;
+  border: 11px solid transparent;
+  border-bottom-color: $white !important;
 }
