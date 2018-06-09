@@ -188,19 +188,8 @@ class Dashboard extends PureComponent {
                         }
                       </Panel>
                     </Column> :
-                    <Column width={3}>
-                      <table>
-                        <tbody>
-                          {
-                            Object.keys(this.state.persTypeInTeam).map((item,index) => (
-                              <th key={index}>
-                                {item}
-                              </th>
-                            ))
-                          }
-                        </tbody>
-                      </table>
-                      {/* <Panel title="My Team">
+                    <Column width={4}>
+                      <Panel title="My Team">
                         {
                           this.state.persInTeam.map((item, index) => (
                             <div key={index}>
@@ -211,7 +200,7 @@ class Dashboard extends PureComponent {
                             </div>
                           ))
                         }
-                      </Panel> */}
+                      </Panel>
                     </Column>
                 }
                 <Column width={4}>
