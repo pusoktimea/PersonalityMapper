@@ -21,7 +21,8 @@ class Dashboard extends PureComponent {
     isTablesLoaded: PropTypes.bool,
     onGetTables: PropTypes.func,
     tables: PropTypes.object,
-    isSideBarMinimised: PropTypes.bool
+    isSideBarMinimised: PropTypes.bool,
+    match: PropTypes.object.isRequired
   };
 
   constructor(props) {
@@ -33,15 +34,28 @@ class Dashboard extends PureComponent {
       persInTeam: [],
       persTypeInTeam: [],
       teamMemberNames: [],
-      team: null
+      team: null,
+      loggedInUsersTeam: null
     };
   }
 
+  componentWillReceiveProps(nextProps) {
+    const prevTeamName = this.props.match.params.team;
+    const newTeamName = nextProps.match.params.team;
+
+    if (prevTeamName !== newTeamName) {
+      window.location.reload(true);
+    }
+  }
+
   componentWillMount() {
+    const {match: {params}} = this.props;
     const loggedInUser = cookie.get('loggedInUser');
+
     doGet(`userInfo/${loggedInUser}`).then((response) => {
-      this.setState({team: response.data.team});
-      doGet(`perstype/${response.data.team}`).then((response) => {
+      this.setState({loggedInUsersTeam: response.data.team});
+      !params.team ? this.setState({team: response.data.team}) : this.setState({team: params.team});
+      doGet(`perstype/${this.state.team}`).then((response) => {
         this.setState({persInTeam: response.data});
         const teamMemberNames = response.data.map(item => (item.profile.name));
         this.setState({teamMemberNames: teamMemberNames});
@@ -58,6 +72,7 @@ class Dashboard extends PureComponent {
         this.setState({persTypeInTeam: teamPersTypeCounter});
       });
     });
+
     doGet('allTeams').then((response) => {
       const teamCounter = response.data.reduce((teamCount, currentTeam) =>  {
         if(typeof teamCount[currentTeam.team] !== 'undefined'){
@@ -174,16 +189,16 @@ class Dashboard extends PureComponent {
                   }
                 </Column>
                 {
-                  this.state.team === 'Management' ?
+                  this.state.loggedInUsersTeam === 'Management' ?
                     <Column width={4}>
                       <Panel title="Teams">
                         {
                           Object.keys(this.state.allTeams).map((item, index) => (
                             <div key={index}>
                               <Icon icon="users" />
-                              <span>
+                              <Link to={`/dashboard/${item}`}>
                                 {item}
-                              </span>
+                              </Link>
                             </div>
                           ))
                         }
