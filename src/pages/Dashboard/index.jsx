@@ -34,7 +34,8 @@ class Dashboard extends PureComponent {
       persInTeam: [],
       persTypeInTeam: [],
       teamMemberNames: [],
-      team: null
+      team: null,
+      loggedInUsersTeam: null
     };
   }
 
@@ -52,6 +53,7 @@ class Dashboard extends PureComponent {
     const loggedInUser = cookie.get('loggedInUser');
 
     doGet(`userInfo/${loggedInUser}`).then((response) => {
+      this.setState({loggedInUsersTeam: response.data.team});
       !params.team ? this.setState({team: response.data.team}) : this.setState({team: params.team});
       doGet(`perstype/${this.state.team}`).then((response) => {
         this.setState({persInTeam: response.data});
@@ -187,7 +189,7 @@ class Dashboard extends PureComponent {
                   }
                 </Column>
                 {
-                  this.state.team === 'Management' ?
+                  this.state.loggedInUsersTeam === 'Management' ?
                     <Column width={4}>
                       <Panel title="Teams">
                         {
