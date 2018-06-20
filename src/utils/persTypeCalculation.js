@@ -6,6 +6,8 @@ export const calculateAnswers = (start, answers) => {
   // <- this will represent the nr. of the question
   const keys = range(start, answers.length, 7);
   // with the JS reduce function we all the "A" and "B" answers in the given range ^
+  // the accumulator has the role to keep the current item from the array,
+  // and in the condition it verifies if that current item changed
   return keys.reduce((acc, key) => {
     if (answers[key]) {
       acc[answers[key]] ? acc[answers[key]] += 1 : acc[answers[key]] = 1;
