@@ -12,7 +12,7 @@ class Page extends Component {
       component: Component,
       ...rest
     } = this.props;
-    // this little guy below doesn't let you log in if you don't have an authtoken stored in you cookies
+    // doesn't let you log in if you don't have an authtoken stored in your cookies
     // if no authToken redirect to /login, see => " <Redirect to="/login" />"
     const loggedIn = Boolean(cookie.get('authToken'));
 

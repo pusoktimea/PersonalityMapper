@@ -53,7 +53,7 @@ class ProfilePage extends Component {
     }
   }
 
-  componentDidMount() {
+  componentWillMount() {
     const {match: {params}} = this.props;
     const loggedInUser = cookie.get('loggedInUser');
     this.setState({isLoggedInUsersProfile: loggedInUser === params.profile_name});
