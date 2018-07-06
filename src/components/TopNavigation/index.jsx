@@ -40,7 +40,7 @@ class TopNavigation extends PureComponent {
   render() {
     return (
       <div className="persmap-top-navigation">
-        <Link to="/dashboard" className="persmap-top-navigation_logo"><img src={logo} width="300" /></Link>
+        <Link to="/dashboard" className="persmap-top-navigation_logo"><img src={logo} width="200" /></Link>
         <div className="persmap-top-navigation_profile">
           <Link to={`/profile/${this.state.username}`} className="persmap-top-navigation_profile_name"><span>Hi, </span>{this.state.username}</Link>
           <Tooltip
